@@ -15,6 +15,7 @@ classes: $(CLASSES:.java=.class)
 
 clean:
 	$(RM) *.class
+	$(RM) ./tokemisation/*.class
 
-tokem:
+tokem: 
 	$(JV) TestTokem 
