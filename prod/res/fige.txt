@@ -1,0 +1,46 @@
+d'abord	neutre	#
+à coup de	neutre	#
+à coup d'	neutre	#
+au nom de	neutre	#
+au noom d'	neutre	#
+côte-à-côte	neutre	#
+de tous les jours	neutre	#
+qui plus est	neutre	#
+bien entendu	neutre	#
+nulle part	neutre	#
+de la tête	neutre	#
+par ordre de	neutre	#
+par ordre d'	neutre	#
+service public	neutre	#
+pour le moment	neutre	#
+quelque chose	neutre	#
+se faire le héraut de	contextuel	#
+se faire le héraut d'	contextuel	#
+à ciel ouvert	A	#
+chevaliers à la triste figure	B	#
+de toute leur âme	contextuel	#
+descendre dans la rue	A	#
+le bon temps	B	#
+avoir l'âme de	contextuel	#
+avoir l'âme d'	contextuel	#
+la vie moderne	A	#
+est l'image même de	B	#
+est l'image même d'	B	#
+ça me laisse froid	A	péjoratif
+tout à coup	A	#
+à tout prix	B	#
+prêter attention	B	#
+d'une oreille vigilante	B	#
+se sentir bien	B	#
+de bon aloi	B	#
+en abondance	A	#
+à cet instant précis	B	#
+en temps et en heure	B	#
+avoir mal au coeur	A	#
+dans toutes les directions	A	#
+à pâte molle	A	#
+tenir ses promesses	B	#
+avoir affaire à	contextuel	#
+avoir peine à	contextuel	#
+avoir x pour objet	contextuel	#
+sans précédent	contextuel	#

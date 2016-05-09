@@ -1,0 +1,66 @@
+le	ad
+la	ad
+les	ad
+un	ai
+une	ai
+des	ai
+au	ac
+aux	ac
+du	ac
+des	ac
+ce	d
+cet	d
+cette	d
+ces	d
+mon	po
+ton	po
+ma	po
+ta	po
+sa	po
+mes	po
+tes	po
+ses	po
+notre	po
+votre	po
+leur	po
+nos	po
+vos	po
+leurs	po
+mais	cc
+ou	cc
+et	cc
+donc	cc
+or	cc
+ni	cc
+car	cc
+que	cs
+si	cs
+dès que	cs
+puisque	cs
+lorsque	cs
+pendant que	cs
+etc	cs
+je	pp
+tu	pp
+il	pp
+elle	pp
+nous	pp
+vous	pp
+ils	pp
+elles	pp
+me	pp
+te	pp
+ce	pp
+qui	pr
+que	pr
+moi	pr
+dont	pr
+où	pr
+on	pi
+quelqu'un	pi
+tout	pip
+ne pas	n
+ne plus	n
+ne jamais	n
+ne rien	n
+ne personne	n
