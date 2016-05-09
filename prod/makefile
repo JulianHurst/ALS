@@ -7,8 +7,8 @@ JV = java
 
 CLASSES = \
 	*.java\
-	./tokemisation/*.java\
-	synonymes/*.java
+	./affichage/*.java\
+	./lemmatiseur/*.java
 
 default: classes
 
@@ -17,10 +17,9 @@ classes: $(CLASSES:.java=.class)
 clean:
 	$(RM) *.class
 	$(RM) ./tokemisation/*.class
-	$(RM) synonymes/*.class
 
 tokem: 
-	$(JV) TestTokem
+	$(JV) TestTokem 
 
-syn:
-	$(JV) TestSynonymes
+main: 
+	$(JV) Main 
