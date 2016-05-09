@@ -11,17 +11,21 @@ import java.io.*;
 import java.security.MessageDigest;
 import java.lang.*;
 
-public class Tokemiseur{
+public class Vtokemiseur{
 	// lcf pour liste char base
 	private Listechar lcb = null;
 	private Listechar lc = lcb;
 	private int nbLine = 0;
 	private String path = "";
 
+	public Vtokemiseur(){
+
+	}
+
 	/**
 	* @brief constructeur avec le path/ permet un traitement automatique de la tokemisation
 	**/
-	public Tokemiseur(String path){
+	public Vtokemiseur(String path){
 		this.path = path;
 		tokemFile();
 	}
@@ -36,7 +40,7 @@ public class Tokemiseur{
 			String line;
 			while ((line = txt.readLine()) != null){
 				nbLine ++;
-				createThree(line, nbLine);
+				//createThree(line, nbLine);
 			}
 		}
 		catch(Exception e){e.printStackTrace();}
@@ -46,8 +50,7 @@ public class Tokemiseur{
 	* @brief creation de l'arbre
 	* @detail toute la procedure de creation d'arbre s'affiche en console afin de verifier sont bon fonctionnement
 	**/
-	public void createThree(String line, int nbLine){
-		String tsplit[];
+	public void createThree(String line, String nbLine){
 		boolean check = true;
 		int k;
 		check = true;
@@ -82,7 +85,7 @@ public class Tokemiseur{
 				lc = lc.getFils();	//Deplacement vers le fils
 			}
 		}
-		lc.setFils(new Listechar(nbLine+""));
+		lc.setFils(new Listechar(nbLine));
 		lc = lcb;		//Retour au debut de la chaine
 	}
 
