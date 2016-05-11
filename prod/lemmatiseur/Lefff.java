@@ -1,7 +1,6 @@
 package lemmatiseur;
 
 import java.io.*;
-import java.security.MessageDigest;
 import java.lang.*;
 import java.util.*;
 import tokemisation.*;
@@ -99,18 +98,32 @@ public class Lefff {
 			String line;
 			String tmp = "";
 			String exp = "";
+			String tmpWord = "";
+			String[] sdSplit;
 			
 			while ((line = txt.readLine()) != null){
 				tmp = line;
 				exp = findExp(line);
 				String[] split = exp.split(" ");
 				for(int i = 0; i < split.length; i++){
+					if(split[i].contains("'")){
+						sdSplit = split[i].split("'");
+						tmpWord = sdSplit[1];
+					}
+					else if(split[i].contains("-")){
+						sdSplit = split[i].split("-");
+						tmpWord = sdSplit[0];
+					}
+					else
+						tmpWord = split[i];
 					int j = 0;
-					while(j < listVerbe.size() && !listVerbe.get(j).getConj().equalsIgnoreCase(split[i])){
+					while(j < listVerbe.size() && !listVerbe.get(j).getConj().equalsIgnoreCase(tmpWord)){
 						j++;
 					}
-					if(j < listVerbe.size() && listVerbe.get(j).getConj().equalsIgnoreCase(split[i])){
-						tmp = tmp.replaceAll(" "+split[i]+" ", " "+listVerbe.get(j).getInf()+" ");
+					if(j < listVerbe.size() && listVerbe.get(j).getConj().equalsIgnoreCase(tmpWord)){
+						System.out.println("verbe trouvé : "+tmpWord);
+						tmpWord = split[i].replaceAll(tmpWord, listVerbe.get(j).getInf());
+						tmp = tmp.replaceAll(" "+split[i]+" ", " "+tmpWord+" ");
 					}
 				}
 				newText += tmp+"\n";
