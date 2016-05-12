@@ -7,11 +7,14 @@ package synonymes;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +28,8 @@ import javax.xml.xpath.XPathFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
+import java.util.List;
+import tokemisation.Tokemiseur;
 
 /**
  * @author juju
@@ -33,6 +37,7 @@ import org.xml.sax.SAXException;
  */
 public class Synonymes {
     private final ArrayList<String> S;
+    private String mot;
     private String language;
     
     /**     
@@ -58,6 +63,7 @@ public class Synonymes {
     public void findSynonymes(String mot){         
         try {
             S.clear();
+            setMot(mot);
             URL url;     
             //Le format de sortie
             final String output="xml";
@@ -98,6 +104,70 @@ public class Synonymes {
         }
     }
     
+    /**
+     * @param Tokemiseur SerieA
+     * @param Tokemiseur SerieB
+     * @brief Détermine selon les synonymes trouvés si le mot d'origine appartient à la série A ou série B puis l'écrit dans un fichier de mise à jour serieA_maj ou serieB_maj
+     */
+    public void classification(Tokemiseur SerieA, Tokemiseur SerieB){
+        try {
+            int A,B;
+            A=B=0;
+            for(String i : S){
+				//Si on trouve le mot dans serie A
+                if(SerieA.findTokem(i)!=-1){
+                    A++;
+                    System.out.println(i+"->serieA");
+                }
+                //Si on trouve le mot dans serie B
+                else if(SerieB.findTokem(i)!=-1){
+                    B++;
+                    System.out.println(i+"->serieB");
+                }
+            }
+            System.out.println(mot);
+            System.out.println("Serie A : "+A);
+            System.out.println("Serie B : "+B);
+            File file;
+            if(A>B)
+                file = new File("res/serieA_maj");
+            else if(A<B)
+                file = new File("res/serieB_maj");
+            else
+                return;
+            if(!file.exists())
+                file.createNewFile();
+            FileWriter writer = new FileWriter(file,true);
+            writer.write(mot+"\n");
+            writer.flush();
+            writer.close();                                  
+        } catch (IOException ex) {
+            Logger.getLogger(Synonymes.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+	/**
+	 * @param mot
+	 * @param Tokemiseur SerieA
+	 * @param Tokemiseur SerieB
+	 * @brief Détermine si un mot appartient à la série A ou à la série B
+	 */
+    public void classifierMot(String mot,Tokemiseur SerieA, Tokemiseur SerieB){
+        findSynonymes(mot);
+        classification(SerieA,SerieB);
+    }
+	
+	/**
+	 * @param List<String> L
+	 * @param Tokemiseur A
+	 * @param Tokemiseur B
+	 * @brief Permet de déterminer à quelles séries appartiennent tous les mots d'une liste
+	 */
+    public void classifierListe(List<String> L,Tokemiseur A,Tokemiseur B){
+        for(String i : L)
+            classifierMot(i,A,B);   
+    }
+    
     /**     
      * @param mot
      * @param lang 
@@ -114,6 +184,22 @@ public class Synonymes {
      */
     public ArrayList<String> getSynonymes(){
         return S;
+    }
+    
+    /**
+     * @param mot
+     * @brief Règle le mot d'origine
+     */
+    private void setMot(String mot){
+        this.mot=mot;
+    }
+    
+    /**
+     * @return String
+     * @brief Retourne le mot d'origine pour lequel les synonymes ont été trouvés
+     */
+    public String getMot(){
+        return mot;
     }
     
     /**     
