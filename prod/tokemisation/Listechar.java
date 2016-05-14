@@ -6,26 +6,34 @@ package tokemisation;
 **/
 public class Listechar {
 	private boolean isInit = false;
-	private String c;
+	private char c;
 	private Listechar fils;
 	private Listechar frere;
+	private String finalString = null;
 	
 	Listechar(){
-		c = null;
+		c = ' ';
 		fils = null;
 		frere = null;
 	}
 	
-	Listechar(String c){
+	Listechar(char c){
 		this.c = c;
 		fils = null;
 		frere = null;
 	}
 	
+	Listechar(String s){
+		this.c = ' ';
+		fils = null;
+		frere = null;
+		finalString = s;
+	}
+	
 	public void setIsInit(boolean init){
 		isInit = init;
 	}
-	public void setChar(String c){
+	public void setChar(char c){
 		this.c = c;
 	}
 	public void setFils(Listechar fils){
@@ -38,7 +46,7 @@ public class Listechar {
 	public boolean getIsInit(){
 		return isInit;
 	}
-	public String getChar(){
+	public char getChar(){
 		return c;
 	}
 	public Listechar getFils(){
@@ -46,5 +54,9 @@ public class Listechar {
 	}
 	public Listechar getFrere(){
 		return frere;
+	}
+	
+	public String getFinal(){
+		return finalString;
 	}
 }

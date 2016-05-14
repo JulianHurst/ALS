@@ -7,14 +7,15 @@ import tokemisation.*;
 
 public class Lefff {
 	String path;
-	ArrayList<Verbe> listVerbe = new ArrayList<Verbe>(); 
-	ArrayList<String> listExp = new ArrayList<String>(); 
+	ArrayList<String> listExp = new ArrayList<String>();
+	Tokemiseur arbreVerbe;
 
 
 	/**
 	*
 	**/
 	public Lefff(String path){
+		arbreVerbe = new Tokemiseur();
 		this.path = path;
 		readLefff();
 		readExp("./res/exp.txt");
@@ -36,11 +37,7 @@ public class Lefff {
 			while ((line = txt.readLine()) != null){
 				cLine = line.split(separator);
 				if(cLine[1].equalsIgnoreCase("v") || cLine[3].contains("K##")){
-					if(listVerbe.size() == 0 )
-						listVerbe.add(new Verbe(cLine[0], cLine[2]));
-					else if(!cLine[0].equalsIgnoreCase(listVerbe.get(listVerbe.size()-1).getConj())){
-						listVerbe.add(new Verbe(cLine[0], cLine[2]));
-					}
+					arbreVerbe.createVthree(cLine[0], cLine[2]);
 				}
 			}
 		}
@@ -105,6 +102,8 @@ public class Lefff {
 				tmp = line;
 				exp = findExp(line);
 				String[] split = exp.split(" ");
+				String infinitif;
+				
 				for(int i = 0; i < split.length; i++){
 					if(split[i].contains("'")){
 						sdSplit = split[i].split("'");
@@ -116,19 +115,19 @@ public class Lefff {
 					}
 					else
 						tmpWord = split[i];
-					int j = 0;
-					while(j < listVerbe.size() && !listVerbe.get(j).getConj().equalsIgnoreCase(tmpWord)){
-						j++;
-					}
-					if(j < listVerbe.size() && listVerbe.get(j).getConj().equalsIgnoreCase(tmpWord)){
-						System.out.println("verbe trouvé : "+tmpWord);
-						tmpWord = split[i].replaceAll(tmpWord, listVerbe.get(j).getInf());
+					infinitif = arbreVerbe.findTokem(tmpWord);
+					if(infinitif != "-1"){
+						System.out.println("verbe trouvé : "+tmpWord+" infinitif : "+infinitif);
+						tmpWord = split[i].replaceAll(tmpWord, infinitif);
 						tmp = tmp.replaceAll(" "+split[i]+" ", " "+tmpWord+" ");
 					}
 				}
 				newText += tmp+"\n";
 			}
-			writeFile(newText, "testWrite");
+			String pathSplit[] = path.split("/");
+			String titre = pathSplit[pathSplit.length-1];
+			System.out.println("titre : "+titre);
+			writeFile(newText, titre);
 		}
 		catch(Exception e){
 			e.printStackTrace();

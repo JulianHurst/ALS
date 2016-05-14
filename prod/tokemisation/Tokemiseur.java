@@ -2,8 +2,8 @@ package tokemisation;
 
 /**
 * @Author Kevin Garabedian
-* @brief Permet la tokémisation d'une liste de mot
-* @detail Préparé si nécessaire en attendant d'avoir les données finales.
+* @brief Permet la tokÃ©misation d'une liste de mot
+* @detail PrÃ©parÃ© si nÃ©cessaire en attendant d'avoir les donnÃ©es finales.
 **/
 
 import java.io.*;
@@ -19,96 +19,95 @@ public class Tokemiseur{
 	private String path = "";
 
 	/**
-	* @brief constructeur avec le path/ permet un traitement automatique de la tokemisation
-	**/
-	public Tokemiseur(String path){
-		this.path = path;
-		tokemFile();
-	}
-
-	/**
-	* @brief Lancement de la tokemisation.
-	**/
-	public void tokemFile(){
-		try{
-			File fichier = new File(path);
-			BufferedReader txt = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF8"));
-			String line;
-			while ((line = txt.readLine()) != null){
-				nbLine ++;
-				createThree(line, nbLine);
-			}
-		}
-		catch(Exception e){e.printStackTrace();}
-	}
-
-	/**
-	* @brief creation de l'arbre
-	* @detail toute la procedure de creation d'arbre s'affiche en console afin de verifier sont bon fonctionnement
-	**/
-	public void createThree(String line, int nbLine){
-		String tsplit[];
+	 * @brief Permet d'ajouter dans l'arbre un verbe
+	 * @param line Verbe conjugué à ajouté
+	 * @param inf infitif du verbe
+	 */
+	public void createVthree(String line, String inf){
 		boolean check = true;
-		int k;
-		check = true;
-		k = 0;
+		int k = 0;
+		
+		//Si il y a au moins 1 mot de chargé
 		if(lcb != null){
 			while(check && k<line.length()){
-				if(lc.getChar().charAt(0)==line.charAt(k) && lc.getFils()!=null){
-					lc = lc.getFils();
+				//Vérifie si le fils suivant est le même
+				if(lc.getChar() == line.charAt(k) && lc.getFils()!=null){
+					lc = (Listechar) lc.getFils();
 					k++;
 				}
-				else if(lc.getChar().charAt(0)!=line.charAt(k) && lc.getFrere()!=null){
-					lc = lc.getFrere();
+				//Sinon, cherche un frère identique
+				else if(lc.getChar() != line.charAt(k) && lc.getFrere()!=null){
+					lc = (Listechar) lc.getFrere();
 				}
+				//Sinon crée un nouveau frère
 				else{
-					lc.setFrere(new Listechar(""+line.charAt(k)));
-					lc = lc.getFrere();
+					lc.setFrere(new Listechar(line.charAt(k)));
+					lc = (Listechar) lc.getFrere();
 					k++;
 					check = false;
 				}
 			}
 			for(int j = k; j < line.length(); j++){
-				lc.setFils(new Listechar(""+line.charAt(j)));
-				lc = lc.getFils();
+				lc.setFils(new Listechar(line.charAt(j)));
+				lc = (Listechar) lc.getFils();
 			}
 		}
-		//Dans le cas ou la chaine n a pas debutee
+		//Si c'est le premier mot
 		else{
-			lcb = new Listechar(""+line.charAt(0));
+			lcb = new Listechar(line.charAt(0));
 			lc = lcb;	
-			for(int j = 1; j < line.length(); j++){
-				lc.setFils(new Listechar(""+line.charAt(j)));
-				lc = lc.getFils();	//Deplacement vers le fils
+			for(int j = 1; j < line.length(); ++j){
+				lc.setFils(new Listechar(line.charAt(j)));
+				lc = (Listechar) lc.getFils();	//Deplacement vers le fils
 			}
 		}
-		lc.setFils(new Listechar(nbLine+""));
-		lc = lcb;		//Retour au debut de la chaine
+		if(lc.getFils() == null)
+			lc.setFils(new Listechar(inf));
+		else{
+			while(lc.getFrere() != null){
+				lc = lc.getFrere();
+			}
+			lc.setFrere(new Listechar(inf));;
+		}
+		lc = lcb;
 	}
-
+	
 	/**
-	* @param String s un mot
+	* @param String s mot à chercher
 	* @return String le numero du tokem, si il esxite pas il renvoie un String contenant "-1"
 	* @brief cherche si le tokem est dans l'arbre lexical et retourne le numero de celui ci
 	**/
 	public String findTokem(String s){
 		int k = 0;
 		boolean check = true;
-		//String tmp = "";
 		lc = lcb;
+		
+		//Boucle infinie cassé par un return
 		while(check){
-			if(k < s.length() && lc.getChar().charAt(0) == s.charAt(k)){
+			//Vérifie si le caractère courant de l'arbre est le même que celui du mot, si c'est le cas, incrémentation de k, et décallage du pointeur
+			if(k < s.length() && lc.getChar() == s.charAt(k)){
 				lc = lc.getFils();
 				k++;
 			}
-			else if(k < s.length() && lc.getChar().charAt(0) != s.charAt(k) && lc.getFrere() != null){
-				//System.out.println(k);
-				//System.out.println("frere suivant ->"+lc.getFrere().getChar()+"->"+s.charAt(k));
+			//sinon cherche le prochain frère identique
+			else if(k < s.length() && lc.getChar() != s.charAt(k) && lc.getFrere() != null){
 				lc = lc.getFrere();
 			}
-			else if(k == s.length() && lc.getFils() == null){
-				return lc.getChar();
+			//sinon si k atteint sa valeur max et que le pointeur est sur l'infinitif alors retourner l'infinitif
+			else if(k == s.length() && lc.getFinal() != null){
+				return lc.getFinal();
 			}
+			//Sinon chercher dans les frères l'infinitif
+			else if(k == s.length() && lc.getFinal() == null){
+				while (lc.getFinal() == null && lc.getFrere() != null){
+					lc = lc.getFrere();
+				}
+				if(lc.getFinal() != null)
+					return lc.getFinal();
+				else
+					return "-1";
+			}
+			//En cas d'échec renvoie -1
 			else{
 				return "-1";
 			}
