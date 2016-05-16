@@ -28,7 +28,7 @@ public class Lefff {
 	
 	/**
 	* @brief Permet la lecture d'un fichier de lefff
-	* @detail Permet de lire un fichier de lefff formaté sous la forme : "abaissé v abaisser" afin de préparer la mise à l'infinitif des verbes.
+	* @detail Permet de lire un fichier de lefff formatÃ© sous la forme : "abaissÃ© v abaisser" afin de prÃ©parer la mise Ã  l'infinitif des verbes.
 	**/
 	public void readLefff(){
 		String[] cLine;
@@ -87,8 +87,8 @@ public class Lefff {
 
 	/**
 	* @brief Ecrit le nouveau texte dans un fichier
-	* @param String txt nouveau texte à écrire
-	* @param String titre titre du fichier créée
+	* @param String txt nouveau texte Ã  Ã©crire
+	* @param String titre titre du fichier crÃ©Ã©e
 	**/
 	public void writeFile(String txt, String titre){
 		try{
@@ -111,9 +111,9 @@ public class Lefff {
 
 	/**
 	* @brief permet de traiter le texte
-	* @detail traite le texte ce trouvant à l'adresse envoyé en paramètre
+	* @detail traite le texte ce trouvant Ã  l'adresse envoyÃ© en paramÃ¨tre
 	* @see writeFile(String txt, String titre)
-	* @param String path chemin d'accés du fichier à traiter
+	* @param String path chemin d'accÃ©s du fichier Ã  traiter
 	**/
 	public String traiteVerbe(String oldTexte){
 		//String result = message.replaceAll("%%NAME", name);
@@ -170,6 +170,7 @@ public class Lefff {
 		}
 		return retour;
 	}
+<<<<<<< HEAD
 	
 	/**
 	 * @brief permet de traiter un texte
@@ -246,3 +247,6 @@ public class Lefff {
 		return texte;
 	}
 }
+=======
+}
+>>>>>>> aa3965dd2d6a8767ec59137fb9083a54144babe2
