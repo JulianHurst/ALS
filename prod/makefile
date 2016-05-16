@@ -9,7 +9,8 @@ CLASSES = \
 	*.java\
 	./affichage/*.java\
 	./tokemisation/*.java\
-	./lemmatiseur/*.java
+	./lemmatiseur/*.java\
+	synonymes/*.java
 
 default: classes
 
@@ -20,6 +21,7 @@ clean:
 	$(RM) ./tokemisation/*.class
 	$(RM) ./affichage/*.class
 	$(RM) ./lemmatiseur/*.class
+	$(RM) synonymes/*.class
 
 tokem: 
 	$(JV) TestTokem 

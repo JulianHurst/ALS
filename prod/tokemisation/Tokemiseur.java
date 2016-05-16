@@ -17,6 +17,82 @@ public class Tokemiseur{
 	private Listechar lc = lcb;
 	private int nbLine = 0;
 	private String path = "";
+	
+	public Tokemiseur(){}
+	
+	public Tokemiseur(String path){
+		this.path = path;
+		tokemFile();
+	}
+	
+	/**
+	* @brief Lancement de la tokemisation.
+	**/
+	public void tokemFile(){
+		try{
+			File fichier = new File(path);
+			BufferedReader txt = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF8"));
+			String line;
+			while ((line = txt.readLine()) != null){
+				nbLine ++;
+				createTree(line);
+			}
+		}
+		catch(Exception e){e.printStackTrace();}
+	}	
+	
+	/**
+	 * @brief Permet d'ajouter dans l'arbre un mot
+	 * @param line Verbe conjugué à ajouté	 
+	 */
+	public void createTree(String line){
+		boolean check = true;
+		int k = 0;
+		
+		//Si il y a au moins 1 mot de chargé
+		if(lcb != null){
+			while(check && k<line.length()){
+				//Vérifie si le fils suivant est le même
+				if(lc.getChar() == line.charAt(k) && lc.getFils()!=null){
+					lc = (Listechar) lc.getFils();
+					k++;
+				}
+				//Sinon, cherche un frère identique
+				else if(lc.getChar() != line.charAt(k) && lc.getFrere()!=null){
+					lc = (Listechar) lc.getFrere();
+				}
+				//Sinon crée un nouveau frère
+				else{
+					lc.setFrere(new Listechar(line.charAt(k)));
+					lc = (Listechar) lc.getFrere();
+					k++;
+					check = false;
+				}
+			}
+			for(int j = k; j < line.length(); j++){
+				lc.setFils(new Listechar(line.charAt(j)));
+				lc = (Listechar) lc.getFils();
+			}
+		}
+		//Si c'est le premier mot
+		else{
+			lcb = new Listechar(line.charAt(0));
+			lc = lcb;	
+			for(int j = 1; j < line.length(); ++j){
+				lc.setFils(new Listechar(line.charAt(j)));
+				lc = (Listechar) lc.getFils();	//Deplacement vers le fils
+			}
+		}
+		if(lc.getFils() == null)
+			lc.setFils(new Listechar("fin"));
+		else{
+			while(lc.getFrere() != null){
+				lc = lc.getFrere();
+			}
+			lc.setFrere(new Listechar("fin"));
+		}
+		lc = lcb;
+	}
 
 	/**
 	 * @brief Permet d'ajouter dans l'arbre un verbe
@@ -67,7 +143,7 @@ public class Tokemiseur{
 			while(lc.getFrere() != null){
 				lc = lc.getFrere();
 			}
-			lc.setFrere(new Listechar(inf));;
+			lc.setFrere(new Listechar(inf));
 		}
 		lc = lcb;
 	}
@@ -105,13 +181,13 @@ public class Tokemiseur{
 				if(lc.getFinal() != null)
 					return lc.getFinal();
 				else
-					return "-1";
+					return null;
 			}
 			//En cas d'échec renvoie -1
 			else{
-				return "-1";
+				return null;
 			}
 		}
-		return "";
+		return null;
 	}
 }

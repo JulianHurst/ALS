@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import lemmatiseur.*;
 import tokemisation.*;
+import synonymes.*;
 
 public class Als {
 	String txt1 = "./res/textTest.txt";
@@ -14,8 +15,11 @@ public class Als {
 	
 	public void startProg(){
 		String choix = "";
-		System.out.println("Préparation du lemmatiseur");
+		System.out.println("PrÃ©paration du lemmatiseur");
 		Lefff l1 = new Lefff("./res/fplm.fr.txt");
+        Synonymes S=new Synonymes();
+        Tokemiseur A = new Tokemiseur("res/serieA");
+        Tokemiseur B = new Tokemiseur("res/serieB");
 		while(!choix.equals("quit")){
 			System.out.println("Action suivante : ");
 			System.out.println("1 - traiter un texte");
@@ -24,14 +28,31 @@ public class Als {
 			choix = option.nextLine();
 			switch(choix){
 				case "1":
-					System.out.println("Appuyer sur 1 pour les textes prédéfinies");
-					System.out.println("sinon, entrez le chemin d'accés du texte à étudier");
+					System.out.println("Appuyer sur 1 pour les textes prÃ©dÃ©finies");
+					System.out.println("sinon, entrez le chemin d'accÃ¨s du texte Ã  Ã©tudier");
 					option = new Scanner(System.in);
 					choix = option.nextLine();
-					if(choix.equals("1"))
-						System.out.println("nouveau text : "+l1.traiteText(choixTexte()));
+					if(choix.equals("1")){
+						System.out.println("nouveau texte : "+l1.traiteText(choixTexte()));
+						
+						//Suppression de la ponctuation et classification des mots du textes grÃ¢ce Ã  leurs synonymes
+						/*						
+						String ntxt = l1.traiteText(choixTexte());
+						ntxt=ntxt.replaceAll(",","");
+						ntxt=ntxt.replaceAll("\\.","");						
+						ntxt=ntxt.replaceAll(";","");
+						ntxt=ntxt.replaceAll(":","");
+						ntxt=ntxt.replaceAll("!","");
+						ntxt=ntxt.replaceAll("\\?","");
+						ntxt=ntxt.replaceAll("\\(","");
+						ntxt=ntxt.replaceAll("\\)","");
+						ntxt=ntxt.replaceAll(".â€™","");
+						System.out.println(ntxt);
+                        S.classifierTableau(ntxt.split(" "),A,B);						
+                        */
+					}
 					else
-						System.out.println("nouveau text : "+l1.traiteText(choix));
+						System.out.println("nouveau texte : "+l1.traiteText(choix));
 					break;
 			}
 			System.out.println("fin");
@@ -40,8 +61,8 @@ public class Als {
 	
 	private String choixTexte(){
 		System.out.println("1 pour le texte de Serge Leclaire");
-		System.out.println("2 pour 'pourquoi l'extrême gauche française est la plus bête du monde'");
-		System.out.println("3 pour le texte 'Livre des années 30'");
+		System.out.println("2 pour 'pourquoi l'extrÃªme gauche franÃ§aise est la plus bÃªte du monde'");
+		System.out.println("3 pour le texte 'Livre des annÃ©es 30'");
 		System.out.println("4 pour le texte de Witold Gomlbrowicz");
 		Scanner texteChoix = new Scanner(System.in);
 		String texte = texteChoix.nextLine();
