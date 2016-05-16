@@ -170,8 +170,7 @@ public class Lefff {
 		}
 		return retour;
 	}
-<<<<<<< HEAD
-	
+
 	/**
 	 * @brief permet de traiter un texte
 	 * @param p path du texte à traiter
@@ -247,6 +246,3 @@ public class Lefff {
 		return texte;
 	}
 }
-=======
-}
->>>>>>> aa3965dd2d6a8767ec59137fb9083a54144babe2

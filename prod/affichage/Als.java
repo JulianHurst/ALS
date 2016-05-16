@@ -39,11 +39,11 @@ public class Als {
 					choix = option.nextLine();
 
 					if(choix.equals("1")){
-						System.out.println("nouveau texte : "+l1.traiteText(choixTexte()));
+						System.out.println("nouveau texte : "+l1.traiteTexte(choixTexte()));
 						
 						//Suppression de la ponctuation et classification des mots du textes grâce à leurs synonymes
 						/*						
-						String ntxt = l1.traiteText(choixTexte());
+						String ntxt = l1.traiteTexte(choixTexte());
 						ntxt=ntxt.replaceAll(",","");
 						ntxt=ntxt.replaceAll("\\.","");						
 						ntxt=ntxt.replaceAll(";","");
@@ -58,7 +58,7 @@ public class Als {
                         */
 					}
 					else
-						System.out.println("nouveau texte : "+l1.traiteText(choix));
+						System.out.println("nouveau texte : "+l1.traiteTexte(choix));
 					break;
 			}
 			if(texte.equals("Echec de l'ouverture"))
