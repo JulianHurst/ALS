@@ -8,10 +8,15 @@ import tokemisation.*;
 public class Als {
 	String txt1 = "./res/textTest.txt";
 	Scanner option;
+	String texte;
+	
 	public Als(){
 		startProg();
 	}
 	
+	/**
+	 * @brief lance le menue contextuel, et toute les actions relatives aux choix de l'utilisateur
+	 */
 	public void startProg(){
 		String choix = "";
 		System.out.println("Préparation du lemmatiseur");
@@ -29,15 +34,21 @@ public class Als {
 					option = new Scanner(System.in);
 					choix = option.nextLine();
 					if(choix.equals("1"))
-						System.out.println("nouveau text : "+l1.traiteText(choixTexte()));
+						texte = l1.traiteTexte(choixTexte());
 					else
-						System.out.println("nouveau text : "+l1.traiteText(choix));
+						texte = l1.traiteTexte(choix);
 					break;
 			}
+			if(texte.equals("Echec de l'ouverture"))
+				System.out.println(texte);
 			System.out.println("fin");
 		}
 	}
 	
+	/**
+	 * @brief liste les textes pré-définie, et retourne le path de celui choisit
+	 * @return path du fichier texte choisit
+	 */
 	private String choixTexte(){
 		System.out.println("1 pour le texte de Serge Leclaire");
 		System.out.println("2 pour 'pourquoi l'extrême gauche française est la plus bête du monde'");

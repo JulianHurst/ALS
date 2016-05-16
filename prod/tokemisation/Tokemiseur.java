@@ -26,7 +26,6 @@ public class Tokemiseur{
 	public void createVthree(String line, String inf){
 		boolean check = true;
 		int k = 0;
-		
 		//Si il y a au moins 1 mot de chargé
 		if(lcb != null){
 			while(check && k<line.length()){
@@ -55,8 +54,8 @@ public class Tokemiseur{
 		//Si c'est le premier mot
 		else{
 			lcb = new Listechar(line.charAt(0));
-			lc = lcb;	
-			for(int j = 1; j < line.length(); ++j){
+			lc = lcb;
+			for(int j = 1; j < line.length(); j++){
 				lc.setFils(new Listechar(line.charAt(j)));
 				lc = (Listechar) lc.getFils();	//Deplacement vers le fils
 			}
