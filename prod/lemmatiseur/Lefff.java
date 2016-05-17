@@ -15,7 +15,7 @@ public class Lefff {
 
 	/**
 	 * @brief Constructeur pour le lefff
-	 * @param path chemin d'acc�s du texte � traiter
+	 * @param path chemin d'accés du texte à traiter
 	 */
 	public Lefff(String path){
 		arbreVerbe = new Tokemiseur();
@@ -28,7 +28,7 @@ public class Lefff {
 	
 	/**
 	* @brief Permet la lecture d'un fichier de lefff
-	* @detail Permet de lire un fichier de lefff formaté sous la forme : "abaissé v abaisser" afin de préparer la mise à l'infinitif des verbes.
+	* @detail Permet de lire un fichier de lefff formatÃ© sous la forme : "abaissÃ© v abaisser" afin de prÃ©parer la mise Ã  l'infinitif des verbes.
 	**/
 	public void readLefff(){
 		String[] cLine;
@@ -50,7 +50,7 @@ public class Lefff {
 	
 	/**
 	 * @brief lit et stock dans un arbre de tokemisationla liste des mots outils
-	 * @param path chemin d'acc�s du fichier texte de mots outils
+	 * @param path chemin d'accés du fichier texte de mots outils
 	 */
 	public void readOutil(String path){
 		String[] cLine;
@@ -87,8 +87,8 @@ public class Lefff {
 
 	/**
 	* @brief Ecrit le nouveau texte dans un fichier
-	* @param String txt nouveau texte à écrire
-	* @param String titre titre du fichier créée
+	* @param String txt nouveau texte Ã  Ã©crire
+	* @param String titre titre du fichier crÃ©Ã©e
 	**/
 	public void writeFile(String txt, String titre){
 		try{
@@ -111,9 +111,9 @@ public class Lefff {
 
 	/**
 	* @brief permet de traiter le texte
-	* @detail traite le texte ce trouvant à l'adresse envoyé en paramètre
+	* @detail traite le texte ce trouvant Ã  l'adresse envoyÃ© en paramÃ¨tre
 	* @see writeFile(String txt, String titre)
-	* @param String path chemin d'accés du fichier à traiter
+	* @param String path chemin d'accÃ©s du fichier Ã  traiter
 	**/
 	public String traiteVerbe(String oldTexte){
 		//String result = message.replaceAll("%%NAME", name);
@@ -132,7 +132,7 @@ public class Lefff {
 				sdSplit = split[i].split("'");
 				tmpWord = sdSplit[1];
 			}
-			//cas particulier - apr�s le verbe
+			//cas particulier - après le verbe
 			else if(split[i].contains("-")){
 				sdSplit = split[i].split("-");
 				tmpWord = sdSplit[0];
@@ -140,11 +140,11 @@ public class Lefff {
 			else
 				tmpWord = split[i];
 			infinitif = arbreVerbe.findTokem(tmpWord);
-			//V�rifie qu'il y est un infinitif
-			if(infinitif != "-1"){
+			//Vérifie qu'il y est un infinitif
+			if(infinitif != null){
 				outils = arbreOutil.findTokem(split[i-1]);
-				//V�rifie qu'il n'est pas pr�c�d� d'un article ind�finie
-				if(!outils.equals("ad")){
+				//Vérifie qu'il n'est pas précédé d'un article indéfinie
+				if(outils!=null && (!outils.equals("ad") && !outils.equals("ai"))){
 					split[i] = split[i].replaceFirst(tmpWord, infinitif);
 				}
 			}
@@ -157,9 +157,9 @@ public class Lefff {
 	}
 
 	/**
-	 * @brief v�rifie si il y a des expressions � ne pas traiter pour la lemmatisationd es verbes
-	 * @param line texte � traiter
-	 * @return Texte sans les expressions � exclure
+	 * @brief vérifie si il y a des expressions à ne pas traiter pour la lemmatisationd es verbes
+	 * @param line texte à traiter
+	 * @return Texte sans les expressions à exclure
 	 */
 	public String findExp(String line){
 		String retour = line;
@@ -173,8 +173,8 @@ public class Lefff {
 
 	/**
 	 * @brief permet de traiter un texte
-	 * @param p path du texte � traiter
-	 * @return Le texte trait�
+	 * @param p path du texte à traiter
+	 * @return Le texte traité
 	 */
 	public String traiteTexte(String p){
 		String txt = "";
@@ -187,7 +187,7 @@ public class Lefff {
 		txt = openTexte(p);
 		System.out.println("Traitement des verbes");
 		txt = traiteVerbe(txt);
-		System.out.println("Traitement des expressions fig�es neutres");
+		System.out.println("Traitement des expressions figées neutres");
 		txt = supprExpNeutre(txt);
 		
 		//Ecriture du fichier texte de sortie
@@ -199,9 +199,9 @@ public class Lefff {
 	}
 	
 	/**
-	 * @brief enl�ve toute les expressions neutres du texte
-	 * @param txt texte � traiter
-	 * @return texte trait�
+	 * @brief enlève toute les expressions neutres du texte
+	 * @param txt texte à traiter
+	 * @return texte traité
 	 */
 	public String supprExpNeutre(String txt){
 		String newTexte = txt;
@@ -226,7 +226,7 @@ public class Lefff {
 	
 	/**
 	 * @brief ouvre un texte, et le stock dans un String
-	 * @param path chemin d'acc�s du texte � traiter
+	 * @param path chemin d'accés du texte à traiter
 	 * @return Le texte extrait du fichier texte
 	 */
 	public String openTexte(String path){

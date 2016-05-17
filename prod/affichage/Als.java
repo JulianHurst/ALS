@@ -33,15 +33,15 @@ public class Als {
 			choix = option.nextLine();
 			switch(choix){
 				case "1":
-					System.out.println("Appuyer sur 1 pour les textes prédéfinies");
-					System.out.println("sinon, entrez le chemin d'accès du texte à étudier");
+					System.out.println("Appuyer sur 1 pour les textes prÃ©dÃ©finies");
+					System.out.println("sinon, entrez le chemin d'accÃ¨s du texte Ã  Ã©tudier");
 					option = new Scanner(System.in);
 					choix = option.nextLine();
 
 					if(choix.equals("1")){
-						System.out.println("nouveau texte : "+l1.traiteTexte(choixTexte()));
+						//System.out.println("nouveau texte : "+l1.traiteTexte(choixTexte()));
 						
-						//Suppression de la ponctuation et classification des mots du textes grâce à leurs synonymes
+						//Suppression de la ponctuation et classification des mots du textes grÃ¢ce Ã  leurs synonymes
 						/*						
 						String ntxt = l1.traiteTexte(choixTexte());
 						ntxt=ntxt.replaceAll(",","");
@@ -54,8 +54,8 @@ public class Als {
 						ntxt=ntxt.replaceAll("\\)","");
 						ntxt=ntxt.replaceAll(".’","");
 						System.out.println(ntxt);
-                        S.classifierTableau(ntxt.split(" "),A,B);						
-                        */
+                        S.classifierTableau(ntxt.split(" "),A,B);
+                        */						                        
 					}
 					else
 						System.out.println("nouveau texte : "+l1.traiteTexte(choix));
@@ -68,13 +68,13 @@ public class Als {
 	}
 	
 	/**
-	 * @brief liste les textes pr�-d�finie, et retourne le path de celui choisit
+	 * @brief liste les textes pré-définie, et retourne le path de celui choisit
 	 * @return path du fichier texte choisit
 	 */
 	private String choixTexte(){
 		System.out.println("1 pour le texte de Serge Leclaire");
-		System.out.println("2 pour 'pourquoi l'extrême gauche française est la plus bête du monde'");
-		System.out.println("3 pour le texte 'Livre des années 30'");
+		System.out.println("2 pour 'pourquoi l'extrÃªme gauche franÃ§aise est la plus bÃªte du monde'");
+		System.out.println("3 pour le texte 'Livre des annÃ©es 30'");
 		System.out.println("4 pour le texte de Witold Gomlbrowicz");
 		Scanner texteChoix = new Scanner(System.in);
 		String texte = texteChoix.nextLine();
