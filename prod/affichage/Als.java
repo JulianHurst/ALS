@@ -39,7 +39,7 @@ public class Als {
 					choix = option.nextLine();
 
 					if(choix.equals("1")){
-						//System.out.println("nouveau texte : "+l1.traiteTexte(choixTexte()));
+						System.out.println("nouveau texte : "+l1.traiteTexte(choixTexte()));
 						
 						//Suppression de la ponctuation et classification des mots du textes grÃ¢ce Ã  leurs synonymes
 						/*						
@@ -77,7 +77,7 @@ public class Als {
 		System.out.println("3 pour le texte 'Livre des annÃ©es 30'");
 		System.out.println("4 pour le texte de Witold Gomlbrowicz");
 		Scanner texteChoix = new Scanner(System.in);
-		String texte = texteChoix.nextLine();
+		texte = texteChoix.nextLine();
 		String path = "./res/txt/";
 		switch(texte){
 			case "1":
