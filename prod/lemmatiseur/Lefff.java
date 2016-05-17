@@ -138,13 +138,14 @@ public class Lefff {
 				tmpWord = sdSplit[0];
 			}
 			else
-				tmpWord = split[i];
+				tmpWord = split[i];			
 			infinitif = arbreVerbe.findTokem(tmpWord);
 			//Vérifie qu'il y est un infinitif
 			if(infinitif != null && i!=0){
 				outils = arbreOutil.findTokem(split[i-1]);
 				//Vérifie qu'il n'est pas précédé d'un article indéfinie				
 				if(outils==null || (!outils.equals("ad") && !outils.equals("ai"))){
+					System.out.println(tmpWord+" "+split[i-1]);
 					split[i] = split[i].replaceFirst(tmpWord, infinitif);
 				}
 			}
@@ -182,19 +183,24 @@ public class Lefff {
 		File f = new File(p);
 		if(!f.exists()){
 			return "Echec de l'ouverture";
-		}
+		}		
 		System.out.println("ouverture du texte");
 		txt = openTexte(p);
-		System.out.println("Traitement des verbes");
+		txt=txt.toLowerCase();
+		System.out.println("Suppression de la ponctuation");
+		txt=supprPonctuation(txt);
+		System.out.println("Traitement des verbes");		
 		txt = traiteVerbe(txt);
 		System.out.println("Traitement des expressions figées neutres");
 		txt = supprExpNeutre(txt);
+		System.out.println("Traitement des mots outils");
+		txt = supprOutils(txt);
 		
 		//Ecriture du fichier texte de sortie
 		String pathSplit[] = path.split("/");
 		String titre = pathSplit[pathSplit.length-1];
 		System.out.println("titre : "+titre);
-		writeFile(txt, titre);
+		writeFile(txt, titre);		
 		return txt;
 	}
 	
@@ -222,6 +228,30 @@ public class Lefff {
 			System.out.println(e);
 		}
 		return newTexte;
+	}
+	
+	public String supprPonctuation(String txt){
+		txt=txt.replaceAll(",","");
+		txt=txt.replaceAll("\\.","");						
+		txt=txt.replaceAll(";","");
+		txt=txt.replaceAll(":","");
+		txt=txt.replaceAll("! ","");
+		txt=txt.replaceAll("\\? ","");
+		txt=txt.replaceAll("\\(","");
+		txt=txt.replaceAll("\\)","");
+		txt=txt.replaceAll(" [a-z]*’"," ");
+		return txt;
+	}
+	
+	public String supprOutils(String txt){		
+		String newTexte=txt;		
+		String mots[];				
+		mots=txt.split(" ");
+		for(String i : mots){			
+			if(arbreOutil.findTokem(i)!=null)
+				newTexte=newTexte.replaceFirst(" "+i+" "," ");
+		}		
+		return newTexte;	
 	}
 	
 	/**

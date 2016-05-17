@@ -12,7 +12,7 @@ public class Listechar {
 	private String finalString = null;
 	
 	Listechar(){
-		c = ' ';
+		c = '.';
 		fils = null;
 		frere = null;
 	}
@@ -24,7 +24,7 @@ public class Listechar {
 	}
 	
 	Listechar(String s){
-		this.c = ' ';
+		this.c = '.';
 		fils = null;
 		frere = null;
 		finalString = s;

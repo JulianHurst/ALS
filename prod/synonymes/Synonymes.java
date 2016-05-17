@@ -136,6 +136,7 @@ public class Synonymes {
 				return;
             for(String i : S){
 				//Si on trouve le mot dans serie A
+				System.out.println("syn : "+i);
                 if(SerieA.findTokem(i)!=null){
                     A++;
                     System.out.println(i+"->serieA");

@@ -159,7 +159,7 @@ public class Tokemiseur{
 		
 		//Boucle infinie cassé par un return
 		while(check){
-			//Vérifie si le caractère courant de l'arbre est le même que celui du mot, si c'est le cas, incrémentation de k, et décallage du pointeur
+			//Vérifie si le caractère courant de l'arbre est le même que celui du mot, si c'est le cas, incrémentation de k, et décallage du pointeur			
 			if(k < s.length() && lc.getChar() == s.charAt(k)){
 				lc = lc.getFils();
 				k++;

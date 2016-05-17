@@ -40,9 +40,8 @@ public class Als {
 
 					if(choix.equals("1")){
 						System.out.println("nouveau texte : "+l1.traiteTexte(choixTexte()));
-						
-						//Suppression de la ponctuation et classification des mots du textes grÃ¢ce Ã  leurs synonymes
-						/*						
+						/*
+						//Suppression de la ponctuation et classification des mots du textes grÃ¢ce Ã  leurs synonymes						
 						String ntxt = l1.traiteTexte(choixTexte());
 						ntxt=ntxt.replaceAll(",","");
 						ntxt=ntxt.replaceAll("\\.","");						
@@ -53,9 +52,11 @@ public class Als {
 						ntxt=ntxt.replaceAll("\\(","");
 						ntxt=ntxt.replaceAll("\\)","");
 						ntxt=ntxt.replaceAll(".’","");
-						System.out.println(ntxt);
-                        S.classifierTableau(ntxt.split(" "),A,B);
-                        */					                        
+						System.out.println(ntxt);*/
+						/*for(String i : ntxt.split(" "))
+							System.out.println(i);*/
+                        //S.classifierTableau(ntxt.split(" "),A,B);
+                        					                        
 					}
 					else
 						System.out.println("nouveau texte : "+l1.traiteTexte(choix));
