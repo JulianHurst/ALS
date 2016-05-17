@@ -235,11 +235,12 @@ public class Lefff {
 		txt=txt.replaceAll("\\.","");						
 		txt=txt.replaceAll(";","");
 		txt=txt.replaceAll(":","");
-		txt=txt.replaceAll("! ","");
+		txt=txt.replaceAll("!","");
 		txt=txt.replaceAll("\\? ","");
 		txt=txt.replaceAll("\\(","");
 		txt=txt.replaceAll("\\)","");
 		txt=txt.replaceAll(" [a-z]*’"," ");
+		txt=txt.replaceAll(" {2,}", " ");
 		return txt;
 	}
 	
