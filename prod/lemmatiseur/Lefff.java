@@ -141,10 +141,10 @@ public class Lefff {
 				tmpWord = split[i];
 			infinitif = arbreVerbe.findTokem(tmpWord);
 			//Vérifie qu'il y est un infinitif
-			if(infinitif != null){
+			if(infinitif != null && i!=0){
 				outils = arbreOutil.findTokem(split[i-1]);
-				//Vérifie qu'il n'est pas précédé d'un article indéfinie
-				if(outils!=null && (!outils.equals("ad") && !outils.equals("ai"))){
+				//Vérifie qu'il n'est pas précédé d'un article indéfinie				
+				if(outils==null || (!outils.equals("ad") && !outils.equals("ai"))){
 					split[i] = split[i].replaceFirst(tmpWord, infinitif);
 				}
 			}

@@ -55,7 +55,7 @@ public class Als {
 						ntxt=ntxt.replaceAll(".’","");
 						System.out.println(ntxt);
                         S.classifierTableau(ntxt.split(" "),A,B);
-                        */						                        
+                        */					                        
 					}
 					else
 						System.out.println("nouveau texte : "+l1.traiteTexte(choix));
