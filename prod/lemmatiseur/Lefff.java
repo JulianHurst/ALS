@@ -11,6 +11,9 @@ public class Lefff {
 	ArrayList<String> listExp = new ArrayList<String>();
 	Tokemiseur arbreVerbe;
 	Tokemiseur arbreOutil;
+	Tokemiseur arbreNomsP;
+	Tokemiseur arbreNoms;
+	Tokemiseur arbreAdj;
 
 
 	/**
@@ -20,6 +23,9 @@ public class Lefff {
 	public Lefff(String path){
 		arbreVerbe = new Tokemiseur();
 		arbreOutil = new Tokemiseur();
+		arbreNomsP = new Tokemiseur();
+		arbreNoms = new Tokemiseur();
+		arbreAdj = new Tokemiseur();
 		this.path = path;
 		readLefff();
 		readOutil("./res/outils.txt");
@@ -40,9 +46,15 @@ public class Lefff {
 			String line;
 			while ((line = txt.readLine()) != null){
 				cLine = line.split(separator);
-				if(cLine[1].equalsIgnoreCase("v") || cLine[3].contains("K##")){
+				if(cLine[1].equalsIgnoreCase("v") || cLine[3].contains("K##") || cLine[1].equalsIgnoreCase("vprespart")){
 					arbreVerbe.createVthree(cLine[0], cLine[2]);
 				}
+				else if(cLine[1].equalsIgnoreCase("np"))
+					arbreNomsP.createVthree(cLine[0].toLowerCase(),cLine[2].toLowerCase());
+				else if(cLine[1].equalsIgnoreCase("nc"))
+					arbreNoms.createVthree(cLine[0],cLine[2]);
+				else if(cLine[1].equalsIgnoreCase("adj"))
+					arbreAdj.createVthree(cLine[0],cLine[2]);
 			}
 		}
 		catch(Exception e){e.printStackTrace();}
@@ -133,9 +145,9 @@ public class Lefff {
 				tmpWord = sdSplit[1];
 			}
 			//cas particulier - après le verbe
-			else if(split[i].contains("-")){
-				sdSplit = split[i].split("-");
-				tmpWord = sdSplit[0];
+			else if(split[i].contains("-") && arbreVerbe.findTokem(tmpWord)==null){				
+					sdSplit = split[i].split("-");
+					tmpWord = sdSplit[0];							
 			}
 			else
 				tmpWord = split[i];			
@@ -144,16 +156,58 @@ public class Lefff {
 			if(infinitif != null && i!=0){
 				outils = arbreOutil.findTokem(split[i-1]);
 				//Vérifie qu'il n'est pas précédé d'un article indéfinie				
-				if(outils==null || (!outils.equals("ad") && !outils.equals("ai"))){
-					System.out.println(tmpWord+" "+split[i-1]);
-					split[i] = split[i].replaceFirst(tmpWord, infinitif);
-				}
+				if(arbreAdj.findTokem(split[i-1])==null)
+					if(outils==null || (!outils.equals("ad") && !outils.equals("ai") && !outils.equals("ac"))){						
+						split[i] = split[i].replaceFirst(tmpWord, infinitif);
+					}				
 			}
 		}
 		for(int i = 0; i < split.length; i++){
 			newText += split[i]+" ";
 		}
 		newText += "\n";
+		return newText;
+	}
+	
+	public String traiteNomsP(String oldTexte){
+		String newText = oldTexte;
+		String mots[];
+		String lemmatise;
+		mots=oldTexte.split(" ");
+		for(String i : mots){
+			if((lemmatise=arbreNomsP.findTokem(i))!=null)
+				newText=newText.replaceFirst(i,lemmatise);
+		}
+		return newText;
+	}
+	
+	public String traiteNoms(String oldTexte){
+		String newText = oldTexte;
+		String mots[];
+		String lemmatise;
+		mots=oldTexte.split(" ");
+		for(String i : mots){			
+			if((lemmatise=arbreNoms.findTokem(i))!=null){
+				newText=newText.replaceFirst(i,lemmatise);
+				//System.out.println(i+"->"+lemmatise);
+			}
+			
+		}
+		return newText;
+	}
+	
+	public String traiteAdj(String oldTexte){
+		String newText = oldTexte;
+		String mots[];
+		String lemmatise;
+		mots=oldTexte.split(" ");
+		for(String i : mots){			
+			if((lemmatise=arbreAdj.findTokem(i))!=null){
+				newText=newText.replaceFirst(i,lemmatise);
+				//System.out.println(i+"->"+lemmatise);
+			}
+			
+		}
 		return newText;
 	}
 
@@ -195,6 +249,12 @@ public class Lefff {
 		txt = supprExpNeutre(txt);
 		System.out.println("Traitement des mots outils");
 		txt = supprOutils(txt);
+		System.out.println("Traitement des Noms Propres");
+		txt = traiteNomsP(txt);
+		System.out.println("Traitement des Noms Communs");
+		txt = traiteNoms(txt);
+		System.out.println("Traitement des Adjectifs");
+		txt = traiteAdj(txt);
 		
 		//Ecriture du fichier texte de sortie
 		String pathSplit[] = path.split("/");
@@ -239,8 +299,14 @@ public class Lefff {
 		txt=txt.replaceAll("\\? ","");
 		txt=txt.replaceAll("\\(","");
 		txt=txt.replaceAll("\\)","");
-		txt=txt.replaceAll(" [a-z]*’"," ");
+		
+		//Peut être remplacer cette ligne par une liste de mots inutiles supplémentaire à enlever
+		txt=txt.replaceAll("[a-z]*’","");
+		
+		txt=txt.replaceAll("…","");
+		txt=txt.replaceAll("\"","");
 		txt=txt.replaceAll(" {2,}", " ");
+		txt=txt.replaceAll("(\r\n|\n|\r)","");
 		return txt;
 	}
 	
@@ -248,9 +314,9 @@ public class Lefff {
 		String newTexte=txt;		
 		String mots[];				
 		mots=txt.split(" ");
-		for(String i : mots){			
-			if(arbreOutil.findTokem(i)!=null)
-				newTexte=newTexte.replaceFirst(" "+i+" "," ");
+		for(String i : mots){				
+			if(arbreOutil.findTokem(i)!=null)								
+				newTexte=newTexte.replaceFirst("( "+i+"$|^"+i+" | "+i+" )"," ");
 		}		
 		return newTexte;	
 	}

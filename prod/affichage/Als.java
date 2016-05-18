@@ -62,7 +62,7 @@ public class Als {
 						System.out.println("nouveau texte : "+l1.traiteTexte(choix));
 					break;
 			}
-			if(texte.equals("Echec de l'ouverture"))
+			if(texte!=null && texte.equals("Echec de l'ouverture"))
 				System.out.println(texte);
 			System.out.println("fin");
 		}
