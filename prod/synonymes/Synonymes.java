@@ -40,6 +40,7 @@ public class Synonymes {
     private final ArrayList<String> S;
     private String mot;
     private String language;
+    private Tokemiseur arbreAdj;
     
     /**     
      * @param lang 
@@ -48,6 +49,7 @@ public class Synonymes {
     public Synonymes(String lang){
         this.language = lang;
         S=new ArrayList<>();
+        arbreAdj=new Tokemiseur();
     }
     
     /**
@@ -61,7 +63,9 @@ public class Synonymes {
      * @param mot 
      * @brief Retrouve les synonymes d'un mot grâce à l'API de thesaurus.altervista.org et les stocke dans S.
      */
-    public void findSynonymes(String mot){         
+    public boolean findSynonymes(String mot){
+        if(arbreAdj.findTokem(mot)==null)
+            return false; 
         try {
             S.clear();
             setMot(mot);
@@ -100,10 +104,14 @@ public class Synonymes {
                 }                          
             }            
         } catch (MalformedURLException ex) {
-            Logger.getLogger(Synonymes.class.getName()).log(Level.SEVERE, null, ex);                    
-        } catch (IOException | ParserConfigurationException | SAXException | XPathExpressionException ex) {
             Logger.getLogger(Synonymes.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        } catch (IOException | ParserConfigurationException | SAXException | XPathExpressionException ex) {
+            //Logger.getLogger(Synonymes.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Aucun synonyme n'a été trouvé pour "+mot+"\n");
+            return false;
         }
+        return true;
     }
     
     /**
@@ -117,21 +125,12 @@ public class Synonymes {
             float percent;
             boolean serie;
             A=B=0;
-            File f_A = new File("res/serieA_maj");
-            File f_B = new File("res/serieB_maj");            
-            Tokemiseur A_maj=null;            
-            Tokemiseur B_maj=null;
-            if(f_A.exists())
-                A_maj = new Tokemiseur("res/serieA_maj");
-            if(f_B.exists())
-                B_maj = new Tokemiseur("res/serieB_maj");
+            
             System.out.println(mot);                     
             if(SerieA.findTokem(mot)!=null || SerieB.findTokem(mot)!=null)            
-				return;
-			if(A_maj!=null && A_maj.findTokem(mot)!=null)
-				return;
-			if(B_maj!=null && B_maj.findTokem(mot)!=null)
-				return;
+				return;	
+            if(dejaClassifie(mot))
+                return;
 			if(S.isEmpty())
 				return;
             for(String i : S){
@@ -162,24 +161,41 @@ public class Synonymes {
             if(percent>0.20){
 				if(serie){
 					System.out.println(mot+" appartient à la série A\n");
-					file = new File("res/serieA_maj");
+					file = new File("res/serieA_maj.txt");
 				}
 				else{
 					System.out.println(mot+" appartient à la série B\n");
-					file = new File("res/serieB_maj");					
+					file = new File("res/serieB_maj.txt");					
 				}		
-				if(!file.exists())
-					file.createNewFile();
-				FileWriter writer = new FileWriter(file,true);
-				writer.write(mot+"\n");
-				writer.flush();
-				writer.close();                                  			
-			}
+				                                 			
+			    if(!file.exists())
+				    file.createNewFile();
+			    FileWriter writer = new FileWriter(file,true);
+			    writer.write(mot+"\n");
+			    writer.flush();
+			    writer.close();
+            }
 			else
 				System.out.println(mot+" est neutre\n");
 		} catch (IOException ex) {
 			Logger.getLogger(Synonymes.class.getName()).log(Level.SEVERE, null, ex);
 		}
+    }
+
+    public boolean dejaClassifie(String mot){
+        File f_A = new File("res/serieA_maj.txt");
+        File f_B = new File("res/serieB_maj.txt");            
+        Tokemiseur A_maj=null;            
+        Tokemiseur B_maj=null;
+        if(f_A.exists())
+            A_maj = new Tokemiseur("res/serieA_maj.txt");
+        if(f_B.exists())
+            B_maj = new Tokemiseur("res/serieB_maj.txt");
+    	if(A_maj!=null && A_maj.findTokem(mot)!=null)
+			return true;
+		if(B_maj!=null && B_maj.findTokem(mot)!=null)
+			return true;
+        return false;
     }
 
 	/**
@@ -189,8 +205,9 @@ public class Synonymes {
 	 * @brief Détermine si un mot appartient à la série A ou à la série B
 	 */
     public void classifierMot(String mot,Tokemiseur SerieA, Tokemiseur SerieB){
-        findSynonymes(mot);
-        classification(SerieA,SerieB);
+        if(SerieA.findTokem(mot)==null && SerieB.findTokem(mot)==null && !dejaClassifie(mot))
+            if(findSynonymes(mot))
+                classification(SerieA,SerieB);
     }
 	
 	/**
@@ -257,5 +274,13 @@ public class Synonymes {
      */
     public String getLang(){
         return language;
+    }
+
+    public void setAdj(Tokemiseur arbreAdj){
+        this.arbreAdj=arbreAdj;
+    }
+
+    public Tokemiseur getAdj(){
+        return arbreAdj;
     }
 }

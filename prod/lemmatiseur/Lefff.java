@@ -342,4 +342,8 @@ public class Lefff {
 		}
 		return texte;
 	}
+
+    public Tokemiseur getAdj(){
+        return arbreAdj;
+    }
 }

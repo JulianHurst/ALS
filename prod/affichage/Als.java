@@ -25,6 +25,7 @@ public class Als {
         Synonymes S=new Synonymes();
         Tokemiseur A = new Tokemiseur("res/serieA");
         Tokemiseur B = new Tokemiseur("res/serieB");
+        S.setAdj(l1.getAdj());
 		while(!choix.equals("quit")){
 			System.out.println("Action suivante : ");
 			System.out.println("1 - traiter un texte");
@@ -39,8 +40,7 @@ public class Als {
 					choix = option.nextLine();
 
 					if(choix.equals("1")){
-						System.out.println("nouveau texte : "+l1.traiteTexte(choixTexte()));
-						/*
+						//System.out.println("nouveau texte : "+l1.traiteTexte(choixTexte()));
 						//Suppression de la ponctuation et classification des mots du textes grÃ¢ce Ã  leurs synonymes						
 						String ntxt = l1.traiteTexte(choixTexte());
 						ntxt=ntxt.replaceAll(",","");
@@ -52,10 +52,10 @@ public class Als {
 						ntxt=ntxt.replaceAll("\\(","");
 						ntxt=ntxt.replaceAll("\\)","");
 						ntxt=ntxt.replaceAll(".’","");
-						System.out.println(ntxt);*/
+						System.out.println(ntxt);
 						/*for(String i : ntxt.split(" "))
 							System.out.println(i);*/
-                        //S.classifierTableau(ntxt.split(" "),A,B);
+                        S.classifierTableau(ntxt.split(" "),A,B);
                         					                        
 					}
 					else
