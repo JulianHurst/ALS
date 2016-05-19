@@ -106,8 +106,7 @@ public class Synonymes {
         } catch (MalformedURLException ex) {
             Logger.getLogger(Synonymes.class.getName()).log(Level.SEVERE, null, ex);
             return false;
-        } catch (IOException | ParserConfigurationException | SAXException | XPathExpressionException ex) {
-            //Logger.getLogger(Synonymes.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException | ParserConfigurationException | SAXException | XPathExpressionException ex) {            
             System.out.println("Aucun synonyme n'a été trouvé pour "+mot+"\n");
             return false;
         }
@@ -125,8 +124,7 @@ public class Synonymes {
             float percent;
             boolean serie;
             A=B=0;
-            
-            System.out.println(mot);                     
+                                            
             if(SerieA.findTokem(mot)!=null || SerieB.findTokem(mot)!=null)            
 				return;	
             if(dejaClassifie(mot))
@@ -137,34 +135,30 @@ public class Synonymes {
 				//Si on trouve le mot dans serie A
 				//System.out.println("syn : "+i);
                 if(SerieA.findTokem(i)!=null){
-                    A++;
+                    A++;                      
                     System.out.println(i+"->serieA");
-                }
+				}              
                 //Si on trouve le mot dans serie B
                 else if(SerieB.findTokem(i)!=null){
-                    B++;
+                    B++;                           
                     System.out.println(i+"->serieB");
-                }               
-            }            
-            System.out.println("\n"+mot);
-            System.out.println("Serie A : "+A);
-            System.out.println("Serie B : "+B);            
+				}                       
+            }                                  
             sum = B-A;            
             if(sum<0)
 				serie=true;
 			else
 				serie=false;
             sum=Math.abs(sum);            
-            percent = (float)sum/(A+B);              
-            System.out.println("Pourcentage de différences : "+(int)(percent*100));          
+            percent = (float)sum/(A+B);                                 
             File file;
             if(percent>0.20){
 				if(serie){
-					System.out.println(mot+" appartient à la série A\n");
+					System.out.println(mot+" appartient à la série A");
 					file = new File("res/serieA_maj.txt");
 				}
 				else{
-					System.out.println(mot+" appartient à la série B\n");
+					System.out.println(mot+" appartient à la série B");
 					file = new File("res/serieB_maj.txt");					
 				}		
 				                                 			
@@ -176,12 +170,18 @@ public class Synonymes {
 			    writer.close();
             }
 			else
-				System.out.println(mot+" est neutre\n");
+				System.out.println(mot+" est neutre");
+			System.out.println("Pourcentage de différences : "+(int)(percent*100)+"\n");   
 		} catch (IOException ex) {
 			Logger.getLogger(Synonymes.class.getName()).log(Level.SEVERE, null, ex);
 		}
     }
 
+	/**
+	 * @param mot
+	 * @return true si le mot est classifié, false sinon
+	 * @brief Renvoie si le mot a déjà été classifié grâce aux synonymes ou non
+	 */
     public boolean dejaClassifie(String mot){
         File f_A = new File("res/serieA_maj.txt");
         File f_B = new File("res/serieB_maj.txt");            
@@ -221,6 +221,12 @@ public class Synonymes {
             classifierMot(i,A,B);   
     }
     
+    /**
+	 * @param String[] T
+	 * @param Tokemiseur A
+	 * @param Tokemiseur B
+	 * @brief Permet de déterminer à quelles séries appartiennent tous les mots d'une liste
+	 */
     public void classifierTableau(String[] T,Tokemiseur A,Tokemiseur B){
 		for(String i : T)
 			classifierMot(i,A,B);

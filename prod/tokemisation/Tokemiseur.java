@@ -43,7 +43,7 @@ public class Tokemiseur{
 	
 	/**
 	 * @brief Permet d'ajouter dans l'arbre un mot
-	 * @param line Verbe conjugué à ajouté	 
+	 * @param line mot à ajouter
 	 */
 	public void createTree(String line){
 		boolean check = true;

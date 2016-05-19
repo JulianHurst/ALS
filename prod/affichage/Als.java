@@ -34,27 +34,16 @@ public class Als {
 			choix = option.nextLine();
 			switch(choix){
 				case "1":
-					System.out.println("Appuyer sur 1 pour les textes prÃ©dÃ©finies");
-					System.out.println("sinon, entrez le chemin d'accÃ¨s du texte Ã  Ã©tudier");
+					System.out.println("Appuyer sur 1 pour les textes prédéfinies");
+					System.out.println("sinon, entrez le chemin d'accès du texte à  étudier");
 					option = new Scanner(System.in);
 					choix = option.nextLine();
 
 					if(choix.equals("1")){
 						//System.out.println("nouveau texte : "+l1.traiteTexte(choixTexte()));
 						//Suppression de la ponctuation et classification des mots du textes grÃ¢ce Ã  leurs synonymes						
-						String ntxt = l1.traiteTexte(choixTexte());
-						ntxt=ntxt.replaceAll(",","");
-						ntxt=ntxt.replaceAll("\\.","");						
-						ntxt=ntxt.replaceAll(";","");
-						ntxt=ntxt.replaceAll(":","");
-						ntxt=ntxt.replaceAll("!","");
-						ntxt=ntxt.replaceAll("\\?","");
-						ntxt=ntxt.replaceAll("\\(","");
-						ntxt=ntxt.replaceAll("\\)","");
-						ntxt=ntxt.replaceAll(".’","");
-						System.out.println(ntxt);
-						/*for(String i : ntxt.split(" "))
-							System.out.println(i);*/
+						String ntxt = l1.traiteTexte(choixTexte());						
+						System.out.println("texte lemmatisé : "+ntxt);						
                         S.classifierTableau(ntxt.split(" "),A,B);
                         					                        
 					}
@@ -74,8 +63,8 @@ public class Als {
 	 */
 	private String choixTexte(){
 		System.out.println("1 pour le texte de Serge Leclaire");
-		System.out.println("2 pour 'pourquoi l'extrÃªme gauche franÃ§aise est la plus bÃªte du monde'");
-		System.out.println("3 pour le texte 'Livre des annÃ©es 30'");
+		System.out.println("2 pour 'pourquoi l'extrème gauche française est la plus bète du monde'");
+		System.out.println("3 pour le texte 'Livre des années 30'");
 		System.out.println("4 pour le texte de Witold Gomlbrowicz");
 		Scanner texteChoix = new Scanner(System.in);
 		texte = texteChoix.nextLine();

@@ -155,8 +155,7 @@ public class Lefff {
 			//Vérifie qu'il y est un infinitif
 			if(infinitif != null && i!=0){
 				outils = arbreOutil.findTokem(split[i-1]);
-				//Vérifie qu'il n'est pas précédé d'un article indéfinie				
-				//if(arbreAdj.findTokem(split[i-1])==null)
+				//Vérifie qu'il n'est pas précédé d'un article indéfinie								
 				if(outils==null || (!outils.equals("ad") && !outils.equals("ai") && !outils.equals("ac"))){						
 					split[i] = split[i].replaceFirst(tmpWord, infinitif);
 				}				
@@ -169,6 +168,11 @@ public class Lefff {
 		return newText;
 	}
 	
+	/**
+	 * @param oldTexte
+	 * @return Le texte traité
+	 * @brief Lemmatise tous les noms propres
+	 */
 	public String traiteNomsP(String oldTexte){
 		String newText = oldTexte;
 		String mots[];
@@ -181,6 +185,11 @@ public class Lefff {
 		return newText;
 	}
 	
+	/**
+	 * @param oldTexte
+	 * @return Le texte traité
+	 * @brief Lemmatise tous les noms communs
+	 */
 	public String traiteNoms(String oldTexte){
 		String newText = oldTexte;
 		String mots[];
@@ -188,14 +197,18 @@ public class Lefff {
 		mots=oldTexte.split(" ");
 		for(String i : mots){			
 			if((lemmatise=arbreNoms.findTokem(i))!=null){
-				newText=newText.replaceFirst(i,lemmatise);
-				//System.out.println(i+"->"+lemmatise);
+				newText=newText.replaceFirst(i,lemmatise);				
 			}
 			
 		}
 		return newText;
 	}
 	
+	/**
+	 * @param oldTexte
+	 * @return Le texte traité
+	 * @brief Lemmatise tous les adjectifs
+	 */
 	public String traiteAdj(String oldTexte){
 		String newText = oldTexte;
 		String mots[];
@@ -203,29 +216,33 @@ public class Lefff {
 		mots=oldTexte.split(" ");
 		for(String i : mots){			
 			if((lemmatise=arbreAdj.findTokem(i))!=null){
-				newText=newText.replaceFirst(i,lemmatise);
-				//System.out.println(i+"->"+lemmatise);
+				newText=newText.replaceFirst(i,lemmatise);				
 			}
 			
 		}
 		return newText;
 	}
 
-
+	/**
+	 * @param oldTexte
+	 * @return Le texte traité
+	 * @brief Lemmatise tous les noms et adjectifs
+	 */
     public String traiteNetAdj(String oldTexte){
         String newText = oldTexte;
         String mots[];
         String lemmatise;
         mots=oldTexte.split(" ");
         for(String i : mots){
-            if((lemmatise=arbreNomsP.findTokem(i))!=null || (lemmatise=arbreNoms.findTokem(i))!=null || (lemmatise=arbreAdj.findTokem(i))!=null)
-                newText=newText.replaceFirst(i,lemmatise);
+            if((lemmatise=arbreNomsP.findTokem(i))!=null || (lemmatise=arbreNoms.findTokem(i))!=null || (lemmatise=arbreAdj.findTokem(i))!=null){
+                newText=newText.replaceFirst(i,lemmatise);                
+			}
         }
         return newText;
     }
 
 	/**
-	 * @brief vérifie si il y a des expressions à ne pas traiter pour la lemmatisationd es verbes
+	 * @brief vérifie si il y a des expressions à ne pas traiter pour la lemmatisation des verbes
 	 * @param line texte à traiter
 	 * @return Texte sans les expressions à exclure
 	 */
@@ -238,7 +255,7 @@ public class Lefff {
 		}
 		return retour;
 	}
-
+  
 	/**
 	 * @brief permet de traiter un texte
 	 * @param p path du texte à traiter
@@ -255,20 +272,20 @@ public class Lefff {
 		txt = openTexte(p);
 		txt=txt.toLowerCase();
 		System.out.println("Suppression de la ponctuation");
-		txt=supprPonctuation(txt);
+		txt=supprPonctuation(txt);		
 		System.out.println("Traitement des verbes");		
-		txt = traiteVerbe(txt);
+		txt = traiteVerbe(txt);		
 		System.out.println("Traitement des expressions figées neutres");
-		txt = supprExpNeutre(txt);
+		txt = supprExpNeutre(txt);		
 		System.out.println("Traitement des mots outils");
-		txt = supprOutils(txt);
+		txt = supprOutils(txt);		
 		System.out.println("Traitement des noms et adjectifs");
         txt=traiteNetAdj(txt);
-		//txt = traiteNomsP(txt);
-		//System.out.println("Traitement des Noms Communs");
-		//txt = traiteNoms(txt);
-		//System.out.println("Traitement des Adjectifs");
-		//txt = traiteAdj(txt);
+		/*txt = traiteNomsP(txt);
+		System.out.println("Traitement des Noms Communs");
+		txt = traiteNoms(txt);
+		System.out.println("Traitement des Adjectifs");
+		txt = traiteAdj(txt);*/
 		
 		//Ecriture du fichier texte de sortie
 		String pathSplit[] = path.split("/");
@@ -301,9 +318,15 @@ public class Lefff {
 			e.printStackTrace();
 			System.out.println(e);
 		}
+		newTexte=newTexte.replaceAll(" {2,}", " ");
 		return newTexte;
 	}
 	
+	/**
+	 * @param txt
+	 * @return Le texte traité
+	 * @brief Supprime la ponctuation dans le texte
+	 */
 	public String supprPonctuation(String txt){
 		txt=txt.replaceAll(",","");
 		txt=txt.replaceAll("\\.","");						
@@ -315,7 +338,7 @@ public class Lefff {
 		txt=txt.replaceAll("\\)","");
 		
 		//Peut être remplacer cette ligne par une liste de mots inutiles supplémentaire à enlever
-		txt=txt.replaceAll("[a-z]*’","");
+		//txt=txt.replaceAll("[a-z]*’","");
 		
 		txt=txt.replaceAll("…","");
 		txt=txt.replaceAll("\"","");
@@ -324,12 +347,17 @@ public class Lefff {
 		return txt;
 	}
 	
+	/**
+	 * @param txt
+	 * @return Le texte traité
+	 * @brief Supprime les mots outils
+	 */
 	public String supprOutils(String txt){		
 		String newTexte=txt;		
 		String mots[];				
 		mots=txt.split(" ");
 		for(String i : mots){				
-			if(arbreOutil.findTokem(i)!=null)								
+			if(arbreOutil.findTokem(i)!=null)				
 				newTexte=newTexte.replaceFirst("( "+i+"$|^"+i+" | "+i+" )"," ");
 		}		
 		return newTexte;	
