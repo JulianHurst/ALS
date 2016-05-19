@@ -156,10 +156,10 @@ public class Lefff {
 			if(infinitif != null && i!=0){
 				outils = arbreOutil.findTokem(split[i-1]);
 				//Vérifie qu'il n'est pas précédé d'un article indéfinie				
-				if(arbreAdj.findTokem(split[i-1])==null)
-					if(outils==null || (!outils.equals("ad") && !outils.equals("ai") && !outils.equals("ac"))){						
-						split[i] = split[i].replaceFirst(tmpWord, infinitif);
-					}				
+				//if(arbreAdj.findTokem(split[i-1])==null)
+				if(outils==null || (!outils.equals("ad") && !outils.equals("ai") && !outils.equals("ac"))){						
+					split[i] = split[i].replaceFirst(tmpWord, infinitif);
+				}				
 			}
 		}
 		for(int i = 0; i < split.length; i++){
@@ -211,6 +211,19 @@ public class Lefff {
 		return newText;
 	}
 
+
+    public String traiteNetAdj(String oldTexte){
+        String newText = oldTexte;
+        String mots[];
+        String lemmatise;
+        mots=oldTexte.split(" ");
+        for(String i : mots){
+            if((lemmatise=arbreNomsP.findTokem(i))!=null || (lemmatise=arbreNoms.findTokem(i))!=null || (lemmatise=arbreAdj.findTokem(i))!=null)
+                newText=newText.replaceFirst(i,lemmatise);
+        }
+        return newText;
+    }
+
 	/**
 	 * @brief vérifie si il y a des expressions à ne pas traiter pour la lemmatisationd es verbes
 	 * @param line texte à traiter
@@ -249,12 +262,13 @@ public class Lefff {
 		txt = supprExpNeutre(txt);
 		System.out.println("Traitement des mots outils");
 		txt = supprOutils(txt);
-		System.out.println("Traitement des Noms Propres");
-		txt = traiteNomsP(txt);
-		System.out.println("Traitement des Noms Communs");
-		txt = traiteNoms(txt);
-		System.out.println("Traitement des Adjectifs");
-		txt = traiteAdj(txt);
+		System.out.println("Traitement des noms et adjectifs");
+        txt=traiteNetAdj(txt);
+		//txt = traiteNomsP(txt);
+		//System.out.println("Traitement des Noms Communs");
+		//txt = traiteNoms(txt);
+		//System.out.println("Traitement des Adjectifs");
+		//txt = traiteAdj(txt);
 		
 		//Ecriture du fichier texte de sortie
 		String pathSplit[] = path.split("/");
