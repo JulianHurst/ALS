@@ -35,6 +35,7 @@ import java.lang.Math;
 /**
  * @author juju
  * @version 1.0
+ * @brief Permet de classifier un mot, selon ses synonymes, dans la Série A ou la Série B.
  */
 public class Synonymes {
     private final ArrayList<String> S;
@@ -61,7 +62,7 @@ public class Synonymes {
         
     /**     
      * @param mot 
-     * @brief Retrouve les synonymes d'un mot grâce à l'API de thesaurus.altervista.org et les stocke dans S.
+     * @brief Retrouve les synonymes d'un mot grâce à l'API de thesaurus.altervista.org et les stocke dans la liste de synonymes S.
      */
     public boolean findSynonymes(String mot){
         if(arbreAdj.findTokem(mot)==null)
@@ -116,7 +117,7 @@ public class Synonymes {
     /**
      * @param Tokemiseur SerieA
      * @param Tokemiseur SerieB
-     * @brief Détermine selon les synonymes trouvés si le mot d'origine appartient à la série A ou série B puis l'écrit dans un fichier de mise à jour serieA_maj ou serieB_maj
+     * @brief Détermine selon les synonymes trouvés si le mot d'origine appartient à la série A ou série B puis l'écrit dans un fichier de mise à jour serieA_maj.txt ou serieB_maj.txt
      */
     public void classification(Tokemiseur SerieA, Tokemiseur SerieB){
         try {
@@ -233,8 +234,8 @@ public class Synonymes {
 	}
     
     /**     
-     * @param mot
-     * @param lang 
+     * @param mot Le mot pour lequel trouver les synonymes
+     * @param lang La langue à utiliser
      * @brief La même chose que findSynonymes(String mot) mais avec une option de langue
      */
     public void findSynonymes(String mot,String lang){
@@ -282,10 +283,18 @@ public class Synonymes {
         return language;
     }
 
+	/**
+	 * @param arbreAdj
+	 * @brief Permet de règler l'arbre d'adjectifs
+	 */
     public void setAdj(Tokemiseur arbreAdj){
         this.arbreAdj=arbreAdj;
     }
 
+	/**
+	 * @return L'arbre d'adjectifs
+	 * @brief Renvoie l'abre des adjectifs
+	 */
     public Tokemiseur getAdj(){
         return arbreAdj;
     }

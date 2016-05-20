@@ -2,8 +2,8 @@ package tokemisation;
 
 /**
 * @Author Kevin Garabedian
-* @brief Permet la tokÃ©misation d'une liste de mot
-* @detail PrÃ©parÃ© si nÃ©cessaire en attendant d'avoir les donnÃ©es finales.
+* @brief Permet la tokemisation d'une liste de mot
+* @detail Prépare si nécessaire en attendant d'avoir les données finales.
 **/
 
 import java.io.*;
