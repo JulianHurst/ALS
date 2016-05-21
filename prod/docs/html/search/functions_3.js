@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['getadj',['getAdj',['../classsynonymes_1_1_synonymes.html#a1034f9b34dbe509b4d81d033adbbf485',1,'synonymes::Synonymes']]],
-  ['getlang',['getLang',['../classsynonymes_1_1_synonymes.html#ac361b78facb95f071f726b03a1fa5d57',1,'synonymes::Synonymes']]],
-  ['getmot',['getMot',['../classsynonymes_1_1_synonymes.html#ac3399304ab9193333944a7ef51edd2cf',1,'synonymes::Synonymes']]],
-  ['getsynonymes',['getSynonymes',['../classsynonymes_1_1_synonymes.html#aa4defad4e15650af612d56f753912817',1,'synonymes::Synonymes']]]
+  ['find',['find',['../classlistelemm_1_1_liste_lemm_wrapper.html#a318131112339d774b21df28dd4d3872f',1,'listelemm::ListeLemmWrapper']]],
+  ['findexp',['findExp',['../classlemmatiseur_1_1_lefff.html#abf6050c2918c16ed1f6372bf53c635e6',1,'lemmatiseur::Lefff']]],
+  ['findsynonymes',['findSynonymes',['../classsynonymes_1_1_synonymes.html#aa0cc803aca4798d8bb630a1be78b4383',1,'synonymes.Synonymes.findSynonymes(String mot)'],['../classsynonymes_1_1_synonymes.html#a9465aad2d2b68eaaf9fe0bbccde9b934',1,'synonymes.Synonymes.findSynonymes(String mot, String lang)']]],
+  ['findtokem',['findTokem',['../classtokemisation_1_1_tokemiseur.html#a9aa1bbf145517a2b9b79461d8d831145',1,'tokemisation::Tokemiseur']]]
 ];

@@ -16,7 +16,7 @@ public class Als {
 	}
 	
 	/**
-	 * @brief lance le menue contextuel, et toute les actions relatives aux choix de l'utilisateur
+	 * @brief Lance le menu contextuel, et toute les actions relatives aux choix de l'utilisateur
 	 */
 	public void startProg(){
 		String choix = "";

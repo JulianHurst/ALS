@@ -20,6 +20,10 @@ public class Tokemiseur{
 	
 	public Tokemiseur(){}
 	
+	/**
+	 * @param String path : Le chemin du fichier
+	 * @brief Crée un tokemiseur à partir d'un fichier
+	 */
 	public Tokemiseur(String path){
 		this.path = path;
 		tokemFile();
@@ -42,7 +46,7 @@ public class Tokemiseur{
 	}	
 	
 	/**
-	 * @brief Permet d'ajouter dans l'arbre un mot
+	 * @brief Permet d'ajouter un mot dans l'arbre
 	 * @param line mot à ajouter
 	 */
 	public void createTree(String line){
@@ -95,9 +99,9 @@ public class Tokemiseur{
 	}
 
 	/**
-	 * @brief Permet d'ajouter dans l'arbre un verbe
-	 * @param line Verbe conjugué à ajouté
-	 * @param inf infitif du verbe
+	 * @brief Permet d'ajouter un verbe dans l'arbre
+	 * @param line Verbe conjugué à ajouter
+	 * @param inf L'infinitif du verbe
 	 */
 	public void createVthree(String line, String inf){
 		boolean check = true;
@@ -148,7 +152,7 @@ public class Tokemiseur{
 	}
 	
 	/**
-	* @param String s mot à chercher
+	* @param String s : mot à chercher
 	* @return String le numero du tokem, si il esxite pas il renvoie un String contenant "-1"
 	* @brief cherche si le tokem est dans l'arbre lexical et retourne le numero de celui ci
 	**/

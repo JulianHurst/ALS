@@ -7,10 +7,11 @@ JV = java
 
 CLASSES = \
 	*.java\
-	./affichage/*.java\
-	./tokemisation/*.java\
-	./lemmatiseur/*.java\
-	synonymes/*.java
+	affichage/*.java\
+	tokemisation/*.java\
+	lemmatiseur/*.java\
+	synonymes/*.java\
+	listelemm/*.java
 
 default: classes
 
@@ -18,10 +19,11 @@ classes: $(CLASSES:.java=.class)
 
 clean:
 	$(RM) *.class
-	$(RM) ./tokemisation/*.class
-	$(RM) ./affichage/*.class
-	$(RM) ./lemmatiseur/*.class
+	$(RM) tokemisation/*.class
+	$(RM) affichage/*.class
+	$(RM) lemmatiseur/*.class
 	$(RM) synonymes/*.class
+	$(RM) listelemm/*.class
 
 tokem: 
 	$(JV) TestTokem 

@@ -3,18 +3,36 @@
 \subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-{\bfseries Tokemiseur} (String path)\hypertarget{classtokemisation_1_1_tokemiseur_a0bedd0f61434a9597b87c674a52af8bf}{}\label{classtokemisation_1_1_tokemiseur_a0bedd0f61434a9597b87c674a52af8bf}
-
-\item 
+\hyperlink{classtokemisation_1_1_tokemiseur_a0bedd0f61434a9597b87c674a52af8bf}{Tokemiseur} (String path)
+\begin{DoxyCompactList}\small\item\em Crée un tokemiseur à partir d\textquotesingle{}un fichier. \end{DoxyCompactList}\item 
 void \hyperlink{classtokemisation_1_1_tokemiseur_a1036e3bd17f10ac37b00142119495307}{tokem\+File} ()\hypertarget{classtokemisation_1_1_tokemiseur_a1036e3bd17f10ac37b00142119495307}{}\label{classtokemisation_1_1_tokemiseur_a1036e3bd17f10ac37b00142119495307}
 
 \begin{DoxyCompactList}\small\item\em Lancement de la tokemisation. \end{DoxyCompactList}\item 
 void \hyperlink{classtokemisation_1_1_tokemiseur_a9af268b22fd743447b689a27e0b0db3a}{create\+Tree} (String line)
-\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}ajouter dans l\textquotesingle{}arbre un mot. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}ajouter un mot dans l\textquotesingle{}arbre. \end{DoxyCompactList}\item 
 void \hyperlink{classtokemisation_1_1_tokemiseur_ae932be66d27c705438bb7e07036c2f52}{create\+Vthree} (String line, String inf)
-\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}ajouter dans l\textquotesingle{}arbre un verbe. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}ajouter un verbe dans l\textquotesingle{}arbre. \end{DoxyCompactList}\item 
 String \hyperlink{classtokemisation_1_1_tokemiseur_a9aa1bbf145517a2b9b79461d8d831145}{find\+Tokem} (String s)
 \begin{DoxyCompactList}\small\item\em cherche si le tokem est dans l\textquotesingle{}arbre lexical et retourne le numero de celui ci \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Documentation des constructeurs et destructeur}
+\index{tokemisation\+::\+Tokemiseur@{tokemisation\+::\+Tokemiseur}!Tokemiseur@{Tokemiseur}}
+\index{Tokemiseur@{Tokemiseur}!tokemisation\+::\+Tokemiseur@{tokemisation\+::\+Tokemiseur}}
+\subsubsection[{\texorpdfstring{Tokemiseur(\+String path)}{Tokemiseur(String path)}}]{\setlength{\rightskip}{0pt plus 5cm}tokemisation.\+Tokemiseur.\+Tokemiseur (
+\begin{DoxyParamCaption}
+\item[{String}]{path}
+\end{DoxyParamCaption}
+)}\hypertarget{classtokemisation_1_1_tokemiseur_a0bedd0f61434a9597b87c674a52af8bf}{}\label{classtokemisation_1_1_tokemiseur_a0bedd0f61434a9597b87c674a52af8bf}
+
+
+Crée un tokemiseur à partir d\textquotesingle{}un fichier. 
+
+
+\begin{DoxyParams}{Paramètres}
+{\em String} & path \+: Le chemin du fichier \\
+\hline
+\end{DoxyParams}
 
 
 \subsection{Documentation des fonctions membres}
@@ -27,7 +45,7 @@ String \hyperlink{classtokemisation_1_1_tokemiseur_a9aa1bbf145517a2b9b79461d8d83
 )}\hypertarget{classtokemisation_1_1_tokemiseur_a9af268b22fd743447b689a27e0b0db3a}{}\label{classtokemisation_1_1_tokemiseur_a9af268b22fd743447b689a27e0b0db3a}
 
 
-Permet d\textquotesingle{}ajouter dans l\textquotesingle{}arbre un mot. 
+Permet d\textquotesingle{}ajouter un mot dans l\textquotesingle{}arbre. 
 
 
 \begin{DoxyParams}{Paramètres}
@@ -44,13 +62,13 @@ Permet d\textquotesingle{}ajouter dans l\textquotesingle{}arbre un mot.
 )}\hypertarget{classtokemisation_1_1_tokemiseur_ae932be66d27c705438bb7e07036c2f52}{}\label{classtokemisation_1_1_tokemiseur_ae932be66d27c705438bb7e07036c2f52}
 
 
-Permet d\textquotesingle{}ajouter dans l\textquotesingle{}arbre un verbe. 
+Permet d\textquotesingle{}ajouter un verbe dans l\textquotesingle{}arbre. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em line} & Verbe conjugué à ajouté \\
+{\em line} & Verbe conjugué à ajouter \\
 \hline
-{\em inf} & infitif du verbe \\
+{\em inf} & L\textquotesingle{}infinitif du verbe \\
 \hline
 \end{DoxyParams}
 \index{tokemisation\+::\+Tokemiseur@{tokemisation\+::\+Tokemiseur}!find\+Tokem@{find\+Tokem}}
@@ -66,7 +84,7 @@ cherche si le tokem est dans l\textquotesingle{}arbre lexical et retourne le num
 
 
 \begin{DoxyParams}{Paramètres}
-{\em String} & s mot à chercher \\
+{\em String} & s \+: mot à chercher \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}

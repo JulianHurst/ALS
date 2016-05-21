@@ -1,10 +1,12 @@
 var searchData=
 [
-  ['tokemfile',['tokemFile',['../classtokemisation_1_1_tokemiseur.html#a1036e3bd17f10ac37b00142119495307',1,'tokemisation::Tokemiseur']]],
-  ['traiteadj',['traiteAdj',['../classlemmatiseur_1_1_lefff.html#a960e92d433f0ebf28b7d26fc35412547',1,'lemmatiseur::Lefff']]],
-  ['traitenetadj',['traiteNetAdj',['../classlemmatiseur_1_1_lefff.html#a7772cc31ac1855fdf7080b886b23e393',1,'lemmatiseur::Lefff']]],
-  ['traitenoms',['traiteNoms',['../classlemmatiseur_1_1_lefff.html#a40ef9d9224922b3b85a77ab00ec3ae11',1,'lemmatiseur::Lefff']]],
-  ['traitenomsp',['traiteNomsP',['../classlemmatiseur_1_1_lefff.html#a804181727af6d5191723cdd912bfe4e5',1,'lemmatiseur::Lefff']]],
-  ['traitetexte',['traiteTexte',['../classlemmatiseur_1_1_lefff.html#a891e9578b68da3429b50ae8790b15ae5',1,'lemmatiseur::Lefff']]],
-  ['traiteverbe',['traiteVerbe',['../classlemmatiseur_1_1_lefff.html#a5e2d391b8f53b44d5f5b29ed88e91cb4',1,'lemmatiseur::Lefff']]]
+  ['setadj',['setAdj',['../classsynonymes_1_1_synonymes.html#a47bb0876ea68747adc3f6d6435f805f3',1,'synonymes::Synonymes']]],
+  ['setarray',['setArray',['../classlistelemm_1_1_liste_lemm.html#a2aa2d1c9d0e5c192cfad16764afaf51c',1,'listelemm::ListeLemm']]],
+  ['setlang',['setLang',['../classsynonymes_1_1_synonymes.html#aac6ad3658b8cd4e6b1f38c807b71db42',1,'synonymes::Synonymes']]],
+  ['setlemm',['setLemm',['../classlistelemm_1_1_liste_lemm.html#a221583b199fa193fcb0611db00992989',1,'listelemm::ListeLemm']]],
+  ['startprog',['startProg',['../classaffichage_1_1_als.html#a31c2063eab5cb1b14270f2abfc86b998',1,'affichage::Als']]],
+  ['supprexpneutre',['supprExpNeutre',['../classlemmatiseur_1_1_lefff.html#aefe143c79c4a9d5b47d7e0737a08b53b',1,'lemmatiseur::Lefff']]],
+  ['supproutils',['supprOutils',['../classlemmatiseur_1_1_lefff.html#acb0f198179d03c9dfdf1fe42ed73d867',1,'lemmatiseur::Lefff']]],
+  ['supprponctuation',['supprPonctuation',['../classlemmatiseur_1_1_lefff.html#a74b4ed0aa991795fe7850cf1180205d6',1,'lemmatiseur::Lefff']]],
+  ['synonymes',['Synonymes',['../classsynonymes_1_1_synonymes.html#a3e2d27070b4226a6d9dd2557353c3865',1,'synonymes.Synonymes.Synonymes(String lang)'],['../classsynonymes_1_1_synonymes.html#a2a0f489421e0de3f6f6efc5d9ae9234d',1,'synonymes.Synonymes.Synonymes()']]]
 ];

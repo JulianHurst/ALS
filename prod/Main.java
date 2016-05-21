@@ -1,7 +1,4 @@
 import affichage.*;
-import tokemisation.*;
-import synonymes.*;
-import java.util.ArrayList;
 
 public class Main {
 

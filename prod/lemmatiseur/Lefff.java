@@ -4,6 +4,7 @@ import java.io.*;
 import java.lang.*;
 import java.util.*;
 import tokemisation.*;
+import listelemm.*;
 
 /**
  * @brief Permet d'effectuer la lemmatisation d'un texte.
@@ -13,11 +14,11 @@ public class Lefff {
 	String separator = ""+(char)9;
 	String path;
 	ArrayList<String> listExp = new ArrayList<String>();
-	Tokemiseur arbreVerbe;
-	Tokemiseur arbreOutil;
+	Tokemiseur arbreVerbe;	
 	Tokemiseur arbreNomsP;
 	Tokemiseur arbreNoms;
 	Tokemiseur arbreAdj;
+	ListeLemmWrapper Outils;
 
 
 	/**
@@ -25,11 +26,11 @@ public class Lefff {
 	 * @param path chemin d'accés du texte à traiter
 	 */
 	public Lefff(String path){
-		arbreVerbe = new Tokemiseur();
-		arbreOutil = new Tokemiseur();
+		arbreVerbe = new Tokemiseur();		
 		arbreNomsP = new Tokemiseur();
 		arbreNoms = new Tokemiseur();
 		arbreAdj = new Tokemiseur();
+		Outils = new ListeLemmWrapper();
 		this.path = path;
 		readLefff();
 		readOutil("./res/outils.txt");
@@ -70,7 +71,7 @@ public class Lefff {
 	 */
 	public void readOutil(String path){
 		String[] cLine;
-		String separator = ""+(char)9;
+		String separator = "\t";
 		String current = "";
 
 		try{
@@ -78,9 +79,9 @@ public class Lefff {
 			BufferedReader txt = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF8"));
 			String line;
 			while ((line = txt.readLine()) != null){
-				cLine = line.split(separator);
-				arbreOutil.createVthree(cLine[0], cLine[1]);
-			}
+				cLine = line.split(separator);				
+				Outils.add(cLine[0], cLine[1]);
+			}			
 		}
 		catch(Exception e){e.printStackTrace();}
 	}
@@ -139,8 +140,7 @@ public class Lefff {
 		String[] sdSplit;
 		exp = findExp(oldTexte);
 		String[] split = exp.split(" ");
-		String infinitif;
-		String outils;
+		String infinitif;		
 				
 		for(int i = 0; i < split.length; i++){
 			//cas particulier ' avant le verbe
@@ -157,13 +157,12 @@ public class Lefff {
 				tmpWord = split[i];			
 			infinitif = arbreVerbe.findTokem(tmpWord);
 			//Vérifie qu'il y est un infinitif
-			if(infinitif != null && i!=0){
-				outils = arbreOutil.findTokem(split[i-1]);
+			if(infinitif != null){				
 				//Vérifie qu'il n'est pas précédé d'un article indéfinie								
-				if(outils==null || (!outils.equals("ad") && !outils.equals("ai") && !outils.equals("ac"))){						
+				if(i==0 || (!Outils.find("ad").getArray().contains(split[i-1]) && !Outils.find("ai").getArray().contains(split[i-1]) && !Outils.find("ac").getArray().contains(split[i-1]))){						
 					split[i] = split[i].replaceFirst(tmpWord, infinitif);
 				}				
-			}
+			}			
 		}
 		for(int i = 0; i < split.length; i++){
 			newText += split[i]+" ";
@@ -285,6 +284,8 @@ public class Lefff {
 		txt = supprOutils(txt);		
 		System.out.println("Traitement des noms et adjectifs");
         txt=traiteNetAdj(txt);
+        txt=txt.replaceAll("[a-z]*’","");
+        txt=txt.replaceAll("[a-z]*'","");
 		/*txt = traiteNomsP(txt);
 		System.out.println("Traitement des Noms Communs");
 		txt = traiteNoms(txt);
@@ -341,8 +342,7 @@ public class Lefff {
 		txt=txt.replaceAll("\\(","");
 		txt=txt.replaceAll("\\)","");
 		
-		//Peut être remplacer cette ligne par une liste de mots inutiles supplémentaire à enlever
-		//txt=txt.replaceAll("[a-z]*’","");
+		//Peut être une liste de mots inutiles supplémentaire à enlever		
 		
 		txt=txt.replaceAll("…","");
 		txt=txt.replaceAll("\"","");
@@ -356,16 +356,15 @@ public class Lefff {
 	 * @return Le texte traité
 	 * @brief Supprime les mots outils
 	 */
-	public String supprOutils(String txt){		
-		String newTexte=txt;		
-		String mots[];				
-		mots=txt.split(" ");
-		for(String i : mots){				
-			if(arbreOutil.findTokem(i)!=null)				
-				newTexte=newTexte.replaceFirst("( "+i+"$|^"+i+" | "+i+" )"," ");
-		}		
-		return newTexte;	
-	}
+	 public String supprOutils(String txt){	
+		 String newTexte=txt;
+		 for(ListeLemm i : Outils.getArray())
+			for(String j : i.getArray()){				
+				newTexte=newTexte.replaceAll(" "+j+" "," ");
+				newTexte=newTexte.replaceAll("(^"+j+" | "+j+"$)","");
+			}
+		return newTexte;
+	}				 
 	
 	/**
 	 * @brief ouvre un texte, et le stock dans un String
@@ -388,7 +387,11 @@ public class Lefff {
 		}
 		return texte;
 	}
-
+	
+	/**
+	 * @return Le tokemiseur des adjectifs
+	 * @brief Renvoie l'arbre des adjectifs
+	 */
     public Tokemiseur getAdj(){
         return arbreAdj;
     }

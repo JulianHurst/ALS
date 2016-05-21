@@ -33,8 +33,7 @@ import tokemisation.Tokemiseur;
 import java.lang.Math;
 
 /**
- * @author juju
- * @version 1.0
+ * @author Julian Hurst 
  * @brief Permet de classifier un mot, selon ses synonymes, dans la Série A ou la Série B.
  */
 public class Synonymes {
@@ -151,7 +150,8 @@ public class Synonymes {
 			else
 				serie=false;
             sum=Math.abs(sum);            
-            percent = (float)sum/(A+B);                                 
+            percent = (float)sum/(A+B);
+            System.out.println("Pourcentage de différences : "+(int)(percent*100)+"\n");                                 
             File file;
             if(percent>0.20){
 				if(serie){
@@ -171,8 +171,7 @@ public class Synonymes {
 			    writer.close();
             }
 			else
-				System.out.println(mot+" est neutre");
-			System.out.println("Pourcentage de différences : "+(int)(percent*100)+"\n");   
+				System.out.println(mot+" est neutre");			  
 		} catch (IOException ex) {
 			Logger.getLogger(Synonymes.class.getName()).log(Level.SEVERE, null, ex);
 		}
