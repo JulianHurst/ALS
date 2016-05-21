@@ -13,7 +13,7 @@ void \hyperlink{classtokemisation_1_1_tokemiseur_a9af268b22fd743447b689a27e0b0db
 void \hyperlink{classtokemisation_1_1_tokemiseur_ae932be66d27c705438bb7e07036c2f52}{create\+Vthree} (String line, String inf)
 \begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}ajouter un verbe dans l\textquotesingle{}arbre. \end{DoxyCompactList}\item 
 String \hyperlink{classtokemisation_1_1_tokemiseur_a9aa1bbf145517a2b9b79461d8d831145}{find\+Tokem} (String s)
-\begin{DoxyCompactList}\small\item\em cherche si le tokem est dans l\textquotesingle{}arbre lexical et retourne le numero de celui ci \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Cherche si le tokem est dans l\textquotesingle{}arbre lexical. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Documentation des constructeurs et destructeur}
@@ -80,15 +80,15 @@ Permet d\textquotesingle{}ajouter un verbe dans l\textquotesingle{}arbre.
 )}\hypertarget{classtokemisation_1_1_tokemiseur_a9aa1bbf145517a2b9b79461d8d831145}{}\label{classtokemisation_1_1_tokemiseur_a9aa1bbf145517a2b9b79461d8d831145}
 
 
-cherche si le tokem est dans l\textquotesingle{}arbre lexical et retourne le numero de celui ci 
+Cherche si le tokem est dans l\textquotesingle{}arbre lexical. 
 
 
 \begin{DoxyParams}{Paramètres}
-{\em String} & s \+: mot à chercher \\
+{\em String} & s \+: Mot à chercher \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Renvoie}
-String le numero du tokem, si il esxite pas il renvoie un String contenant \char`\"{}-\/1\char`\"{} 
+String \+: Le mot de fin ou forme lemmatisé du tokemiseur, si il n\textquotesingle{}existe pas la méthode renvoie null 
 \end{DoxyReturn}
 
 

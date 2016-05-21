@@ -152,9 +152,9 @@ public class Tokemiseur{
 	}
 	
 	/**
-	* @param String s : mot à chercher
-	* @return String le numero du tokem, si il esxite pas il renvoie un String contenant "-1"
-	* @brief cherche si le tokem est dans l'arbre lexical et retourne le numero de celui ci
+	* @param String s : Mot à chercher
+	* @return String : Le mot de fin ou forme lemmatisé du tokemiseur, si il n'existe pas la méthode renvoie null
+	* @brief Cherche si le tokem est dans l'arbre lexical
 	**/
 	public String findTokem(String s){
 		int k = 0;
