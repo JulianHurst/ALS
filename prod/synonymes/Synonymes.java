@@ -61,6 +61,7 @@ public class Synonymes {
         
     /**     
      * @param mot 
+     * @return true si le mot est un adjectif et comporte des synonymes, false sinon.
      * @brief Retrouve les synonymes d'un mot grâce à l'API de thesaurus.altervista.org et les stocke dans la liste de synonymes S.
      */
     public boolean findSynonymes(String mot){

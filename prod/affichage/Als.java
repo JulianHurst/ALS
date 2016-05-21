@@ -23,8 +23,8 @@ public class Als {
 		System.out.println("Préparation du lemmatiseur");
 		Lefff l1 = new Lefff("./res/fplm.fr.txt");
         Synonymes S=new Synonymes();
-        Tokemiseur A = new Tokemiseur("res/serieA");
-        Tokemiseur B = new Tokemiseur("res/serieB");
+        Tokemiseur A = new Tokemiseur("res/serieA.txt");
+        Tokemiseur B = new Tokemiseur("res/serieB.txt");
         S.setAdj(l1.getAdj());
 		while(!choix.equals("quit")){
 			System.out.println("Action suivante : ");
