@@ -151,15 +151,15 @@ public class Synonymes {
 				serie=false;
             sum=Math.abs(sum);            
             percent = (float)sum/(A+B);
-            System.out.println("Pourcentage de différences : "+(int)(percent*100)+"\n");                                 
+            System.out.println("Pourcentage de différences : "+(int)(percent*100));                                 
             File file;
             if(percent>0.20){
 				if(serie){
-					System.out.println(mot+" appartient à la série A");
+					System.out.println(mot+" appartient à la série A\n");
 					file = new File("res/serieA_maj.txt");
 				}
 				else{
-					System.out.println(mot+" appartient à la série B");
+					System.out.println(mot+" appartient à la série B\n");
 					file = new File("res/serieB_maj.txt");					
 				}		
 				                                 			
@@ -171,7 +171,7 @@ public class Synonymes {
 			    writer.close();
             }
 			else
-				System.out.println(mot+" est neutre");			  
+				System.out.println(mot+" est neutre\n");			  
 		} catch (IOException ex) {
 			Logger.getLogger(Synonymes.class.getName()).log(Level.SEVERE, null, ex);
 		}
