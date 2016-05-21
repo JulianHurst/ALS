@@ -1,2 +1,2 @@
 Dossier de production.
-Contient le projet finale.
+Contient le projet final.
