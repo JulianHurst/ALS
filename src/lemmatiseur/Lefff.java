@@ -280,12 +280,13 @@ public class Lefff {
 		txt = traiteVerbe(txt);		
 		System.out.println("Traitement des expressions figées neutres");
 		txt = supprExpNeutre(txt);		
+		
+		txt=txt.replaceAll("[a-z]*’","");
+        txt=txt.replaceAll("[a-z]*'","");
 		System.out.println("Traitement des mots outils");
 		txt = supprOutils(txt);		
 		System.out.println("Traitement des noms et adjectifs");
-        txt=traiteNetAdj(txt);
-        txt=txt.replaceAll("[a-z]*’","");
-        txt=txt.replaceAll("[a-z]*'","");
+        txt=traiteNetAdj(txt);        
 		/*txt = traiteNomsP(txt);
 		System.out.println("Traitement des Noms Communs");
 		txt = traiteNoms(txt);
