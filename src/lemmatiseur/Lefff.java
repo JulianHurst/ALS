@@ -54,8 +54,10 @@ public class Lefff {
 				if(cLine[1].equalsIgnoreCase("v") || cLine[3].contains("K##") || cLine[1].equalsIgnoreCase("vprespart")){
 					arbreVerbe.createVthree(cLine[0], cLine[2]);
 				}
-				else if(cLine[1].equalsIgnoreCase("np"))
-					arbreNomsP.createVthree(cLine[0].toLowerCase(),cLine[2].toLowerCase());
+				else if(cLine[1].equalsIgnoreCase("np")){
+					//arbreNomsP.createVthree(cLine[0].toLowerCase(),cLine[2].toLowerCase());
+					arbreNomsP.createVthree(cLine[0],cLine[2]);
+				}
 				else if(cLine[1].equalsIgnoreCase("nc"))
 					arbreNoms.createVthree(cLine[0],cLine[2]);
 				else if(cLine[1].equalsIgnoreCase("adj"))
@@ -237,8 +239,10 @@ public class Lefff {
         String lemmatise;
         mots=oldTexte.split(" ");
         for(String i : mots){
-            if((lemmatise=arbreNomsP.findTokem(i))!=null || (lemmatise=arbreNoms.findTokem(i))!=null || (lemmatise=arbreAdj.findTokem(i))!=null){
-				System.out.println("mot : "+i+" lemm : "+lemmatise);
+			System.out.println("mot : "+i);
+			if(i.equals("heures"))
+				System.out.println(arbreNoms.findTokem(i));
+            if((lemmatise=arbreNomsP.findTokem(i,false))!=null || (lemmatise=arbreNoms.findTokem(i))!=null || (lemmatise=arbreAdj.findTokem(i))!=null){				
                 newText=newText.replaceFirst(i,lemmatise);                
 			}
         }
@@ -274,7 +278,7 @@ public class Lefff {
 		}		
 		System.out.println("ouverture du texte");
 		txt = openTexte(p);
-		txt=txt.toLowerCase();
+		//txt=txt.toLowerCase();
 		System.out.println("Suppression de la ponctuation");
 		txt=supprPonctuation(txt);		
 		System.out.println("Traitement des verbes");		
@@ -282,8 +286,8 @@ public class Lefff {
 		System.out.println("Traitement des expressions figées neutres");
 		txt = supprExpNeutre(txt);		
 		
-		txt=txt.replaceAll("[a-z]*’","");
-        txt=txt.replaceAll("[a-z]*'","");
+		txt=txt.replaceAll("([A-Z]|[a-z])*’","");
+        txt=txt.replaceAll("([A-Z]|[a-z])*'","");        
 		System.out.println("Traitement des mots outils");
 		txt = supprOutils(txt);		
 		System.out.println("Traitement des noms et adjectifs");

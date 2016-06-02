@@ -163,13 +163,14 @@ public class Tokemiseur{
 		
 		//Boucle infinie cassé par un return
 		while(check){
-			//Vérifie si le caractère courant de l'arbre est le même que celui du mot, si c'est le cas, incrémentation de k, et décallage du pointeur			
-			if(k < s.length() && lc.getChar() == s.charAt(k)){
+			if(k < s.length() && lc.getChar() == Character.toLowerCase(s.charAt(k))){
 				lc = lc.getFils();
 				k++;
 			}
 			//sinon cherche le prochain frère identique
-			else if(k < s.length() && lc.getChar() != s.charAt(k) && lc.getFrere() != null){
+			else if(k < s.length() && lc.getChar() != Character.toLowerCase(s.charAt(k)) && lc.getFrere() != null){
+				/*if(s.equals("heures"))
+					System.out.println(Character.toLowerCase(lc.getChar())+" "+Character.toLowerCase(s.charAt(k)));*/
 				lc = lc.getFrere();
 			}
 			//sinon si k atteint sa valeur max et que le pointeur est sur l'infinitif alors retourner l'infinitif
@@ -189,6 +190,74 @@ public class Tokemiseur{
 			//En cas d'échec renvoie -1
 			else{
 				return null;
+			}
+		}
+		return null;
+	}
+	
+	public String findTokem(String s, boolean ignorecase){
+		int k = 0;
+		boolean check = true;
+		lc = lcb;
+		
+		//Boucle infinie cassé par un return
+		while(check){
+			//Vérifie si le caractère courant de l'arbre est le même que celui du mot, si c'est le cas, incrémentation de k, et décallage du pointeur	
+			if(ignorecase){
+				if(k < s.length() && lc.getChar() == Character.toLowerCase(s.charAt(k))){
+					lc = lc.getFils();
+					k++;
+				}
+				//sinon cherche le prochain frère identique
+				else if(k < s.length() && lc.getChar() != Character.toLowerCase(s.charAt(k)) && lc.getFrere() != null){
+					lc = lc.getFrere();
+				}
+				//sinon si k atteint sa valeur max et que le pointeur est sur l'infinitif alors retourner l'infinitif
+				else if(k == s.length() && lc.getFinal() != null){
+					return lc.getFinal();
+				}
+				//Sinon chercher dans les frères l'infinitif
+				else if(k == s.length() && lc.getFinal() == null){
+					while (lc.getFinal() == null && lc.getFrere() != null){
+						lc = lc.getFrere();
+					}
+					if(lc.getFinal() != null)
+						return lc.getFinal();
+					else
+						return null;
+				}
+				//En cas d'échec renvoie -1
+				else{
+					return null;
+				}			
+			}
+			else{
+				if(k < s.length() && lc.getChar() == s.charAt(k)){
+					lc = lc.getFils();
+					k++;
+				}
+				//sinon cherche le prochain frère identique
+				else if(k < s.length() && lc.getChar() != s.charAt(k) && lc.getFrere() != null){
+					lc = lc.getFrere();
+				}
+				//sinon si k atteint sa valeur max et que le pointeur est sur l'infinitif alors retourner l'infinitif
+				else if(k == s.length() && lc.getFinal() != null){
+					return lc.getFinal();
+				}
+				//Sinon chercher dans les frères l'infinitif
+				else if(k == s.length() && lc.getFinal() == null){
+					while (lc.getFinal() == null && lc.getFrere() != null){
+						lc = lc.getFrere();
+					}
+					if(lc.getFinal() != null)
+						return lc.getFinal();
+					else
+						return null;
+				}
+				//En cas d'échec renvoie -1
+				else{
+					return null;
+				}
 			}
 		}
 		return null;
