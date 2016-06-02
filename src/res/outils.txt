@@ -64,3 +64,4 @@ ne plus	n
 ne jamais	n
 ne rien	n
 ne personne	n
+de	prp

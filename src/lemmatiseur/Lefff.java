@@ -217,8 +217,8 @@ public class Lefff {
 		String mots[];
 		String lemmatise;
 		mots=oldTexte.split(" ");
-		for(String i : mots){			
-			if((lemmatise=arbreAdj.findTokem(i))!=null){
+		for(String i : mots){						
+			if((lemmatise=arbreAdj.findTokem(i))!=null){				
 				newText=newText.replaceFirst(i,lemmatise);				
 			}
 			
@@ -238,6 +238,7 @@ public class Lefff {
         mots=oldTexte.split(" ");
         for(String i : mots){
             if((lemmatise=arbreNomsP.findTokem(i))!=null || (lemmatise=arbreNoms.findTokem(i))!=null || (lemmatise=arbreAdj.findTokem(i))!=null){
+				System.out.println("mot : "+i+" lemm : "+lemmatise);
                 newText=newText.replaceFirst(i,lemmatise);                
 			}
         }
