@@ -38,7 +38,6 @@ public class Als {
 					System.out.println("sinon, entrez le chemin d'accès du texte à  étudier");
 					option = new Scanner(System.in);
 					choix = option.nextLine();
-
 					if(choix.equals("1")){
 						//System.out.println("nouveau texte : "+l1.traiteTexte(choixTexte()));
 						//Suppression de la ponctuation et classification des mots du textes grÃ¢ce Ã  leurs synonymes						
@@ -47,8 +46,11 @@ public class Als {
                         S.classifierTableau(ntxt.split(" "),A,B);
                         					                        
 					}
-					else
-						System.out.println("nouveau texte : "+l1.traiteTexte(choix));
+					else{
+						String ntxt = l1.traiteTexte(choix);						
+						System.out.println("texte lemmatisé : "+ntxt);						
+                        S.classifierTableau(ntxt.split(" "),A,B);
+					}
 					break;
 			}
 			if(texte!=null && texte.equals("Echec de l'ouverture"))

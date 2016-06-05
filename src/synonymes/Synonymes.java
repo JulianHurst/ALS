@@ -152,7 +152,7 @@ public class Synonymes {
 				serie=false;
             sum=Math.abs(sum);            
             percent = (float)sum/(A+B);
-            System.out.println("Pourcentage de différences : "+(int)(percent*100));                                 
+            System.out.println("Pourcentage de différences : "+(int)(percent*100)+"%");                                 
             File file;
             if(percent>0.20){
 				if(serie){
