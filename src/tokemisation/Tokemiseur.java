@@ -153,8 +153,8 @@ public class Tokemiseur{
 	
 	/**
 	* @param String s : Mot à chercher
-	* @return String : Le mot de fin ou forme lemmatisé du tokemiseur, si il n'existe pas la méthode renvoie null
-	* @brief Cherche si le tokem est dans l'arbre lexical
+	* @return String : Le mot de fin ou forme lemmatisée du tokemiseur, si il n'existe pas la méthode renvoie null
+	* @brief Cherche si le tokem est dans l'arbre lexical (ignore par défaut la casse)
 	**/
 	public String findTokem(String s){
 		int k = 0;
@@ -195,6 +195,12 @@ public class Tokemiseur{
 		return null;
 	}
 	
+	/**
+	* @param String s : Mot à chercher
+	* @param boolean ignorecase : Permet de spécifier si on veut ignorer la casse ou non
+	* @return String : Le mot de fin ou forme lemmatisée du tokemiseur, si il n'existe pas la méthode renvoie null
+	* @brief Cherche si le tokem est dans l'arbre lexical
+	**/
 	public String findTokem(String s, boolean ignorecase){
 		int k = 0;
 		boolean check = true;

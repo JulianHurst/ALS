@@ -1,11 +1,11 @@
-\hypertarget{classlemmatiseur_1_1_lefff}{}\section{Référence de la classe lemmatiseur.\+Lefff}
+\hypertarget{classlemmatiseur_1_1_lefff}{}\section{lemmatiseur.\+Lefff Class Reference}
 \label{classlemmatiseur_1_1_lefff}\index{lemmatiseur.\+Lefff@{lemmatiseur.\+Lefff}}
 
 
 Permet d\textquotesingle{}effectuer la lemmatisation d\textquotesingle{}un texte.  
 
 
-\subsection*{Fonctions membres publiques}
+\subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classlemmatiseur_1_1_lefff_a52a0d72ac29d959c1f44152a6a748bcf}{Lefff} (String path)
@@ -45,10 +45,10 @@ String \hyperlink{classlemmatiseur_1_1_lefff_a0246160e048988e6b027facca5cc4400}{
 \begin{DoxyCompactList}\small\item\em Renvoie l\textquotesingle{}arbre des adjectifs. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Description détaillée}
+\subsection{Detailed Description}
 Permet d\textquotesingle{}effectuer la lemmatisation d\textquotesingle{}un texte. 
 
-\subsection{Documentation des constructeurs et destructeur}
+\subsection{Constructor \& Destructor Documentation}
 \index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!Lefff@{Lefff}}
 \index{Lefff@{Lefff}!lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}}
 \subsubsection[{\texorpdfstring{Lefff(\+String path)}{Lefff(String path)}}]{\setlength{\rightskip}{0pt plus 5cm}lemmatiseur.\+Lefff.\+Lefff (
@@ -61,13 +61,13 @@ Permet d\textquotesingle{}effectuer la lemmatisation d\textquotesingle{}un texte
 Constructeur pour le lefff. 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em path} & chemin d\textquotesingle{}accés du texte à traiter \\
 \hline
 \end{DoxyParams}
 
 
-\subsection{Documentation des fonctions membres}
+\subsection{Member Function Documentation}
 \index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!find\+Exp@{find\+Exp}}
 \index{find\+Exp@{find\+Exp}!lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}}
 \subsubsection[{\texorpdfstring{find\+Exp(\+String line)}{findExp(String line)}}]{\setlength{\rightskip}{0pt plus 5cm}String lemmatiseur.\+Lefff.\+find\+Exp (
@@ -80,11 +80,11 @@ Constructeur pour le lefff.
 vérifie si il y a des expressions à ne pas traiter pour la lemmatisation des verbes 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em line} & texte à traiter \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
+\begin{DoxyReturn}{Returns}
 Texte sans les expressions à exclure 
 \end{DoxyReturn}
 \index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!get\+Adj@{get\+Adj}}
@@ -98,7 +98,7 @@ Texte sans les expressions à exclure
 
 Renvoie l\textquotesingle{}arbre des adjectifs. 
 
-\begin{DoxyReturn}{Renvoie}
+\begin{DoxyReturn}{Returns}
 Le tokemiseur des adjectifs 
 \end{DoxyReturn}
 \index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!open\+Texte@{open\+Texte}}
@@ -113,11 +113,11 @@ Le tokemiseur des adjectifs
 ouvre un texte, et le stock dans un String 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em path} & chemin d\textquotesingle{}accès du texte à traiter \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
+\begin{DoxyReturn}{Returns}
 Le texte extrait du fichier texte 
 \end{DoxyReturn}
 \index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!read\+Exp@{read\+Exp}}
@@ -132,7 +132,7 @@ Le texte extrait du fichier texte
 permet de charger une liste d\textquotesingle{}expression 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em path} & \\
 \hline
 \end{DoxyParams}
@@ -148,7 +148,7 @@ permet de charger une liste d\textquotesingle{}expression
 lit et stock dans un arbre de tokemisation la liste des mots outils 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em path} & chemin d\textquotesingle{}accès du fichier texte de mots outils \\
 \hline
 \end{DoxyParams}
@@ -164,11 +164,11 @@ lit et stock dans un arbre de tokemisation la liste des mots outils
 enlève toute les expressions neutres du texte 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em txt} & texte à traiter \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
+\begin{DoxyReturn}{Returns}
 texte traité 
 \end{DoxyReturn}
 \index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!suppr\+Outils@{suppr\+Outils}}
@@ -183,11 +183,11 @@ texte traité
 Supprime les mots outils. 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em txt} & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
+\begin{DoxyReturn}{Returns}
 Le texte traité 
 \end{DoxyReturn}
 \index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!suppr\+Ponctuation@{suppr\+Ponctuation}}
@@ -202,11 +202,11 @@ Le texte traité
 Supprime la ponctuation dans le texte. 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em txt} & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
+\begin{DoxyReturn}{Returns}
 Le texte traité 
 \end{DoxyReturn}
 \index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!traite\+Adj@{traite\+Adj}}
@@ -221,11 +221,11 @@ Le texte traité
 Lemmatise tous les adjectifs. 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em old\+Texte} & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
+\begin{DoxyReturn}{Returns}
 Le texte traité 
 \end{DoxyReturn}
 \index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!traite\+Net\+Adj@{traite\+Net\+Adj}}
@@ -240,11 +240,11 @@ Le texte traité
 Lemmatise tous les noms et adjectifs. 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em old\+Texte} & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
+\begin{DoxyReturn}{Returns}
 Le texte traité 
 \end{DoxyReturn}
 \index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!traite\+Noms@{traite\+Noms}}
@@ -259,11 +259,11 @@ Le texte traité
 Lemmatise tous les noms communs. 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em old\+Texte} & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
+\begin{DoxyReturn}{Returns}
 Le texte traité 
 \end{DoxyReturn}
 \index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!traite\+NomsP@{traite\+NomsP}}
@@ -278,11 +278,11 @@ Le texte traité
 Lemmatise tous les noms propres. 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em old\+Texte} & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
+\begin{DoxyReturn}{Returns}
 Le texte traité 
 \end{DoxyReturn}
 \index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!traite\+Texte@{traite\+Texte}}
@@ -297,11 +297,11 @@ Le texte traité
 permet de traiter un texte 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em p} & path du texte à traiter \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
+\begin{DoxyReturn}{Returns}
 Le texte traité 
 \end{DoxyReturn}
 \index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!traite\+Verbe@{traite\+Verbe}}
@@ -315,11 +315,11 @@ Le texte traité
 
 permet de traiter le texte  traite le texte ce trouvant à l\textquotesingle{}adresse envoyé en paramètre 
 
-\begin{DoxySeeAlso}{Voir également}
+\begin{DoxySeeAlso}{See also}
 \hyperlink{classlemmatiseur_1_1_lefff_a6ebf55fecc00be5f61244df5c4fda22d}{write\+File(\+String txt, String titre)} 
 \end{DoxySeeAlso}
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em String} & path chemin d\textquotesingle{}accès du fichier à traiter \\
 \hline
 \end{DoxyParams}
@@ -336,7 +336,7 @@ permet de traiter le texte  traite le texte ce trouvant à l\textquotesingle{}ad
 Ecrit le nouveau texte dans un fichier. 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em String} & txt nouveau texte à écrire \\
 \hline
 {\em String} & titre titre du fichier crée \\
@@ -344,6 +344,6 @@ Ecrit le nouveau texte dans un fichier.
 \end{DoxyParams}
 
 
-La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
 lemmatiseur/Lefff.\+java\end{DoxyCompactItemize}

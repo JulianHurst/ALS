@@ -1,11 +1,11 @@
-\hypertarget{classsynonymes_1_1_synonymes}{}\section{Référence de la classe synonymes.\+Synonymes}
+\hypertarget{classsynonymes_1_1_synonymes}{}\section{synonymes.\+Synonymes Class Reference}
 \label{classsynonymes_1_1_synonymes}\index{synonymes.\+Synonymes@{synonymes.\+Synonymes}}
 
 
 Permet de classifier un mot, selon ses synonymes, dans la Série A ou la Série B.  
 
 
-\subsection*{Fonctions membres publiques}
+\subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
 \hyperlink{classsynonymes_1_1_synonymes_a3e2d27070b4226a6d9dd2557353c3865}{Synonymes} (String lang)
@@ -41,15 +41,15 @@ void \hyperlink{classsynonymes_1_1_synonymes_a47bb0876ea68747adc3f6d6435f805f3}{
 \begin{DoxyCompactList}\small\item\em Renvoie l\textquotesingle{}abre des adjectifs. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
-\subsection{Description détaillée}
+\subsection{Detailed Description}
 Permet de classifier un mot, selon ses synonymes, dans la Série A ou la Série B. 
 
-\begin{DoxyAuthor}{Auteur}
+\begin{DoxyAuthor}{Author}
 Julian Hurst 
 \end{DoxyAuthor}
 
 
-\subsection{Documentation des constructeurs et destructeur}
+\subsection{Constructor \& Destructor Documentation}
 \index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!Synonymes@{Synonymes}}
 \index{Synonymes@{Synonymes}!synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}}
 \subsubsection[{\texorpdfstring{Synonymes(\+String lang)}{Synonymes(String lang)}}]{\setlength{\rightskip}{0pt plus 5cm}synonymes.\+Synonymes.\+Synonymes (
@@ -62,13 +62,13 @@ Julian Hurst
 Construit un objet \hyperlink{classsynonymes_1_1_synonymes}{Synonymes} avec une langue spécifique. 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em lang} & \\
 \hline
 \end{DoxyParams}
 
 
-\subsection{Documentation des fonctions membres}
+\subsection{Member Function Documentation}
 \index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!classification@{classification}}
 \index{classification@{classification}!synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}}
 \subsubsection[{\texorpdfstring{classification(\+Tokemiseur Serie\+A, Tokemiseur Serie\+B)}{classification(Tokemiseur SerieA, Tokemiseur SerieB)}}]{\setlength{\rightskip}{0pt plus 5cm}void synonymes.\+Synonymes.\+classification (
@@ -82,7 +82,7 @@ Construit un objet \hyperlink{classsynonymes_1_1_synonymes}{Synonymes} avec une 
 Détermine selon les synonymes trouvés si le mot d\textquotesingle{}origine appartient à la série A ou série B puis l\textquotesingle{}écrit dans un fichier de mise à jour serie\+A\+\_\+maj.\+txt ou serie\+B\+\_\+maj.\+txt. 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em Tokemiseur} & SerieA \\
 \hline
 {\em Tokemiseur} & SerieB \\
@@ -102,7 +102,7 @@ Détermine selon les synonymes trouvés si le mot d\textquotesingle{}origine app
 Permet de déterminer à quelles séries appartiennent tous les mots d\textquotesingle{}une liste. 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em List$<$\+String$>$} & L \\
 \hline
 {\em Tokemiseur} & A \\
@@ -124,7 +124,7 @@ Permet de déterminer à quelles séries appartiennent tous les mots d\textquote
 Détermine si un mot appartient à la série A ou à la série B. 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em mot} & \\
 \hline
 {\em Tokemiseur} & SerieA \\
@@ -146,7 +146,7 @@ Détermine si un mot appartient à la série A ou à la série B.
 Permet de déterminer à quelles séries appartiennent tous les mots d\textquotesingle{}une liste. 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em String\mbox{[}$\,$\mbox{]}} & T \\
 \hline
 {\em Tokemiseur} & A \\
@@ -166,11 +166,11 @@ Permet de déterminer à quelles séries appartiennent tous les mots d\textquote
 Renvoie si le mot a déjà été classifié grâce aux synonymes ou non. 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em mot} & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
+\begin{DoxyReturn}{Returns}
 true si le mot est classifié, false sinon 
 \end{DoxyReturn}
 \index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!find\+Synonymes@{find\+Synonymes}}
@@ -185,11 +185,11 @@ true si le mot est classifié, false sinon
 Retrouve les synonymes d\textquotesingle{}un mot grâce à l\textquotesingle{}A\+PI de thesaurus.\+altervista.\+org et les stocke dans la liste de synonymes S. 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em mot} & \\
 \hline
 \end{DoxyParams}
-\begin{DoxyReturn}{Renvoie}
+\begin{DoxyReturn}{Returns}
 true si le mot est un adjectif et comporte des synonymes, false sinon. 
 \end{DoxyReturn}
 \index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!find\+Synonymes@{find\+Synonymes}}
@@ -205,7 +205,7 @@ true si le mot est un adjectif et comporte des synonymes, false sinon.
 La même chose que \hyperlink{classsynonymes_1_1_synonymes_aa0cc803aca4798d8bb630a1be78b4383}{find\+Synonymes(\+String mot)} mais avec une option de langue. 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em mot} & Le mot pour lequel trouver les synonymes \\
 \hline
 {\em lang} & La langue à utiliser \\
@@ -222,7 +222,7 @@ La même chose que \hyperlink{classsynonymes_1_1_synonymes_aa0cc803aca4798d8bb63
 
 Renvoie l\textquotesingle{}abre des adjectifs. 
 
-\begin{DoxyReturn}{Renvoie}
+\begin{DoxyReturn}{Returns}
 L\textquotesingle{}arbre d\textquotesingle{}adjectifs 
 \end{DoxyReturn}
 \index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!get\+Lang@{get\+Lang}}
@@ -236,7 +236,7 @@ L\textquotesingle{}arbre d\textquotesingle{}adjectifs
 
 Renvoie la langue actuelle. 
 
-\begin{DoxyReturn}{Renvoie}
+\begin{DoxyReturn}{Returns}
 
 \end{DoxyReturn}
 \index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!get\+Mot@{get\+Mot}}
@@ -250,7 +250,7 @@ Renvoie la langue actuelle.
 
 Retourne le mot d\textquotesingle{}origine pour lequel les synonymes ont été trouvés. 
 
-\begin{DoxyReturn}{Renvoie}
+\begin{DoxyReturn}{Returns}
 String 
 \end{DoxyReturn}
 \index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!get\+Synonymes@{get\+Synonymes}}
@@ -264,7 +264,7 @@ String
 
 Renvoie la liste de \hyperlink{classsynonymes_1_1_synonymes}{Synonymes}. 
 
-\begin{DoxyReturn}{Renvoie}
+\begin{DoxyReturn}{Returns}
 S 
 \end{DoxyReturn}
 \index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!set\+Adj@{set\+Adj}}
@@ -279,7 +279,7 @@ S
 Permet de règler l\textquotesingle{}arbre d\textquotesingle{}adjectifs. 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em arbre\+Adj} & \\
 \hline
 \end{DoxyParams}
@@ -295,12 +295,12 @@ Permet de règler l\textquotesingle{}arbre d\textquotesingle{}adjectifs.
 Permet de régler la langue. 
 
 
-\begin{DoxyParams}{Paramètres}
+\begin{DoxyParams}{Parameters}
 {\em lang} & \\
 \hline
 \end{DoxyParams}
 
 
-La documentation de cette classe a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
 synonymes/Synonymes.\+java\end{DoxyCompactItemize}
