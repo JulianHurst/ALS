@@ -5,6 +5,7 @@ import java.lang.*;
 import java.util.*;
 import tokemisation.*;
 import listelemm.*;
+import java.util.regex.Pattern;
 
 /**
  * @brief Permet d'effectuer la lemmatisation d'un texte.
@@ -14,7 +15,7 @@ public class Lefff {
 	String separator = ""+(char)9;
 	String path;
 	ArrayList<String> listExp = new ArrayList<String>();
-	Tokemiseur arbreVerbe;	
+	Tokemiseur arbreVerbe;
 	Tokemiseur arbreNomsP;
 	Tokemiseur arbreNoms;
 	Tokemiseur arbreAdj;
@@ -26,7 +27,7 @@ public class Lefff {
 	 * @param path chemin d'accés du texte à traiter
 	 */
 	public Lefff(String path){
-		arbreVerbe = new Tokemiseur();		
+		arbreVerbe = new Tokemiseur();
 		arbreNomsP = new Tokemiseur();
 		arbreNoms = new Tokemiseur();
 		arbreAdj = new Tokemiseur();
@@ -36,7 +37,7 @@ public class Lefff {
 		readOutil("./res/outils.txt");
 		readExp("./res/exp.txt");
 	}
-	
+
 	/**
 	* @brief Permet la lecture d'un fichier de lefff
 	* @detail Permet de lire un fichier de lefff formaté sous la forme : "abaissé v abaisser" afin de préparer la mise à l'infinitif des verbes.
@@ -51,7 +52,7 @@ public class Lefff {
 			String line;
 			while ((line = txt.readLine()) != null){
 				cLine = line.split(separator);
-				if(cLine[1].equalsIgnoreCase("v") || cLine[3].contains("K##") || cLine[1].equalsIgnoreCase("vprespart")){
+				if(cLine[1].equalsIgnoreCase("v") || cLine[1].equalsIgnoreCase("vinf") || cLine[3].contains("K##") || cLine[1].equalsIgnoreCase("vprespart")){
 					arbreVerbe.createVthree(cLine[0], cLine[2]);
 				}
 				else if(cLine[1].equalsIgnoreCase("np")){
@@ -66,7 +67,7 @@ public class Lefff {
 		}
 		catch(Exception e){e.printStackTrace();}
 	}
-	
+
 	/**
 	 * @brief lit et stock dans un arbre de tokemisation la liste des mots outils
 	 * @param path chemin d'accès du fichier texte de mots outils
@@ -81,13 +82,13 @@ public class Lefff {
 			BufferedReader txt = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF8"));
 			String line;
 			while ((line = txt.readLine()) != null){
-				cLine = line.split(separator);				
+				cLine = line.split(separator);
 				Outils.add(cLine[0], cLine[1]);
-			}			
+			}
 		}
 		catch(Exception e){e.printStackTrace();}
 	}
-	
+
 	/**
 	 * @brief permet de charger une liste d'expression
 	 * @param path
@@ -142,8 +143,8 @@ public class Lefff {
 		String[] sdSplit;
 		exp = findExp(oldTexte);
 		String[] split = exp.split(" ");
-		String infinitif;		
-				
+		String infinitif;
+
 		for(int i = 0; i < split.length; i++){
 			//cas particulier ' avant le verbe
 			if(split[i].contains("'")){
@@ -151,20 +152,20 @@ public class Lefff {
 				tmpWord = sdSplit[1];
 			}
 			//cas particulier - après le verbe
-			else if(split[i].contains("-") && arbreVerbe.findTokem(tmpWord)==null){				
+			else if(split[i].contains("-") && arbreVerbe.findTokem(tmpWord)==null){
 					sdSplit = split[i].split("-");
-					tmpWord = sdSplit[0];							
+					tmpWord = sdSplit[0];
 			}
 			else
-				tmpWord = split[i];			
+				tmpWord = split[i];
 			infinitif = arbreVerbe.findTokem(tmpWord);
-			//Vérifie qu'il y est un infinitif
-			if(infinitif != null){				
-				//Vérifie qu'il n'est pas précédé d'un article indéfinie								
-				if(i==0 || (!Outils.find("ad").getArray().contains(split[i-1]) && !Outils.find("ai").getArray().contains(split[i-1]) && !Outils.find("ac").getArray().contains(split[i-1]))){						
+			//Vérifie qu'il y ait un infinitif
+			if(infinitif != null){
+				//Vérifie qu'il n'est pas précédé d'un article indéfini
+				if(i==0 || (!Outils.find("ad").getArray().contains(split[i-1]) && !Outils.find("ai").getArray().contains(split[i-1]) && !Outils.find("ac").getArray().contains(split[i-1]))){
 					split[i] = split[i].replaceFirst(tmpWord, infinitif);
-				}				
-			}			
+				}
+			}
 		}
 		for(int i = 0; i < split.length; i++){
 			newText += split[i]+" ";
@@ -172,7 +173,7 @@ public class Lefff {
 		newText += "\n";
 		return newText;
 	}
-	
+
 	/**
 	 * @param oldTexte
 	 * @return Le texte traité
@@ -189,7 +190,7 @@ public class Lefff {
 		}
 		return newText;
 	}
-	
+
 	/**
 	 * @param oldTexte
 	 * @return Le texte traité
@@ -200,15 +201,15 @@ public class Lefff {
 		String mots[];
 		String lemmatise;
 		mots=oldTexte.split(" ");
-		for(String i : mots){			
+		for(String i : mots){
 			if((lemmatise=arbreNoms.findTokem(i))!=null){
-				newText=newText.replaceFirst(i,lemmatise);				
+				newText=newText.replaceFirst(i,lemmatise);
 			}
-			
+
 		}
 		return newText;
 	}
-	
+
 	/**
 	 * @param oldTexte
 	 * @return Le texte traité
@@ -219,11 +220,11 @@ public class Lefff {
 		String mots[];
 		String lemmatise;
 		mots=oldTexte.split(" ");
-		for(String i : mots){						
-			if((lemmatise=arbreAdj.findTokem(i))!=null){				
-				newText=newText.replaceFirst(i,lemmatise);				
+		for(String i : mots){
+			if((lemmatise=arbreAdj.findTokem(i))!=null){
+				newText=newText.replaceFirst(i,lemmatise);
 			}
-			
+
 		}
 		return newText;
 	}
@@ -242,8 +243,8 @@ public class Lefff {
 			System.out.println("mot : "+i);
 			if(i.equals("heures"))
 				System.out.println(arbreNoms.findTokem(i));
-            if((lemmatise=arbreNomsP.findTokem(i,false))!=null || (lemmatise=arbreNoms.findTokem(i))!=null || (lemmatise=arbreAdj.findTokem(i))!=null){				
-                newText=newText.replaceFirst(i,lemmatise);                
+            if((lemmatise=arbreNomsP.findTokem(i,false))!=null || (lemmatise=arbreNoms.findTokem(i))!=null || (lemmatise=arbreAdj.findTokem(i))!=null){
+                newText=newText.replaceFirst(i,lemmatise);
 			}
         }
         return newText;
@@ -263,7 +264,7 @@ public class Lefff {
 		}
 		return retour;
 	}
-  
+
 	/**
 	 * @brief permet de traiter un texte
 	 * @param p path du texte à traiter
@@ -275,37 +276,37 @@ public class Lefff {
 		File f = new File(p);
 		if(!f.exists()){
 			return "Echec de l'ouverture";
-		}		
+		}
 		System.out.println("ouverture du texte");
 		txt = openTexte(p);
 		//txt=txt.toLowerCase();
 		System.out.println("Suppression de la ponctuation");
-		txt=supprPonctuation(txt);		
-		System.out.println("Traitement des verbes");		
-		txt = traiteVerbe(txt);		
+		txt=supprPonctuation(txt);
+		System.out.println("Traitement des verbes");
+		txt = traiteVerbe(txt);
 		System.out.println("Traitement des expressions figées neutres");
-		txt = supprExpNeutre(txt);		
-		
+		txt = supprExpNeutre(txt);
+
 		txt=txt.replaceAll("([A-Z]|[a-z])*’","");
-        txt=txt.replaceAll("([A-Z]|[a-z])*'","");        
+        txt=txt.replaceAll("([A-Z]|[a-z])*'","");
 		System.out.println("Traitement des mots outils");
 		txt = supprOutils(txt);		
 		System.out.println("Traitement des noms et adjectifs");
-        txt=traiteNetAdj(txt);        
+        txt=traiteNetAdj(txt);
 		/*txt = traiteNomsP(txt);
 		System.out.println("Traitement des Noms Communs");
 		txt = traiteNoms(txt);
 		System.out.println("Traitement des Adjectifs");
 		txt = traiteAdj(txt);*/
-		
+
 		//Ecriture du fichier texte de sortie
 		String pathSplit[] = path.split("/");
 		String titre = pathSplit[pathSplit.length-1];
 		System.out.println("titre : "+titre);
-		writeFile(txt, titre);		
+		writeFile(txt, titre);
 		return txt;
 	}
-	
+
 	/**
 	 * @brief enlève toute les expressions neutres du texte
 	 * @param txt texte à traiter
@@ -332,7 +333,7 @@ public class Lefff {
 		newTexte=newTexte.replaceAll(" {2,}", " ");
 		return newTexte;
 	}
-	
+
 	/**
 	 * @param txt
 	 * @return Le texte traité
@@ -340,38 +341,38 @@ public class Lefff {
 	 */
 	public String supprPonctuation(String txt){
 		txt=txt.replaceAll(",","");
-		txt=txt.replaceAll("\\.","");						
+		txt=txt.replaceAll("\\.","");
 		txt=txt.replaceAll(";","");
 		txt=txt.replaceAll(":","");
 		txt=txt.replaceAll("!","");
 		txt=txt.replaceAll("\\? ","");
 		txt=txt.replaceAll("\\(","");
 		txt=txt.replaceAll("\\)","");
-		
-		//Peut être une liste de mots inutiles supplémentaire à enlever		
-		
+
+		//Peut être une liste de mots inutiles supplémentaire à enlever
+
 		txt=txt.replaceAll("…","");
 		txt=txt.replaceAll("\"","");
 		txt=txt.replaceAll(" {2,}", " ");
 		txt=txt.replaceAll("(\r\n|\n|\r)","");
 		return txt;
 	}
-	
+
 	/**
 	 * @param txt
 	 * @return Le texte traité
 	 * @brief Supprime les mots outils
 	 */
-	 public String supprOutils(String txt){	
+	 public String supprOutils(String txt){
 		 String newTexte=txt;
 		 for(ListeLemm i : Outils.getArray())
-			for(String j : i.getArray()){				
-				newTexte=newTexte.replaceAll(" "+j+" "," ");
-				newTexte=newTexte.replaceAll("(^"+j+" | "+j+"$)","");
+			for(String j : i.getArray()){
+				newTexte=newTexte.replaceAll("(?i) "+j+" "," ");
+				newTexte=newTexte.replaceAll("(?i)"+"(^"+j+" | "+j+"$)","");
 			}
 		return newTexte;
-	}				 
-	
+	}
+
 	/**
 	 * @brief ouvre un texte, et le stock dans un String
 	 * @param path chemin d'accès du texte à traiter
@@ -393,7 +394,7 @@ public class Lefff {
 		}
 		return texte;
 	}
-	
+
 	/**
 	 * @return Le tokemiseur des adjectifs
 	 * @brief Renvoie l'arbre des adjectifs

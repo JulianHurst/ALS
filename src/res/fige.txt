@@ -1,6 +1,8 @@
 d'abord	neutre	#
 à coup de	neutre	#
+à coups de	neutre	#
 à coup d'	neutre	#
+à coups d'	neutre	#
 au nom de	neutre	#
 au noom d'	neutre	#
 côte-à-côte	neutre	#

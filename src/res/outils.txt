@@ -65,3 +65,5 @@ ne jamais	n
 ne rien	n
 ne personne	n
 de	prp
+être	va
+avoir	va
