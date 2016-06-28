@@ -1,3 +1,3 @@
 #!/bin/bash
-cd ALS/build
+cd ALS-mac
 /Library/Internet\ Plug-Ins/JavaAppletPlugin.plugin/Contents/Home/bin/java -jar ALS.jar
