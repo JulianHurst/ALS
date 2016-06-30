@@ -12,8 +12,20 @@ ce	d
 cet	d
 cette	d
 ces	d
+ça	pd
+ceci	pd 
+cela	pd
+celui	pd
+celle	pd
+ceux	pd
+celles	pd
+celui-ci	pd
+celle-ci	pd
+ceux-ci	pd
+celles-ci	pd
 mon	po
 ton	po
+son	po
 ma	po
 ta	po
 sa	po
@@ -26,8 +38,13 @@ leur	po
 nos	po
 vos	po
 leurs	po
+quel	ai
+quelle	ai
+quels	ai
+quelles	ai
 mais	cc
 ou	cc
+ou bien	cc
 et	cc
 donc	cc
 or	cc
@@ -38,32 +55,112 @@ si	cs
 dès que	cs
 puisque	cs
 lorsque	cs
+quand	cs
 pendant que	cs
 etc	cs
+alors	av
+dès lors	av
+puis	av
+désormais	av
+déjà	av
+ainsi	av
+y	av
+en	av
+ici	av
+là	av
+assez	av
+trop	av
 je	pp
 tu	pp
 il	pp
 elle	pp
+soi	pp
 nous	pp
-vous	pp
+vous	pp.
 ils	pp
 elles	pp
 me	pp
 te	pp
-ce	pp
+se	pp
+moi	pp
+toi	pp
+lui	pp
+moi-même	pp
+toi-même	pp
+lui-même	pp
+elle-même	pp
+soi-même	pp
+nous-mêmes	pp
+vous-mêmes	pp
+eux-mêmes	pp
+elles-mêmes	pp
+-le	pp
+-la	pp
+-les	pp
+-en	pp
 qui	pr
 que	pr
-moi	pr
 dont	pr
 où	pr
+lequel	pr
+lesquels	pr
+laquelle	pr
+lesquelles	pr
 on	pi
 quelqu'un	pi
+quelques uns	pi
+quelques unes	pi
 tout	pip
+toute	pip
+tous	pip
+toutes	pip
+chacun	pip
+chacune	pip
+quelque	pip
+quelques	pip
+un certain	pip
+une certaine	pip
+ne	n
 ne pas	n
 ne plus	n
 ne jamais	n
 ne rien	n
 ne personne	n
+non seulement	n
 de	prp
-être	va
-avoir	va
+à	prp
+jusqu’à	prp
+jusqu’au	prp
+jusqu’aux	prp
+vers	prp
+dans	prp
+en	prp
+par	prp
+pour	prp
+contre	prp
+autour	prp
+auprès de	prp
+pendant	prp
+avec	prp
+comme	prp
+deux	an
+trois	an
+quatre	an
+cinq	an
+six	an
+sept	an
+huit	an
+neuf	an
+dix	an
+premier	an
+deuxième	an
+troisième	an
+quatrième	an
+cinquième	an
+sixième	an
+septième	an
+huitième	an
+neuvième	an
+dixième	an
+avoir	aux
+être	aux
