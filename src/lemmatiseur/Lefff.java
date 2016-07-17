@@ -265,6 +265,22 @@ public class Lefff {
 		return retour;
 	}
 
+    public String gardeAdj(String txt){
+        String newtxt=txt;
+        String test=txt;
+        String mots[];
+        mots=txt.split(" ");
+        for(String i : mots){
+            if(arbreAdj.findTokem(i)==null){
+                newtxt=newtxt.replaceFirst("^"+i+" | "+i+"$","");            
+                if(newtxt.equals(test))
+                    newtxt=newtxt.replaceFirst(" "+i+" "," ");
+            }
+            test=newtxt;
+        }
+        return newtxt;
+    }
+
 	/**
 	 * @brief permet de traiter un texte
 	 * @param p path du texte à traiter
@@ -298,7 +314,7 @@ public class Lefff {
 		txt = traiteNoms(txt);
 		System.out.println("Traitement des Adjectifs");
 		txt = traiteAdj(txt);*/
-
+        txt=gardeAdj(txt);
 		//Ecriture du fichier texte de sortie
 		String pathSplit[] = path.split("/");
 		String titre = pathSplit[pathSplit.length-1];
