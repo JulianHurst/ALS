@@ -31,18 +31,48 @@ String \hyperlink{classlemmatiseur_1_1_lefff_a7772cc31ac1855fdf7080b886b23e393}{
 \begin{DoxyCompactList}\small\item\em Lemmatise tous les noms et adjectifs. \end{DoxyCompactList}\item 
 String \hyperlink{classlemmatiseur_1_1_lefff_abf6050c2918c16ed1f6372bf53c635e6}{find\+Exp} (String line)
 \begin{DoxyCompactList}\small\item\em vérifie si il y a des expressions à ne pas traiter pour la lemmatisation des verbes \end{DoxyCompactList}\item 
-String \hyperlink{classlemmatiseur_1_1_lefff_a891e9578b68da3429b50ae8790b15ae5}{traite\+Texte} (String p)
+String {\bfseries garde\+Adj} (String txt, Array\+List$<$ String $>$ adj)\hypertarget{classlemmatiseur_1_1_lefff_a387848135c1e00f7ddcd64813e3bcc36}{}\label{classlemmatiseur_1_1_lefff_a387848135c1e00f7ddcd64813e3bcc36}
+
+\item 
+String \hyperlink{classlemmatiseur_1_1_lefff_a334bd5292ddfbbd3b2abbbbb1cd5abfd}{traite\+Texte} (String p, Array\+List$<$ String $>$ adj)
 \begin{DoxyCompactList}\small\item\em permet de traiter un texte \end{DoxyCompactList}\item 
 String \hyperlink{classlemmatiseur_1_1_lefff_aefe143c79c4a9d5b47d7e0737a08b53b}{suppr\+Exp\+Neutre} (String txt)
 \begin{DoxyCompactList}\small\item\em enlève toute les expressions neutres du texte \end{DoxyCompactList}\item 
-String \hyperlink{classlemmatiseur_1_1_lefff_a74b4ed0aa991795fe7850cf1180205d6}{suppr\+Ponctuation} (String txt)
-\begin{DoxyCompactList}\small\item\em Supprime la ponctuation dans le texte. \end{DoxyCompactList}\item 
 String \hyperlink{classlemmatiseur_1_1_lefff_acb0f198179d03c9dfdf1fe42ed73d867}{suppr\+Outils} (String txt)
 \begin{DoxyCompactList}\small\item\em Supprime les mots outils. \end{DoxyCompactList}\item 
-String \hyperlink{classlemmatiseur_1_1_lefff_a0246160e048988e6b027facca5cc4400}{open\+Texte} (String path)
-\begin{DoxyCompactList}\small\item\em ouvre un texte, et le stock dans un String \end{DoxyCompactList}\item 
 \hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} \hyperlink{classlemmatiseur_1_1_lefff_ac22071c1aa33ecad84d6032887ea5372}{get\+Adj} ()
-\begin{DoxyCompactList}\small\item\em Renvoie l\textquotesingle{}arbre des adjectifs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Renvoie l\textquotesingle{}arbre des adjectifs. \end{DoxyCompactList}\item 
+\hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} \hyperlink{classlemmatiseur_1_1_lefff_a74ea1dc022e573471a3dc05b01f7678b}{get\+Noms} ()
+\begin{DoxyCompactList}\small\item\em Renvoie l\textquotesingle{}arbre des Noms. \end{DoxyCompactList}\item 
+\hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} \hyperlink{classlemmatiseur_1_1_lefff_a2cae348bae569e1b5478c7d4999153e6}{get\+NomsP} ()
+\begin{DoxyCompactList}\small\item\em Renvoie l\textquotesingle{}arbre des Noms Propres. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+String {\bfseries separator} = \char`\"{}\char`\"{}+(char)9\hypertarget{classlemmatiseur_1_1_lefff_a8eaca0b66950fe3bf1e51213bc6bb840}{}\label{classlemmatiseur_1_1_lefff_a8eaca0b66950fe3bf1e51213bc6bb840}
+
+\item 
+String {\bfseries path}\hypertarget{classlemmatiseur_1_1_lefff_aed2f27a59a0fac8db1f9a8b13f610a3f}{}\label{classlemmatiseur_1_1_lefff_aed2f27a59a0fac8db1f9a8b13f610a3f}
+
+\item 
+Array\+List$<$ String $>$ {\bfseries list\+Exp} = new Array\+List$<$String$>$()\hypertarget{classlemmatiseur_1_1_lefff_a3a9e4df0396631103d3decbf5c6bea96}{}\label{classlemmatiseur_1_1_lefff_a3a9e4df0396631103d3decbf5c6bea96}
+
+\item 
+\hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} {\bfseries arbre\+Verbe}\hypertarget{classlemmatiseur_1_1_lefff_ae857e441d839ea39689658e0e92433ee}{}\label{classlemmatiseur_1_1_lefff_ae857e441d839ea39689658e0e92433ee}
+
+\item 
+\hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} {\bfseries arbre\+NomsP}\hypertarget{classlemmatiseur_1_1_lefff_a42231187e1fe80e9a5ed4772417ab58e}{}\label{classlemmatiseur_1_1_lefff_a42231187e1fe80e9a5ed4772417ab58e}
+
+\item 
+\hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} {\bfseries arbre\+Noms}\hypertarget{classlemmatiseur_1_1_lefff_a70f5c33ccd64e8dac1864f204b432c65}{}\label{classlemmatiseur_1_1_lefff_a70f5c33ccd64e8dac1864f204b432c65}
+
+\item 
+\hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} {\bfseries arbre\+Adj}\hypertarget{classlemmatiseur_1_1_lefff_a937ff66d391f58ae4a80fc4912df1f02}{}\label{classlemmatiseur_1_1_lefff_a937ff66d391f58ae4a80fc4912df1f02}
+
+\item 
+\hyperlink{classlistelemm_1_1_liste_lemm_wrapper}{Liste\+Lemm\+Wrapper} {\bfseries Outils}\hypertarget{classlemmatiseur_1_1_lefff_abdd2e867e0e5d45d8df6bd4f5ee1fbbd}{}\label{classlemmatiseur_1_1_lefff_abdd2e867e0e5d45d8df6bd4f5ee1fbbd}
+
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -101,24 +131,33 @@ Renvoie l\textquotesingle{}arbre des adjectifs.
 \begin{DoxyReturn}{Returns}
 Le tokemiseur des adjectifs 
 \end{DoxyReturn}
-\index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!open\+Texte@{open\+Texte}}
-\index{open\+Texte@{open\+Texte}!lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}}
-\subsubsection[{\texorpdfstring{open\+Texte(\+String path)}{openTexte(String path)}}]{\setlength{\rightskip}{0pt plus 5cm}String lemmatiseur.\+Lefff.\+open\+Texte (
+\index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!get\+Noms@{get\+Noms}}
+\index{get\+Noms@{get\+Noms}!lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}}
+\subsubsection[{\texorpdfstring{get\+Noms()}{getNoms()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tokemiseur} lemmatiseur.\+Lefff.\+get\+Noms (
 \begin{DoxyParamCaption}
-\item[{String}]{path}
+{}
 \end{DoxyParamCaption}
-)}\hypertarget{classlemmatiseur_1_1_lefff_a0246160e048988e6b027facca5cc4400}{}\label{classlemmatiseur_1_1_lefff_a0246160e048988e6b027facca5cc4400}
+)}\hypertarget{classlemmatiseur_1_1_lefff_a74ea1dc022e573471a3dc05b01f7678b}{}\label{classlemmatiseur_1_1_lefff_a74ea1dc022e573471a3dc05b01f7678b}
 
 
-ouvre un texte, et le stock dans un String 
+Renvoie l\textquotesingle{}arbre des Noms. 
 
-
-\begin{DoxyParams}{Parameters}
-{\em path} & chemin d\textquotesingle{}accès du texte à traiter \\
-\hline
-\end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Le texte extrait du fichier texte 
+Le tokemiseur des Noms 
+\end{DoxyReturn}
+\index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!get\+NomsP@{get\+NomsP}}
+\index{get\+NomsP@{get\+NomsP}!lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}}
+\subsubsection[{\texorpdfstring{get\+Noms\+P()}{getNomsP()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tokemiseur} lemmatiseur.\+Lefff.\+get\+NomsP (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classlemmatiseur_1_1_lefff_a2cae348bae569e1b5478c7d4999153e6}{}\label{classlemmatiseur_1_1_lefff_a2cae348bae569e1b5478c7d4999153e6}
+
+
+Renvoie l\textquotesingle{}arbre des Noms Propres. 
+
+\begin{DoxyReturn}{Returns}
+Le tokemiseur des Noms Propres 
 \end{DoxyReturn}
 \index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!read\+Exp@{read\+Exp}}
 \index{read\+Exp@{read\+Exp}!lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}}
@@ -181,25 +220,6 @@ texte traité
 
 
 Supprime les mots outils. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em txt} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Le texte traité 
-\end{DoxyReturn}
-\index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!suppr\+Ponctuation@{suppr\+Ponctuation}}
-\index{suppr\+Ponctuation@{suppr\+Ponctuation}!lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}}
-\subsubsection[{\texorpdfstring{suppr\+Ponctuation(\+String txt)}{supprPonctuation(String txt)}}]{\setlength{\rightskip}{0pt plus 5cm}String lemmatiseur.\+Lefff.\+suppr\+Ponctuation (
-\begin{DoxyParamCaption}
-\item[{String}]{txt}
-\end{DoxyParamCaption}
-)}\hypertarget{classlemmatiseur_1_1_lefff_a74b4ed0aa991795fe7850cf1180205d6}{}\label{classlemmatiseur_1_1_lefff_a74b4ed0aa991795fe7850cf1180205d6}
-
-
-Supprime la ponctuation dans le texte. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -287,11 +307,12 @@ Le texte traité
 \end{DoxyReturn}
 \index{lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}!traite\+Texte@{traite\+Texte}}
 \index{traite\+Texte@{traite\+Texte}!lemmatiseur\+::\+Lefff@{lemmatiseur\+::\+Lefff}}
-\subsubsection[{\texorpdfstring{traite\+Texte(\+String p)}{traiteTexte(String p)}}]{\setlength{\rightskip}{0pt plus 5cm}String lemmatiseur.\+Lefff.\+traite\+Texte (
+\subsubsection[{\texorpdfstring{traite\+Texte(\+String p, Array\+List$<$ String $>$ adj)}{traiteTexte(String p, ArrayList< String > adj)}}]{\setlength{\rightskip}{0pt plus 5cm}String lemmatiseur.\+Lefff.\+traite\+Texte (
 \begin{DoxyParamCaption}
-\item[{String}]{p}
+\item[{String}]{p, }
+\item[{Array\+List$<$ String $>$}]{adj}
 \end{DoxyParamCaption}
-)}\hypertarget{classlemmatiseur_1_1_lefff_a891e9578b68da3429b50ae8790b15ae5}{}\label{classlemmatiseur_1_1_lefff_a891e9578b68da3429b50ae8790b15ae5}
+)}\hypertarget{classlemmatiseur_1_1_lefff_a334bd5292ddfbbd3b2abbbbb1cd5abfd}{}\label{classlemmatiseur_1_1_lefff_a334bd5292ddfbbd3b2abbbbb1cd5abfd}
 
 
 permet de traiter un texte 

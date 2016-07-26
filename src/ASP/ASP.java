@@ -1,5 +1,10 @@
 package ASP;
 
+/**
+* @Author Julian Hurst
+* @brief Permet d'affiner la distinction nom/adjectif pour certains mots d'un texte donné
+*/
+
 import tokemisation.*;
 import listelemm.*;
 import utils.*;
@@ -13,6 +18,13 @@ public class ASP{
     Utils U;
     Tokemiseur arbreAdj,arbreNoms,arbreNomsP;
 
+    /**
+     * @param String path : Le chemin du fichier
+     * @param Tokemiseur arbreAdj : l'arbre des adjectifs
+     * @param Tokemiseur arbreNoms : l'abre des noms communs
+     * @param Tokemiseur arbreNomsP : l'abre des noms propres
+     * @brief Initialise l'ASP
+     */
     public ASP(String txt,Tokemiseur arbreAdj,Tokemiseur arbreNoms, Tokemiseur arbreNomsP){
         mots_cles=new Tokemiseur("res/ASP.txt");
         T=new ListeLemmWrapper();
@@ -26,6 +38,20 @@ public class ASP{
         //mots=txt.split(" ");
     }
 
+    /**
+    * @param int i : L'indice du mot à partir duquel analyser dans une phrase donnée
+    * @param boolean attendNom : Spécifie si l'on attend un Nom auquel rattacher des adjectifs ou un mot clé
+    * @param boolean attendAdj : Spécifie si l'on attend un Adjectif lors d'une énumeration
+    * @return int : Renvoie l'indice du dernier mot analysé
+    * @brief Analyse une phrase ou partie de phrase afin de déterminer si une grammaire spécifique s'y trouve.\n
+    * @detail Les grammaires (N=Nom, M=mot_clé, A=adj) :\n
+    * \f{eqnarray*}{
+    *    G &:& M E N \\
+    *      &|& M N E \\
+    *    E &:& A , E \\
+    *      &|& A et A
+    *      \f}
+    */
     int chaineNouA(int i,boolean attendNom, boolean attendAdj){
         int ret=i;
         int l=mots.length;
@@ -78,14 +104,27 @@ public class ASP{
         return i;
     }
 
+    /**
+    * @param int i : L'indice du mot à tester
+    * @return boolean : Si le mot est un adjectif
+    * @brief Renvoie si un mot d'indice i est un adjectif
+    */
     boolean isAdj(int i){
         return arbreAdj.findTokem(mots[i])!=null;
     }
 
+    /**
+    * @param int i : L'indice du mot à tester
+    * @return boolean : Si le mot est un nom
+    * @brief Renvoie si un mot d'indice i est un nom
+    */
     boolean isNom(int i){
         return (arbreNoms.findTokem(mots[i])!=null || arbreNomsP.findTokem(mots[i])!=null);
     }
 
+    /**
+    * @brief supprime la ponctuation en remplaçant les ',' par ' ,'
+    */
     void ponctuation(){
         for(int i=0;i<phrases.length;i++){
             phrases[i]=phrases[i].replaceAll(","," ,");
@@ -93,6 +132,9 @@ public class ASP{
         }
     }
 
+    /**
+    * @brief Analyse un texte pour y trouver certaines grammaires
+    */
     public void analyse(){
         phrases=txt.split("\\.");
         ponctuation();
@@ -110,6 +152,10 @@ public class ASP{
         System.out.println("");
     }
 
+    /**
+    * @return ListeLemmWrapper : Renvoie le résultat de l'analyse
+    * @brief Renvoie le résultat de l'analyse dans un ListeLemmWrapper
+    */
     public ListeLemmWrapper getASP(){
         return T;
     }

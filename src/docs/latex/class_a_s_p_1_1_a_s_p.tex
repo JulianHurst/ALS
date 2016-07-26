@@ -1,0 +1,171 @@
+\hypertarget{class_a_s_p_1_1_a_s_p}{}\section{A\+S\+P.\+A\+SP Class Reference}
+\label{class_a_s_p_1_1_a_s_p}\index{A\+S\+P.\+A\+SP@{A\+S\+P.\+A\+SP}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_a_s_p_1_1_a_s_p_a741bbb3d1c90fa2f2f1613923574713c}{A\+SP} (String txt, \hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} arbre\+Adj, \hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} arbre\+Noms, \hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} arbre\+NomsP)
+\begin{DoxyCompactList}\small\item\em Initialise l\textquotesingle{}\hyperlink{class_a_s_p_1_1_a_s_p}{A\+SP}. \end{DoxyCompactList}\item 
+void \hyperlink{class_a_s_p_1_1_a_s_p_a89354ef6a3cee6b9e73e95236aa5875c}{analyse} ()\hypertarget{class_a_s_p_1_1_a_s_p_a89354ef6a3cee6b9e73e95236aa5875c}{}\label{class_a_s_p_1_1_a_s_p_a89354ef6a3cee6b9e73e95236aa5875c}
+
+\begin{DoxyCompactList}\small\item\em Analyse un texte pour y trouver certaines grammaires. \end{DoxyCompactList}\item 
+\hyperlink{classlistelemm_1_1_liste_lemm_wrapper}{Liste\+Lemm\+Wrapper} \hyperlink{class_a_s_p_1_1_a_s_p_aa33976830b49a68efe03137c4e58a37e}{get\+A\+SP} ()
+\begin{DoxyCompactList}\small\item\em Renvoie le résultat de l\textquotesingle{}analyse dans un Liste\+Lemm\+Wrapper. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Package Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_a_s_p_1_1_a_s_p_abb4c809e7a132c07a221e5259ff56fb7}{chaine\+NouA} (int i, boolean attend\+Nom, boolean attend\+Adj)
+\begin{DoxyCompactList}\small\item\em Analyse une phrase ou partie de phrase afin de déterminer si une grammaire spécifique s\textquotesingle{}y trouve.~\newline
+ Les grammaires (N=Nom, M=mot\+\_\+clé, A=adj) \+:~\newline
+ \begin{eqnarray*} G &:& M E N \\ &|& M N E \\ E &:& A , E \\ &|& A et A \end{eqnarray*}. \end{DoxyCompactList}\item 
+boolean \hyperlink{class_a_s_p_1_1_a_s_p_a65f26d49f089c2d677728d016996c678}{is\+Adj} (int i)
+\begin{DoxyCompactList}\small\item\em Renvoie si un mot d\textquotesingle{}indice i est un adjectif. \end{DoxyCompactList}\item 
+boolean \hyperlink{class_a_s_p_1_1_a_s_p_a3c159a11f0c4a516703338bc61a1fc00}{is\+Nom} (int i)
+\begin{DoxyCompactList}\small\item\em Renvoie si un mot d\textquotesingle{}indice i est un nom. \end{DoxyCompactList}\item 
+void \hyperlink{class_a_s_p_1_1_a_s_p_a3de1b0cdae9512eb3c798ab15f41353c}{ponctuation} ()\hypertarget{class_a_s_p_1_1_a_s_p_a3de1b0cdae9512eb3c798ab15f41353c}{}\label{class_a_s_p_1_1_a_s_p_a3de1b0cdae9512eb3c798ab15f41353c}
+
+\begin{DoxyCompactList}\small\item\em supprime la ponctuation en remplaçant les \textquotesingle{},\textquotesingle{} par \textquotesingle{} ,\textquotesingle{} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Package Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} {\bfseries mots\+\_\+cles}\hypertarget{class_a_s_p_1_1_a_s_p_ade3f7813cd3109cfb91adc8dc8aaa052}{}\label{class_a_s_p_1_1_a_s_p_ade3f7813cd3109cfb91adc8dc8aaa052}
+
+\item 
+\hyperlink{classlistelemm_1_1_liste_lemm_wrapper}{Liste\+Lemm\+Wrapper} {\bfseries T}\hypertarget{class_a_s_p_1_1_a_s_p_a132c8a4a2f888009c3ad5fd35cd99f87}{}\label{class_a_s_p_1_1_a_s_p_a132c8a4a2f888009c3ad5fd35cd99f87}
+
+\item 
+String {\bfseries txt}\hypertarget{class_a_s_p_1_1_a_s_p_aaaa42a38d285dc8b76ef7cb8071f6d10}{}\label{class_a_s_p_1_1_a_s_p_aaaa42a38d285dc8b76ef7cb8071f6d10}
+
+\item 
+String {\bfseries mots} \mbox{[}$\,$\mbox{]}\hypertarget{class_a_s_p_1_1_a_s_p_aadb40d625194ea2d6bbf19b4bd4d1b52}{}\label{class_a_s_p_1_1_a_s_p_aadb40d625194ea2d6bbf19b4bd4d1b52}
+
+\item 
+String {\bfseries phrases} \mbox{[}$\,$\mbox{]}\hypertarget{class_a_s_p_1_1_a_s_p_a2129469d1962730802d09810354fdcb4}{}\label{class_a_s_p_1_1_a_s_p_a2129469d1962730802d09810354fdcb4}
+
+\item 
+\hyperlink{classutils_1_1_utils}{Utils} {\bfseries U}\hypertarget{class_a_s_p_1_1_a_s_p_a8e170a8cda7f964a9a6edb09445eee68}{}\label{class_a_s_p_1_1_a_s_p_a8e170a8cda7f964a9a6edb09445eee68}
+
+\item 
+\hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} {\bfseries arbre\+Adj}\hypertarget{class_a_s_p_1_1_a_s_p_a03c95b0485f9f43da05d207a8148bffb}{}\label{class_a_s_p_1_1_a_s_p_a03c95b0485f9f43da05d207a8148bffb}
+
+\item 
+\hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} {\bfseries arbre\+Noms}\hypertarget{class_a_s_p_1_1_a_s_p_a095c16191921ea0b782d00951e246e8f}{}\label{class_a_s_p_1_1_a_s_p_a095c16191921ea0b782d00951e246e8f}
+
+\item 
+\hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} {\bfseries arbre\+NomsP}\hypertarget{class_a_s_p_1_1_a_s_p_a6b058bc3c22903cd5cd7e2d5ea405de9}{}\label{class_a_s_p_1_1_a_s_p_a6b058bc3c22903cd5cd7e2d5ea405de9}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{A\+S\+P\+::\+A\+SP@{A\+S\+P\+::\+A\+SP}!A\+SP@{A\+SP}}
+\index{A\+SP@{A\+SP}!A\+S\+P\+::\+A\+SP@{A\+S\+P\+::\+A\+SP}}
+\subsubsection[{\texorpdfstring{A\+S\+P(\+String txt, Tokemiseur arbre\+Adj, Tokemiseur arbre\+Noms, Tokemiseur arbre\+Noms\+P)}{ASP(String txt, Tokemiseur arbreAdj, Tokemiseur arbreNoms, Tokemiseur arbreNomsP)}}]{\setlength{\rightskip}{0pt plus 5cm}A\+S\+P.\+A\+S\+P.\+A\+SP (
+\begin{DoxyParamCaption}
+\item[{String}]{txt, }
+\item[{{\bf Tokemiseur}}]{arbre\+Adj, }
+\item[{{\bf Tokemiseur}}]{arbre\+Noms, }
+\item[{{\bf Tokemiseur}}]{arbre\+NomsP}
+\end{DoxyParamCaption}
+)}\hypertarget{class_a_s_p_1_1_a_s_p_a741bbb3d1c90fa2f2f1613923574713c}{}\label{class_a_s_p_1_1_a_s_p_a741bbb3d1c90fa2f2f1613923574713c}
+
+
+Initialise l\textquotesingle{}\hyperlink{class_a_s_p_1_1_a_s_p}{A\+SP}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em String} & path \+: Le chemin du fichier \\
+\hline
+{\em Tokemiseur} & arbre\+Adj \+: l\textquotesingle{}arbre des adjectifs \\
+\hline
+{\em Tokemiseur} & arbre\+Noms \+: l\textquotesingle{}abre des noms communs \\
+\hline
+{\em Tokemiseur} & arbre\+NomsP \+: l\textquotesingle{}abre des noms propres \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{A\+S\+P\+::\+A\+SP@{A\+S\+P\+::\+A\+SP}!chaine\+NouA@{chaine\+NouA}}
+\index{chaine\+NouA@{chaine\+NouA}!A\+S\+P\+::\+A\+SP@{A\+S\+P\+::\+A\+SP}}
+\subsubsection[{\texorpdfstring{chaine\+Nou\+A(int i, boolean attend\+Nom, boolean attend\+Adj)}{chaineNouA(int i, boolean attendNom, boolean attendAdj)}}]{\setlength{\rightskip}{0pt plus 5cm}int A\+S\+P.\+A\+S\+P.\+chaine\+NouA (
+\begin{DoxyParamCaption}
+\item[{int}]{i, }
+\item[{boolean}]{attend\+Nom, }
+\item[{boolean}]{attend\+Adj}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [package]}}\hypertarget{class_a_s_p_1_1_a_s_p_abb4c809e7a132c07a221e5259ff56fb7}{}\label{class_a_s_p_1_1_a_s_p_abb4c809e7a132c07a221e5259ff56fb7}
+
+
+Analyse une phrase ou partie de phrase afin de déterminer si une grammaire spécifique s\textquotesingle{}y trouve.~\newline
+ Les grammaires (N=Nom, M=mot\+\_\+clé, A=adj) \+:~\newline
+ \begin{eqnarray*} G &:& M E N \\ &|& M N E \\ E &:& A , E \\ &|& A et A \end{eqnarray*}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & i \+: L\textquotesingle{}indice du mot à partir duquel analyser dans une phrase donnée \\
+\hline
+{\em boolean} & attend\+Nom \+: Spécifie si l\textquotesingle{}on attend un Nom auquel rattacher des adjectifs ou un mot clé \\
+\hline
+{\em boolean} & attend\+Adj \+: Spécifie si l\textquotesingle{}on attend un Adjectif lors d\textquotesingle{}une énumeration \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int \+: Renvoie l\textquotesingle{}indice du dernier mot analysé 
+\end{DoxyReturn}
+\index{A\+S\+P\+::\+A\+SP@{A\+S\+P\+::\+A\+SP}!get\+A\+SP@{get\+A\+SP}}
+\index{get\+A\+SP@{get\+A\+SP}!A\+S\+P\+::\+A\+SP@{A\+S\+P\+::\+A\+SP}}
+\subsubsection[{\texorpdfstring{get\+A\+S\+P()}{getASP()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Liste\+Lemm\+Wrapper} A\+S\+P.\+A\+S\+P.\+get\+A\+SP (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_a_s_p_1_1_a_s_p_aa33976830b49a68efe03137c4e58a37e}{}\label{class_a_s_p_1_1_a_s_p_aa33976830b49a68efe03137c4e58a37e}
+
+
+Renvoie le résultat de l\textquotesingle{}analyse dans un Liste\+Lemm\+Wrapper. 
+
+\begin{DoxyReturn}{Returns}
+Liste\+Lemm\+Wrapper \+: Renvoie le résultat de l\textquotesingle{}analyse 
+\end{DoxyReturn}
+\index{A\+S\+P\+::\+A\+SP@{A\+S\+P\+::\+A\+SP}!is\+Adj@{is\+Adj}}
+\index{is\+Adj@{is\+Adj}!A\+S\+P\+::\+A\+SP@{A\+S\+P\+::\+A\+SP}}
+\subsubsection[{\texorpdfstring{is\+Adj(int i)}{isAdj(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}boolean A\+S\+P.\+A\+S\+P.\+is\+Adj (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [package]}}\hypertarget{class_a_s_p_1_1_a_s_p_a65f26d49f089c2d677728d016996c678}{}\label{class_a_s_p_1_1_a_s_p_a65f26d49f089c2d677728d016996c678}
+
+
+Renvoie si un mot d\textquotesingle{}indice i est un adjectif. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & i \+: L\textquotesingle{}indice du mot à tester \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean \+: Si le mot est un adjectif 
+\end{DoxyReturn}
+\index{A\+S\+P\+::\+A\+SP@{A\+S\+P\+::\+A\+SP}!is\+Nom@{is\+Nom}}
+\index{is\+Nom@{is\+Nom}!A\+S\+P\+::\+A\+SP@{A\+S\+P\+::\+A\+SP}}
+\subsubsection[{\texorpdfstring{is\+Nom(int i)}{isNom(int i)}}]{\setlength{\rightskip}{0pt plus 5cm}boolean A\+S\+P.\+A\+S\+P.\+is\+Nom (
+\begin{DoxyParamCaption}
+\item[{int}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [package]}}\hypertarget{class_a_s_p_1_1_a_s_p_a3c159a11f0c4a516703338bc61a1fc00}{}\label{class_a_s_p_1_1_a_s_p_a3c159a11f0c4a516703338bc61a1fc00}
+
+
+Renvoie si un mot d\textquotesingle{}indice i est un nom. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & i \+: L\textquotesingle{}indice du mot à tester \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+boolean \+: Si le mot est un nom 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+A\+S\+P/A\+S\+P.\+java\end{DoxyCompactItemize}

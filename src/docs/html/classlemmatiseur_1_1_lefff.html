@@ -22,6 +22,12 @@
 <script type="text/javascript">
   $(document).ready(function() { init_search(); });
 </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -105,6 +111,7 @@ $(document).ready(function(){initNavTree('classlemmatiseur_1_1_lefff.html','');}
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pac-attribs">Package Attributes</a> &#124;
 <a href="classlemmatiseur_1_1_lefff-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">lemmatiseur.Lefff Class Reference</div>  </div>
@@ -150,24 +157,54 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 <tr class="memitem:abf6050c2918c16ed1f6372bf53c635e6"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemmatiseur_1_1_lefff.html#abf6050c2918c16ed1f6372bf53c635e6">findExp</a> (String line)</td></tr>
 <tr class="memdesc:abf6050c2918c16ed1f6372bf53c635e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">vérifie si il y a des expressions à ne pas traiter pour la lemmatisation des verbes  <a href="#abf6050c2918c16ed1f6372bf53c635e6">More...</a><br /></td></tr>
 <tr class="separator:abf6050c2918c16ed1f6372bf53c635e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a891e9578b68da3429b50ae8790b15ae5"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemmatiseur_1_1_lefff.html#a891e9578b68da3429b50ae8790b15ae5">traiteTexte</a> (String p)</td></tr>
-<tr class="memdesc:a891e9578b68da3429b50ae8790b15ae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">permet de traiter un texte  <a href="#a891e9578b68da3429b50ae8790b15ae5">More...</a><br /></td></tr>
-<tr class="separator:a891e9578b68da3429b50ae8790b15ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a387848135c1e00f7ddcd64813e3bcc36"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a387848135c1e00f7ddcd64813e3bcc36"></a>
+String&#160;</td><td class="memItemRight" valign="bottom"><b>gardeAdj</b> (String txt, ArrayList&lt; String &gt; adj)</td></tr>
+<tr class="separator:a387848135c1e00f7ddcd64813e3bcc36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a334bd5292ddfbbd3b2abbbbb1cd5abfd"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemmatiseur_1_1_lefff.html#a334bd5292ddfbbd3b2abbbbb1cd5abfd">traiteTexte</a> (String p, ArrayList&lt; String &gt; adj)</td></tr>
+<tr class="memdesc:a334bd5292ddfbbd3b2abbbbb1cd5abfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">permet de traiter un texte  <a href="#a334bd5292ddfbbd3b2abbbbb1cd5abfd">More...</a><br /></td></tr>
+<tr class="separator:a334bd5292ddfbbd3b2abbbbb1cd5abfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefe143c79c4a9d5b47d7e0737a08b53b"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemmatiseur_1_1_lefff.html#aefe143c79c4a9d5b47d7e0737a08b53b">supprExpNeutre</a> (String txt)</td></tr>
 <tr class="memdesc:aefe143c79c4a9d5b47d7e0737a08b53b"><td class="mdescLeft">&#160;</td><td class="mdescRight">enlève toute les expressions neutres du texte  <a href="#aefe143c79c4a9d5b47d7e0737a08b53b">More...</a><br /></td></tr>
 <tr class="separator:aefe143c79c4a9d5b47d7e0737a08b53b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74b4ed0aa991795fe7850cf1180205d6"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemmatiseur_1_1_lefff.html#a74b4ed0aa991795fe7850cf1180205d6">supprPonctuation</a> (String txt)</td></tr>
-<tr class="memdesc:a74b4ed0aa991795fe7850cf1180205d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime la ponctuation dans le texte.  <a href="#a74b4ed0aa991795fe7850cf1180205d6">More...</a><br /></td></tr>
-<tr class="separator:a74b4ed0aa991795fe7850cf1180205d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb0f198179d03c9dfdf1fe42ed73d867"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemmatiseur_1_1_lefff.html#acb0f198179d03c9dfdf1fe42ed73d867">supprOutils</a> (String txt)</td></tr>
 <tr class="memdesc:acb0f198179d03c9dfdf1fe42ed73d867"><td class="mdescLeft">&#160;</td><td class="mdescRight">Supprime les mots outils.  <a href="#acb0f198179d03c9dfdf1fe42ed73d867">More...</a><br /></td></tr>
 <tr class="separator:acb0f198179d03c9dfdf1fe42ed73d867"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0246160e048988e6b027facca5cc4400"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemmatiseur_1_1_lefff.html#a0246160e048988e6b027facca5cc4400">openTexte</a> (String path)</td></tr>
-<tr class="memdesc:a0246160e048988e6b027facca5cc4400"><td class="mdescLeft">&#160;</td><td class="mdescRight">ouvre un texte, et le stock dans un String  <a href="#a0246160e048988e6b027facca5cc4400">More...</a><br /></td></tr>
-<tr class="separator:a0246160e048988e6b027facca5cc4400"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac22071c1aa33ecad84d6032887ea5372"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtokemisation_1_1_tokemiseur.html">Tokemiseur</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemmatiseur_1_1_lefff.html#ac22071c1aa33ecad84d6032887ea5372">getAdj</a> ()</td></tr>
 <tr class="memdesc:ac22071c1aa33ecad84d6032887ea5372"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie l'arbre des adjectifs.  <a href="#ac22071c1aa33ecad84d6032887ea5372">More...</a><br /></td></tr>
 <tr class="separator:ac22071c1aa33ecad84d6032887ea5372"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74ea1dc022e573471a3dc05b01f7678b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtokemisation_1_1_tokemiseur.html">Tokemiseur</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemmatiseur_1_1_lefff.html#a74ea1dc022e573471a3dc05b01f7678b">getNoms</a> ()</td></tr>
+<tr class="memdesc:a74ea1dc022e573471a3dc05b01f7678b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie l'arbre des Noms.  <a href="#a74ea1dc022e573471a3dc05b01f7678b">More...</a><br /></td></tr>
+<tr class="separator:a74ea1dc022e573471a3dc05b01f7678b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cae348bae569e1b5478c7d4999153e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classtokemisation_1_1_tokemiseur.html">Tokemiseur</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlemmatiseur_1_1_lefff.html#a2cae348bae569e1b5478c7d4999153e6">getNomsP</a> ()</td></tr>
+<tr class="memdesc:a2cae348bae569e1b5478c7d4999153e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renvoie l'arbre des Noms Propres.  <a href="#a2cae348bae569e1b5478c7d4999153e6">More...</a><br /></td></tr>
+<tr class="separator:a2cae348bae569e1b5478c7d4999153e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pac-attribs"></a>
+Package Attributes</h2></td></tr>
+<tr class="memitem:a8eaca0b66950fe3bf1e51213bc6bb840"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8eaca0b66950fe3bf1e51213bc6bb840"></a>
+String&#160;</td><td class="memItemRight" valign="bottom"><b>separator</b> = &quot;&quot;+(char)9</td></tr>
+<tr class="separator:a8eaca0b66950fe3bf1e51213bc6bb840"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed2f27a59a0fac8db1f9a8b13f610a3f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aed2f27a59a0fac8db1f9a8b13f610a3f"></a>
+String&#160;</td><td class="memItemRight" valign="bottom"><b>path</b></td></tr>
+<tr class="separator:aed2f27a59a0fac8db1f9a8b13f610a3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a9e4df0396631103d3decbf5c6bea96"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a9e4df0396631103d3decbf5c6bea96"></a>
+ArrayList&lt; String &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>listExp</b> = new ArrayList&lt;String&gt;()</td></tr>
+<tr class="separator:a3a9e4df0396631103d3decbf5c6bea96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae857e441d839ea39689658e0e92433ee"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae857e441d839ea39689658e0e92433ee"></a>
+<a class="el" href="classtokemisation_1_1_tokemiseur.html">Tokemiseur</a>&#160;</td><td class="memItemRight" valign="bottom"><b>arbreVerbe</b></td></tr>
+<tr class="separator:ae857e441d839ea39689658e0e92433ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42231187e1fe80e9a5ed4772417ab58e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42231187e1fe80e9a5ed4772417ab58e"></a>
+<a class="el" href="classtokemisation_1_1_tokemiseur.html">Tokemiseur</a>&#160;</td><td class="memItemRight" valign="bottom"><b>arbreNomsP</b></td></tr>
+<tr class="separator:a42231187e1fe80e9a5ed4772417ab58e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70f5c33ccd64e8dac1864f204b432c65"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a70f5c33ccd64e8dac1864f204b432c65"></a>
+<a class="el" href="classtokemisation_1_1_tokemiseur.html">Tokemiseur</a>&#160;</td><td class="memItemRight" valign="bottom"><b>arbreNoms</b></td></tr>
+<tr class="separator:a70f5c33ccd64e8dac1864f204b432c65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a937ff66d391f58ae4a80fc4912df1f02"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a937ff66d391f58ae4a80fc4912df1f02"></a>
+<a class="el" href="classtokemisation_1_1_tokemiseur.html">Tokemiseur</a>&#160;</td><td class="memItemRight" valign="bottom"><b>arbreAdj</b></td></tr>
+<tr class="separator:a937ff66d391f58ae4a80fc4912df1f02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdd2e867e0e5d45d8df6bd4f5ee1fbbd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abdd2e867e0e5d45d8df6bd4f5ee1fbbd"></a>
+<a class="el" href="classlistelemm_1_1_liste_lemm_wrapper.html">ListeLemmWrapper</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Outils</b></td></tr>
+<tr class="separator:abdd2e867e0e5d45d8df6bd4f5ee1fbbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Permet d'effectuer la lemmatisation d'un texte. </p>
@@ -240,28 +277,39 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a class="anchor" id="a0246160e048988e6b027facca5cc4400"></a>
+<a class="anchor" id="a74ea1dc022e573471a3dc05b01f7678b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">String lemmatiseur.Lefff.openTexte </td>
+          <td class="memname"><a class="el" href="classtokemisation_1_1_tokemiseur.html">Tokemiseur</a> lemmatiseur.Lefff.getNoms </td>
           <td>(</td>
-          <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>path</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>ouvre un texte, et le stock dans un String </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">path</td><td>chemin d'accès du texte à traiter </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Le texte extrait du fichier texte </dd></dl>
+<p>Renvoie l'arbre des Noms. </p>
+<dl class="section return"><dt>Returns</dt><dd>Le tokemiseur des Noms </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2cae348bae569e1b5478c7d4999153e6"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classtokemisation_1_1_tokemiseur.html">Tokemiseur</a> lemmatiseur.Lefff.getNomsP </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Renvoie l'arbre des Noms Propres. </p>
+<dl class="section return"><dt>Returns</dt><dd>Le tokemiseur des Noms Propres </dd></dl>
 
 </div>
 </div>
@@ -353,31 +401,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 </div><div class="memdoc">
 
 <p>Supprime les mots outils. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">txt</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Le texte traité </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a74b4ed0aa991795fe7850cf1180205d6"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">String lemmatiseur.Lefff.supprPonctuation </td>
-          <td>(</td>
-          <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>txt</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Supprime la ponctuation dans le texte. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">txt</td><td></td></tr>
@@ -488,7 +511,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a class="anchor" id="a891e9578b68da3429b50ae8790b15ae5"></a>
+<a class="anchor" id="a334bd5292ddfbbd3b2abbbbb1cd5abfd"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -496,8 +519,18 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
           <td class="memname">String lemmatiseur.Lefff.traiteTexte </td>
           <td>(</td>
           <td class="paramtype">String&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">ArrayList&lt; String &gt;&#160;</td>
+          <td class="paramname"><em>adj</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">

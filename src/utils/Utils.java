@@ -2,6 +2,10 @@ package utils;
 
 import java.io.*;
 
+/**
+ * @brief Classe contenant des méthodes utiles
+ */
+
 public class Utils{
 
     public Utils(){}
