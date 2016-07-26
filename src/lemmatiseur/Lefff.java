@@ -5,6 +5,7 @@ import java.lang.*;
 import java.util.*;
 import tokemisation.*;
 import listelemm.*;
+import utils.*;
 import java.util.regex.Pattern;
 
 /**
@@ -240,7 +241,7 @@ public class Lefff {
         String lemmatise;
         mots=oldTexte.split(" ");
         for(String i : mots){
-			System.out.println("mot : "+i);
+			//System.out.println("mot : "+i);
 			if(i.equals("heures"))
 				System.out.println(arbreNoms.findTokem(i));
             if((lemmatise=arbreNomsP.findTokem(i,false))!=null || (lemmatise=arbreNoms.findTokem(i))!=null || (lemmatise=arbreAdj.findTokem(i))!=null){
@@ -265,14 +266,15 @@ public class Lefff {
 		return retour;
 	}
 
-    public String gardeAdj(String txt){
+    public String gardeAdj(String txt,ArrayList<String> adj){
         String newtxt=txt;
         String test=txt;
         String mots[];
         mots=txt.split(" ");
         for(String i : mots){
-            if(arbreAdj.findTokem(i)==null){
-                newtxt=newtxt.replaceFirst("^"+i+" | "+i+"$","");            
+            if(arbreAdj.findTokem(i)==null || !adj.contains(i)){
+				//System.out.println(i);
+                newtxt=newtxt.replaceFirst("^"+i+" | "+i+"$","");
                 if(newtxt.equals(test))
                     newtxt=newtxt.replaceFirst(" "+i+" "," ");
             }
@@ -286,18 +288,20 @@ public class Lefff {
 	 * @param p path du texte à traiter
 	 * @return Le texte traité
 	 */
-	public String traiteTexte(String p){
+	public String traiteTexte(String p,ArrayList<String> adj){
+		Utils U=new Utils();
 		String txt = "";
+		String tmp="";
 		String path = p;
 		File f = new File(p);
 		if(!f.exists()){
 			return "Echec de l'ouverture";
 		}
 		System.out.println("ouverture du texte");
-		txt = openTexte(p);
+		txt = U.openTexte(p);
 		//txt=txt.toLowerCase();
 		System.out.println("Suppression de la ponctuation");
-		txt=supprPonctuation(txt);
+		txt=U.supprPonctuation(txt);
 		System.out.println("Traitement des verbes");
 		txt = traiteVerbe(txt);
 		System.out.println("Traitement des expressions figées neutres");
@@ -306,7 +310,7 @@ public class Lefff {
 		txt=txt.replaceAll("([A-Z]|[a-z])*’","");
         txt=txt.replaceAll("([A-Z]|[a-z])*'","");
 		System.out.println("Traitement des mots outils");
-		txt = supprOutils(txt);		
+		txt = supprOutils(txt);
 		System.out.println("Traitement des noms et adjectifs");
         txt=traiteNetAdj(txt);
 		/*txt = traiteNomsP(txt);
@@ -314,7 +318,9 @@ public class Lefff {
 		txt = traiteNoms(txt);
 		System.out.println("Traitement des Adjectifs");
 		txt = traiteAdj(txt);*/
-        txt=gardeAdj(txt);
+		for(int i=0;i<adj.size();i++)
+			adj.set(i,traiteAdj(adj.get(i)));
+        txt=gardeAdj(txt,adj);
 		//Ecriture du fichier texte de sortie
 		String pathSplit[] = path.split("/");
 		String titre = pathSplit[pathSplit.length-1];
@@ -353,30 +359,6 @@ public class Lefff {
 	/**
 	 * @param txt
 	 * @return Le texte traité
-	 * @brief Supprime la ponctuation dans le texte
-	 */
-	public String supprPonctuation(String txt){
-		txt=txt.replaceAll(",","");
-		txt=txt.replaceAll("\\.","");
-		txt=txt.replaceAll(";","");
-		txt=txt.replaceAll(":","");
-		txt=txt.replaceAll("!","");
-		txt=txt.replaceAll("\\? ","");
-		txt=txt.replaceAll("\\(","");
-		txt=txt.replaceAll("\\)","");
-
-		//Peut être une liste de mots inutiles supplémentaire à enlever
-
-		txt=txt.replaceAll("…","");
-		txt=txt.replaceAll("\"","");
-		txt=txt.replaceAll(" {2,}", " ");
-		txt=txt.replaceAll("(\r\n|\n|\r)","");
-		return txt;
-	}
-
-	/**
-	 * @param txt
-	 * @return Le texte traité
 	 * @brief Supprime les mots outils
 	 */
 	 public String supprOutils(String txt){
@@ -390,32 +372,26 @@ public class Lefff {
 	}
 
 	/**
-	 * @brief ouvre un texte, et le stock dans un String
-	 * @param path chemin d'accès du texte à traiter
-	 * @return Le texte extrait du fichier texte
-	 */
-	public String openTexte(String path){
-		String line = "";
-		String texte = "";
-		try{
-			File fichier = new File(path);
-			BufferedReader txt = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF8"));
-			while ((line = txt.readLine()) != null){
-				texte += line+"\n";
-			}
-		}
-		catch(Exception e){
-			e.printStackTrace();
-			System.out.println(e);
-		}
-		return texte;
-	}
-
-	/**
 	 * @return Le tokemiseur des adjectifs
 	 * @brief Renvoie l'arbre des adjectifs
 	 */
     public Tokemiseur getAdj(){
         return arbreAdj;
+    }
+
+	/**
+	 * @return Le tokemiseur des Noms
+	 * @brief Renvoie l'arbre des Noms
+	 */
+    public Tokemiseur getNoms(){
+        return arbreNoms;
+    }
+
+	/**
+	 * @return Le tokemiseur des Noms Propres
+	 * @brief Renvoie l'arbre des Noms Propres
+	 */
+    public Tokemiseur getNomsP(){
+        return arbreNomsP;
     }
 }

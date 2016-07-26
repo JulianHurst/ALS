@@ -17,9 +17,9 @@ public class Tokemiseur{
 	private Listechar lc = lcb;
 	private int nbLine = 0;
 	private String path = "";
-	
+
 	public Tokemiseur(){}
-	
+
 	/**
 	 * @param String path : Le chemin du fichier
 	 * @brief Crée un tokemiseur à partir d'un fichier
@@ -28,7 +28,7 @@ public class Tokemiseur{
 		this.path = path;
 		tokemFile();
 	}
-	
+
 	/**
 	* @brief Lancement de la tokemisation.
 	**/
@@ -43,8 +43,8 @@ public class Tokemiseur{
 			}
 		}
 		catch(Exception e){e.printStackTrace();}
-	}	
-	
+	}
+
 	/**
 	 * @brief Permet d'ajouter un mot dans l'arbre
 	 * @param line mot à ajouter
@@ -52,7 +52,7 @@ public class Tokemiseur{
 	public void createTree(String line){
 		boolean check = true;
 		int k = 0;
-		
+
 		//Si il y a au moins 1 mot de chargé
 		if(lcb != null){
 			while(check && k<line.length()){
@@ -81,7 +81,7 @@ public class Tokemiseur{
 		//Si c'est le premier mot
 		else{
 			lcb = new Listechar(line.charAt(0));
-			lc = lcb;	
+			lc = lcb;
 			for(int j = 1; j < line.length(); ++j){
 				lc.setFils(new Listechar(line.charAt(j)));
 				lc = (Listechar) lc.getFils();	//Deplacement vers le fils
@@ -150,7 +150,7 @@ public class Tokemiseur{
 		}
 		lc = lcb;
 	}
-	
+
 	/**
 	* @param String s : Mot à chercher
 	* @return String : Le mot de fin ou forme lemmatisée du tokemiseur, si il n'existe pas la méthode renvoie null
@@ -160,9 +160,9 @@ public class Tokemiseur{
 		int k = 0;
 		boolean check = true;
 		lc = lcb;
-		
+
 		//Boucle infinie cassé par un return
-		while(check){
+		while(check){			
 			if(k < s.length() && lc.getChar() == Character.toLowerCase(s.charAt(k))){
 				lc = lc.getFils();
 				k++;
@@ -194,7 +194,7 @@ public class Tokemiseur{
 		}
 		return null;
 	}
-	
+
 	/**
 	* @param String s : Mot à chercher
 	* @param boolean ignorecase : Permet de spécifier si on veut ignorer la casse ou non
@@ -205,10 +205,10 @@ public class Tokemiseur{
 		int k = 0;
 		boolean check = true;
 		lc = lcb;
-		
+
 		//Boucle infinie cassé par un return
 		while(check){
-			//Vérifie si le caractère courant de l'arbre est le même que celui du mot, si c'est le cas, incrémentation de k, et décallage du pointeur	
+			//Vérifie si le caractère courant de l'arbre est le même que celui du mot, si c'est le cas, incrémentation de k, et décallage du pointeur
 			if(ignorecase){
 				if(k < s.length() && lc.getChar() == Character.toLowerCase(s.charAt(k))){
 					lc = lc.getFils();
@@ -235,7 +235,7 @@ public class Tokemiseur{
 				//En cas d'échec renvoie -1
 				else{
 					return null;
-				}			
+				}
 			}
 			else{
 				if(k < s.length() && lc.getChar() == s.charAt(k)){

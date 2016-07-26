@@ -5,16 +5,17 @@ import java.util.Scanner;
 import lemmatiseur.*;
 import tokemisation.*;
 import synonymes.*;
+import ASP.*;
 
 public class Als {
 	String txt1 = "./res/textTest.txt";
 	Scanner option;
 	String texte;
-	
+
 	public Als(){
 		startProg();
 	}
-	
+
 	/**
 	 * @brief Lance le menu contextuel, et toute les actions relatives aux choix de l'utilisateur
 	 */
@@ -25,6 +26,7 @@ public class Als {
         Synonymes S=new Synonymes();
         Tokemiseur A = new Tokemiseur("res/serieA.txt");
         Tokemiseur B = new Tokemiseur("res/serieB.txt");
+		ASP analyseur;
         S.setAdj(l1.getAdj());
 		while(!choix.equals("quit")){
 			System.out.println("Action suivante : ");
@@ -40,15 +42,20 @@ public class Als {
 					choix = option.nextLine();
 					if(choix.equals("1")){
 						//System.out.println("nouveau texte : "+l1.traiteTexte(choixTexte()));
-						//Suppression de la ponctuation et classification des mots du textes grÃ¢ce Ã  leurs synonymes						
-						String ntxt = l1.traiteTexte(choixTexte());						
-						System.out.println("texte lemmatisé : "+ntxt);						
+						//Suppression de la ponctuation et classification des mots du textes grÃ¢ce Ã  leurs synonymes
+						String texte=choixTexte();
+						analyseur=new ASP(texte,l1.getAdj(),l1.getNoms(),l1.getNomsP());
+						analyseur.analyse();
+						String ntxt = l1.traiteTexte(texte,analyseur.getASP().find("adj").getArray());
+						System.out.println("texte lemmatisé : "+ntxt);
                         S.classifierTableau(ntxt.split(" "),A,B);
-                        					                        
+
 					}
 					else{
-						String ntxt = l1.traiteTexte(choix);						
-						System.out.println("texte lemmatisé : "+ntxt);						
+						analyseur=new ASP(choix,l1.getAdj(),l1.getNoms(),l1.getNomsP());
+						analyseur.analyse();						
+						String ntxt = l1.traiteTexte(choix,analyseur.getASP().find("adj").getArray());
+						System.out.println("texte lemmatisé : "+ntxt);
                         S.classifierTableau(ntxt.split(" "),A,B);
 					}
 					break;
@@ -58,7 +65,7 @@ public class Als {
 			System.out.println("fin");
 		}
 	}
-	
+
 	/**
 	 * @brief liste les textes pré-définie, et retourne le path de celui choisit
 	 * @return path du fichier texte choisit

@@ -11,7 +11,9 @@ CLASSES = \
 	tokemisation/*.java\
 	lemmatiseur/*.java\
 	synonymes/*.java\
-	listelemm/*.java
+	listelemm/*.java\
+	ASP/*.java\
+	utils/*.java
 
 default: classes
 
@@ -24,9 +26,11 @@ clean:
 	$(RM) lemmatiseur/*.class
 	$(RM) synonymes/*.class
 	$(RM) listelemm/*.class
+	$(RM) ASP/*.class
+	$(RM) utils/*.class
 
-tokem: 
-	$(JV) TestTokem 
+tokem:
+	$(JV) TestTokem
 
-main: 
-	$(JV) Main 
+main:
+	$(JV) Main
