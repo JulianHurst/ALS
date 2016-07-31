@@ -1,10 +1,31 @@
+<?php
+  /**
+   * Empêcher la mise en cache des pages avec PHP
+   *
+   * La fonction doit-être appellée avant toute balise HTML,
+   * espace blanc, echo(), print()...
+   *
+   * @param : void
+   * @return : void
+   */
+  function empecherLaMiseEnCache()
+  {
+    header('Pragma: no-cache');
+    header('Expires: 0');
+    header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');
+    header('Cache-Control: no-cache, must-revalidate');
+  }
+
+  empecherLaMiseEnCache();
+?>
+
 <!doctype html>
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
 		<title>Titre de la page</title>
 		<link rel="stylesheet" href="css/style.css">
-		<script src="js/script.js"></script>
+		<script src="js/script.js" <?php echo time(); ?>></script>
 	</head>
 
 	<body>
@@ -17,8 +38,8 @@
 			**/
 			function connectPg($user, $pwd, $engine){
 				try {
-				    //$db = new PDO($engine.':host=front-ha-mysql-01.shpv.fr;dbname=tziymwsd_als', $user, $pwd);
-				    $db = new PDO($engine.':localhost;dbname=tziymwsd_als', $user, $pwd);
+				    $db = new PDO($engine.':host=front-ha-mysql-01.shpv.fr;dbname=tziymwsd_als', $user, $pwd);
+				    // $db = new PDO($engine.':localhost;dbname=tziymwsd_als', $user, $pwd);
 				    return $db;
 				} 
 				catch(PDOException $e) {
@@ -36,8 +57,8 @@
 
 			//$db = connectPg('root', '','mysql');
 			try{
-				$db = connectPg('root', '','mysql');
-				//$db = connectPg('tziymwsd_alsUsr', 'n!ghtdr3am13','mysql');
+				// $db = connectPg('root', '','mysql');
+				$db = connectPg('tziymwsd_alsUsr', 'n!ghtdr3am13','mysql');
 			}
 			catch(Exception $e){
 				echo $e;
@@ -58,6 +79,7 @@
 		<input type="radio" name="valeur" id="pos" value="positif">positif</br>
 		<input type="radio" name="valeur" id="neutre" value="neutre">neutre</br>
 		<input type="radio" name="valeur" id="neg" value="négatif">négatif</br>
+		<input type="radio" name="valeur" id="ind" value="indecidable">indecidable</br>
 		<?php
 			echo "<p>";
 			for($i = 0; $i < sizeof($split); $i++){
@@ -74,43 +96,7 @@
 		
 		<!-- Affichage des données (pour test) -->
 		<div id="txtHint">
-			<table>
-				<tr>
-					<td colspan="8">Affichage temporaire de contrôle</td>
-				</tr>
-				<tr>
-					<td>Précédent</td>
-					<td>Suivant</td>
-					<td>Positif</td>
-					<td>Negatif</td>
-					<td>Neutre</td>
-					<td>%positif</td>
-					<td>%negatif</td>
-					<td>%neutre</td>
-				</tr>
-			<?php
-				$req2 = "SELECT * FROM valeur V join pourcent P ON V.id = P.id_couple";
-				try{
-					$resReq = $db->query($req2);
-					while($res = $resReq->fetch()){
-						echo "<tr>";
-							echo "<td>".$res['precedent']."</td>";
-							echo "<td>".$res['courrant']."</td>";
-							echo "<td>".$res['positif']."</td>";
-							echo "<td>".$res['negatif']."</td>";
-							echo "<td>".$res['neutre']."</td>";
-							echo "<td>".$res['pourcentPos']."</td>";
-							echo "<td>".$res['pourcentNeg']."</td>";
-							echo "<td>".$res['pourcentNeutre']."</td>";
-						echo "</tr>";
-					}
-					$resReq->closeCursor();
-				}
-				catch(Exception $e){
-					echo $e;
-				}
-			?>
-			</table>
+			<?php include "./Layout/controlSet.php"; ?>
 		</div>
 	</body>
 </html>

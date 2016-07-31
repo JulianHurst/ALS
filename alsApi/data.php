@@ -7,8 +7,8 @@
 	**/
 	function connectPg($user, $pwd, $engine){
 		try {
-		    // $db = new PDO($engine.':host=front-ha-mysql-01.shpv.fr;dbname=tziymwsd_als', $user, $pwd);
-		    $db = new PDO($engine.':localhost;dbname=tziymwsd_als', $user, $pwd);
+		    $db = new PDO($engine.':host=front-ha-mysql-01.shpv.fr;dbname=tziymwsd_als', $user, $pwd);
+		    // $db = new PDO($engine.':localhost;dbname=tziymwsd_als', $user, $pwd);
 		    return $db;
 		} 
 		catch(PDOException $e) {
@@ -23,8 +23,8 @@
 
 	//$db = connectPg('root', '','mysql');
 	try{
-		$db = connectPg('root','','mysql');
-		// $db = connectPg('tziymwsd_alsUsr', 'n!ghtdr3am13','mysql');
+		// $db = connectPg('root','','mysql');
+		$db = connectPg('tziymwsd_alsUsr', 'n!ghtdr3am13','mysql');
 	}
 	catch(Exception $e){
 		echo $e;
@@ -39,11 +39,13 @@
 		// Si la pair de valeur n'est pas dans la base de donné
 		if($result['count'] == 0){
 			if($val == "pos")
-				$req = "INSERT INTO valeur (precedent, courrant, positif, negatif, neutre) VALUES ('".$pred."', '".$courrant."', 1, 0, 0)";
+				$req = "INSERT INTO valeur (precedent, courrant, positif, negatif, neutre, indecidable) VALUES ('".$pred."', '".$courrant."', 1, 0, 0, 0)";
 			else if($val == "neutre")
-				$req = "INSERT INTO valeur (precedent, courrant, positif, negatif, neutre) VALUES ('".$pred."', '".$courrant."', 0, 0, 1)";
+				$req = "INSERT INTO valeur (precedent, courrant, positif, negatif, neutre, indecidable) VALUES ('".$pred."', '".$courrant."', 0, 0, 1, 0)";
 			else if($val == "neg")
-				$req = "INSERT INTO valeur (precedent, courrant, positif, negatif, neutre) VALUES ('".$pred."', '".$courrant."', 0, 1, 0)";
+				$req = "INSERT INTO valeur (precedent, courrant, positif, negatif, neutre, indecidable) VALUES ('".$pred."', '".$courrant."', 0, 1, 0, 0)";
+			else if($val == "ind")
+				$req = "INSERT INTO valeur (precedent, courrant, positif, negatif, neutre, indecidable) VALUES ('".$pred."', '".$courrant."', 0, 0, 0, 1)";
 		}
 		//sinon
 		else{
@@ -53,6 +55,8 @@
 				$req = "UPDATE valeur set neutre = neutre + 1 WHERE precedent = '".$pred."' AND courrant = '".$courrant."'";
 			else if($val == "neg")
 				$req = "UPDATE valeur set negatif = negatif + 1 WHERE precedent = '".$pred."' AND courrant = '".$courrant."'";
+			else if($val == "ind")
+				$req = "UPDATE valeur set indecidable = indecidable + 1 WHERE precedent = '".$pred."' AND courrant = '".$courrant."'";
 		}
 		$db->query($req);
 	}
@@ -61,40 +65,4 @@
 	}
 ?>
 
-<table>
-	<tr>
-		<td colspan="8">Affichage temporaire de contrôle</td>
-	</tr>
-	<tr>
-		<td>Précédent</td>
-		<td>Suivant</td>
-		<td>Positif</td>
-		<td>Negatif</td>
-		<td>Neutre</td>
-		<td>%positif</td>
-		<td>%negatif</td>
-		<td>%neutre</td>
-	</tr>
-<?php
-	$req2 = "SELECT * FROM valeur V join pourcent P ON V.id = P.id_couple";
-	try{
-		$resReq = $db->query($req2);
-		while($res = $resReq->fetch()){
-			echo "<tr>";
-				echo "<td>".$res['precedent']."</td>";
-				echo "<td>".$res['courrant']."</td>";
-				echo "<td>".$res['positif']."</td>";
-				echo "<td>".$res['negatif']."</td>";
-				echo "<td>".$res['neutre']."</td>";
-				echo "<td>".$res['pourcentPos']."</td>";
-				echo "<td>".$res['pourcentNeg']."</td>";
-				echo "<td>".$res['pourcentNeutre']."</td>";
-			echo "</tr>";
-		}
-		$resReq->closeCursor();
-	}
-	catch(Exception $e){
-		echo $e;
-	}
-?>
-</table>
+<?php include "./Layout/controlSet.php"; ?>

@@ -26,6 +26,7 @@ function next(){
 	document.getElementById("pos").checked = false;
 	document.getElementById("neutre").checked = false;
 	document.getElementById("neg").checked = false;
+	document.getElementById("ind").checked = false;
 }
 
 /**
@@ -36,6 +37,7 @@ function addValue(current){
 	var pos = document.getElementById("pos");
 	var neutre = document.getElementById("neutre");
 	var neg = document.getElementById("neg");
+	var ind = document.getElementById("ind");
 
 	var courrant = document.getElementById(current).innerHTML;
 	if(current <= 0)
@@ -51,6 +53,9 @@ function addValue(current){
 	}
 	else if(neg.checked){
 		var val = "neg";
+	}
+	else if(ind.checked){
+		var val = "ind";
 	}
 	database(val, pred, courrant);
 }
