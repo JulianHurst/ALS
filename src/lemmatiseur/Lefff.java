@@ -320,7 +320,7 @@ public class Lefff {
 		txt = traiteAdj(txt);*/
 		for(int i=0;i<adj.size();i++)
 			adj.set(i,traiteAdj(adj.get(i)));
-        txt=gardeAdj(txt,adj);
+        //txt=gardeAdj(txt,adj);
 		//Ecriture du fichier texte de sortie
 		String pathSplit[] = path.split("/");
 		String titre = pathSplit[pathSplit.length-1];

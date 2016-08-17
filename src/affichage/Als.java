@@ -47,15 +47,15 @@ public class Als {
 						analyseur=new ASP(texte,l1.getAdj(),l1.getNoms(),l1.getNomsP());
 						analyseur.analyse();
 						String ntxt = l1.traiteTexte(texte,analyseur.getASP().find("adj").getArray());
-						System.out.println("texte lemmatisé : "+ntxt);
+						System.out.println("\ntexte lemmatisé : "+ntxt+"\n");
                         S.classifierTableau(ntxt.split(" "),A,B);
 
 					}
 					else{
 						analyseur=new ASP(choix,l1.getAdj(),l1.getNoms(),l1.getNomsP());
-						analyseur.analyse();						
+						analyseur.analyse();
 						String ntxt = l1.traiteTexte(choix,analyseur.getASP().find("adj").getArray());
-						System.out.println("texte lemmatisé : "+ntxt);
+						System.out.println("\ntexte lemmatisé : "+ntxt+"\n");
                         S.classifierTableau(ntxt.split(" "),A,B);
 					}
 					break;

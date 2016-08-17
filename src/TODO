@@ -4,3 +4,5 @@ la gauche française
 gauche = adj ou nom
 française = adj ou nom
 
+[ Peut être ]
+Au lieu de tester pour des mots clés, lancer chaine sur tous les mots en élimminant les noms parmis les mots clés ?

@@ -33,7 +33,7 @@ public class ASP{
         this.arbreAdj=arbreAdj;
         this.arbreNoms=arbreNoms;
         this.arbreNomsP=arbreNomsP;
-        System.out.println("***ASP*** texte : "+this.txt);
+        //System.out.println("***ASP*** texte : "+this.txt);
         //System.out.println("***ASP*** phrases0 : "+this.phrases[0]);
         //mots=txt.split(" ");
     }
