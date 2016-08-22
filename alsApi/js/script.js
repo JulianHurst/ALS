@@ -38,19 +38,26 @@ function addValue(current){
 	var neutre = document.getElementById("neutre");
 	var neg = document.getElementById("neg");
 	var ind = document.getElementById("ind");
-	var check = true;
+	var check = false;
 
 	var courrant = document.getElementById(current).innerHTML;
 	alert(typeof document.getElementsByClassName(activeS));
 	if(current <= 0)
 		var pred = "~";
 	else
-		if(typeof document.getElementsByClassName(activeS) !== 'undefined')
+		try{
 			var pred = document.getElementsByClassName(activeS).innerHTML;
-		else if(typeof document.getElementsByClassName(inactiveS) !== 'undefined')
+			check = true;
+		}
+		catch(e){
+		}
+		try{
 			var pred = document.getElementsByClassName(activeS).innerHTML;
-		else
-			check = false;
+			check = true;
+		}
+		catch(e){
+		}
+
 
 	if(pos.checked){
 		var val = "pos";
