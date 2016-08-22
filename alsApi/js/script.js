@@ -38,12 +38,19 @@ function addValue(current){
 	var neutre = document.getElementById("neutre");
 	var neg = document.getElementById("neg");
 	var ind = document.getElementById("ind");
+	var check = true;
 
 	var courrant = document.getElementById(current).innerHTML;
+	alert(typeof document.getElementsByClassName(activeS));
 	if(current <= 0)
 		var pred = "~";
 	else
-		var pred = document.getElementById(current-1).innerHTML;
+		if(typeof document.getElementsByClassName(activeS) !== 'undefined')
+			var pred = document.getElementsByClassName(activeS).innerHTML;
+		else if(typeof document.getElementsByClassName(inactiveS) !== 'undefined')
+			var pred = document.getElementsByClassName(activeS).innerHTML;
+		else
+			check = false;
 
 	if(pos.checked){
 		var val = "pos";
@@ -57,7 +64,8 @@ function addValue(current){
 	else if(ind.checked){
 		var val = "ind";
 	}
-	database(val, pred, courrant);
+	if(check == true)
+		database(val, pred, courrant);
 }
 /**
 * @brief appel le script PhP qui s'occupe de l'insertion des données en BDD
@@ -80,4 +88,26 @@ function database(val, pred, courrant){
 	}
 	xmlhttp.open("GET","data.php?val="+val+"&courrant="+courrant+"&pred="+pred,true);
 	xmlhttp.send();
+}
+
+function selectWord(obj){
+	var labelClass = obj.className;
+	try{
+		document.getElementsByClassName("activeS")[0].className = "active";
+	}
+	catch(e){
+	
+	}
+
+	try{
+		document.getElementsByClassName("inactiveS")[0].className = "inactive";
+	}
+	catch(e){
+	
+	}
+
+	if(labelClass == "active")
+		obj.className = "activeS";
+	else
+		obj.className = "inactiveS";
 }

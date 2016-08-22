@@ -84,9 +84,9 @@
 			echo "<p>";
 			for($i = 0; $i < sizeof($split); $i++){
 				if($i == 0)
-					echo '<span id='.$i.' class="active">'.$split[$i].'</span> ';
+					echo '<span id='.$i.' class="active" onclick="selectWord(this)" onmouseover="" style="cursor: pointer;">'.$split[$i].'</span> ';
 				else
-					echo '<span id='.$i.' class="">'.$split[$i].'</span> ';
+					echo '<span id='.$i.' class="inactive" onclick="selectWord(this)" onmouseover="" style="cursor: pointer;">'.$split[$i].'</span> ';
 			}
 			echo "</p>";
 		?>

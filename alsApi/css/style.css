@@ -1,3 +1,7 @@
-.active{
+.active, .activeS{
 	background-color: yellow;
+}
+
+.activeS, .inactiveS{
+	border : solid black 2px;
 }
