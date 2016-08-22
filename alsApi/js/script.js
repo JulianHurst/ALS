@@ -38,22 +38,24 @@ function addValue(current){
 	var neutre = document.getElementById("neutre");
 	var neg = document.getElementById("neg");
 	var ind = document.getElementById("ind");
-	var check = false;
+	var check = 0;
 
 	var courrant = document.getElementById(current).innerHTML;
-	alert(typeof document.getElementsByClassName(activeS));
 	if(current <= 0)
 		var pred = "~";
 	else
 		try{
-			var pred = document.getElementsByClassName(activeS).innerHTML;
-			check = true;
+			pred = document.getElementsByClassName(activeS)[0].id;
+			check = 1;
 		}
 		catch(e){
 		}
 		try{
-			var pred = document.getElementsByClassName(activeS).innerHTML;
-			check = true;
+			alert(check);
+			pred = document.getElementsByClassName(inactiveS)[0].id;
+			alert(pred);
+			check = 1;
+			alert(check);
 		}
 		catch(e){
 		}
@@ -71,8 +73,10 @@ function addValue(current){
 	else if(ind.checked){
 		var val = "ind";
 	}
-	if(check == true)
+	if(check == 1){
+		alert('in');
 		database(val, pred, courrant);
+	}
 }
 /**
 * @brief appel le script PhP qui s'occupe de l'insertion des données en BDD
