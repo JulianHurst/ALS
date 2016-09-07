@@ -45,19 +45,17 @@ function addValue(current){
 		var pred = "~";
 	else
 		try{
-			pred = document.getElementsByClassName(activeS)[0].id;
+			pred = document.getElementsByClassName("activeS")[0].innerHTML;
 			check = 1;
 		}
 		catch(e){
 		}
 		try{
-			alert(check);
-			pred = document.getElementsByClassName(inactiveS)[0].id;
-			alert(pred);
+			pred = document.getElementsByClassName("inactiveS")[0].innerHTML;
 			check = 1;
-			alert(check);
 		}
 		catch(e){
+
 		}
 
 
@@ -74,7 +72,6 @@ function addValue(current){
 		var val = "ind";
 	}
 	if(check == 1){
-		alert('in');
 		database(val, pred, courrant);
 	}
 }

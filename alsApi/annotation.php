@@ -82,11 +82,20 @@
 		<input type="radio" name="valeur" id="ind" value="indecidable">indecidable</br>
 		<?php
 			echo "<p>";
+			$outil = fopen("res/outils.txt", "r") or die("Unable to open file!");
+			$toutil = fread($outil,filesize("res/outils.txt"));
+			$sOutils = explode("-_-", $toutil);
+			$cpt = 0;
 			for($i = 0; $i < sizeof($split); $i++){
-				if($i == 0)
-					echo '<span id='.$i.' class="active" onclick="selectWord(this)" onmouseover="" style="cursor: pointer;">'.$split[$i].'</span> ';
+				if(!in_array(strtolower($split[$i]), $sOutils)){
+					if($cpt == 0)
+						echo '<span id='.$cpt.' class="active" onclick="selectWord(this)" onmouseover="" style="cursor: pointer;">'.$split[$i].'</span> ';
+					else
+						echo '<span id='.$cpt.' class="inactive" onclick="selectWord(this)" onmouseover="" style="cursor: pointer;">'.$split[$i].'</span> ';
+					$cpt++;
+				}
 				else
-					echo '<span id='.$i.' class="inactive" onclick="selectWord(this)" onmouseover="" style="cursor: pointer;">'.$split[$i].'</span> ';
+					echo '<span class="inactive" onclick="selectWord(this)" onmouseover="" style="cursor: pointer;">'.$split[$i].'</span> ';
 			}
 			echo "</p>";
 		?>
