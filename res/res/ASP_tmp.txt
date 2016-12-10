@@ -1,0 +1,79 @@
+(* Peut se rattacher à "en" ou "y" ex : il y en a plusieurs) 
+Un *
+Une * 
+Mon
+Ma
+Mes
+Ton
+Ta
+Tes
+Son
+Sa
+Ses
+Leur
+Leurs
+Votre
+Vos
+Nos
+Notre
+Le
+La
+Cet
+Cette
+Certains *
+Quelques
+Moultes
+Plusieurs *
+Ce
+Ces
+Aucun *
+Chaque
+Différents
+Différentes
+Divers
+Maints *
+Maintes *
+Nul
+Nuls
+Quelconque
+Quelconques
+Tel
+Tout
+Toute
+Autre
+Autres
+Deux
+Trois
+Quatre
+Cinq
+Six
+Sept
+Huit
+Neuf
+Dix
+Onze
+Douze
+Treize
+Quatorze
+Quinze
+Seize
+Vingt
+Vingts
+Trente
+Quarante
+Cinquante
+Soixante
+Cent
+Cents
+Mille
+Million
+Millions
+Milliard
+Milliards
+Billions
+Billion
+Trillion
+Trillions
+Septante
+Octante
+Nonante

@@ -1,0 +1,185 @@
+grand
+large
+haut
+lointain
+antérieur
+périphérique
+latéral
+debout
+non limité
+discontinu
+flou
+diffus
+dispersé
+déplié
+mobile
+multiple
+ouvert
+mince
+fin
+long
+en relief
+transparent
+exposé
+découvert
+externe
+superficiel
+vide
+concave
+accompagné
+coloré
+clair
+brillant
+irrégulier
+contrasté
+éclairant
+aigu
+sonore
+parlant
+vocal
+dissonant
+stimulant
+tangible
+inconsistant
+fluide
+souple
+léger
+chaud
+mouillé
+tendre
+doux
+tonique
+fragile
+rugueux
+non comestible
+sapide
+non nourrissant
+non sucré
+non gras
+non protéique
+salé
+acide
+amer
+piquant
+cru
+non mûr
+vert
+digeste
+appétissant
+odorant
+parfumé
+amusant
+anormal
+concret
+condamnable
+courageux
+cruel
+défloré
+désordonné
+éphémère
+étranger
+éveillé
+facile
+simple
+facultatif
+fécond
+fertile
+fort
+généreux
+dépensier
+humain
+inconvenant
+incorrect
+indécent
+indigne
+inexact
+inutile
+malhonnête
+acquis
+actif
+agité
+ami
+accueillant
+autre
+différent
+fou
+insensé
+gai
+guerrier
+imparfait
+imprécis
+imprévu
+impudique
+impur
+inconnu
+indépendant
+indiscret
+infini
+injuste
+inquiétant
+jeune
+libre
+malade
+méchant
+mélangé
+mensonger
+faux
+méprisable
+mortel
+non beau
+partial
+physique
+postérieur
+profane
+retors
+riche
+sensible
+turbulent
+vil
+violent
+vivant
+naturel
+non adapté
+non défini
+non fiable
+non mesurable
+non naïf
+déniaisé
+non nécessaire
+non nommable
+osé
+perméable
+poreux
+propre
+rapide
+récent
+relatif
+sans valeur
+sauvage
+singulier
+extraordinaire
+spontané
+surhumain
+sous-humain
+bestial
+vicieux
+accessoire
+agréable
+plaisant
+altruiste
+comique
+attirant
+attrayant
+collectif
+joyeux
+imaginaire
+indistinct
+effrayant
+mauvais
+malin
+public
+sans valeur
+original
+subjectif
+ignoble
+vif

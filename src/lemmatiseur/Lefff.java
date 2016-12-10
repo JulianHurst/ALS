@@ -2,6 +2,7 @@ package lemmatiseur;
 
 import java.io.*;
 import java.lang.*;
+import java.net.URL;
 import java.util.*;
 import tokemisation.*;
 import listelemm.*;
@@ -35,8 +36,8 @@ public class Lefff {
 		Outils = new ListeLemmWrapper();
 		this.path = path;
 		readLefff();
-		readOutil("./res/outils.txt");
-		readExp("./res/exp.txt");
+		readOutil("/res/outils.txt");
+		readExp("/res/exp.txt");
 	}
 
 	/**
@@ -49,7 +50,7 @@ public class Lefff {
 
 		try{
 			File fichier = new File(path);
-			BufferedReader txt = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF8"));
+			BufferedReader txt = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(path), "UTF8"));
 			String line;
 			while ((line = txt.readLine()) != null){
 				cLine = line.split(separator);
@@ -80,7 +81,7 @@ public class Lefff {
 
 		try{
 			File fichier = new File(path);
-			BufferedReader txt = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF8"));
+			BufferedReader txt = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream((path)), "UTF8"));
 			String line;
 			while ((line = txt.readLine()) != null){
 				cLine = line.split(separator);
@@ -97,7 +98,7 @@ public class Lefff {
 	public void readExp(String path){
 		try{
 			File fichier = new File(path);
-			BufferedReader txt = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF8"));
+			BufferedReader txt = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(path), "UTF8"));
 			String line;
 			while ((line = txt.readLine()) != null){
 				listExp.add(line);
@@ -113,7 +114,7 @@ public class Lefff {
 	**/
 	public void writeFile(String txt, String titre){
 		try{
-			String path = "./res/"+titre+".txt";
+			String path = titre+".txt";
 			File writing = new File(path);
 
 			if(!writing.exists())
@@ -293,10 +294,13 @@ public class Lefff {
 		String txt = "";
 		String tmp="";
 		String path = p;
-		File f = new File(p);
+		/*File f = new File(getClass().getResource(p).getFile());
 		if(!f.exists()){
 			return "Echec de l'ouverture";
-		}
+		}*/
+		URL u = getClass().getResource(p);
+		if(u==null)
+			return "Echec de l'ouverture";
 		System.out.println("ouverture du texte");
 		txt = U.openTexte(p);
 		//txt=txt.toLowerCase();

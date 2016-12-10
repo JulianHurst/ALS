@@ -1,0 +1,121 @@
+\hypertarget{classtokemisation_1_1_tokemiseur}{}\section{tokemisation.\+Tokemiseur Class Reference}
+\label{classtokemisation_1_1_tokemiseur}\index{tokemisation.\+Tokemiseur@{tokemisation.\+Tokemiseur}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classtokemisation_1_1_tokemiseur_a0bedd0f61434a9597b87c674a52af8bf}{Tokemiseur} (String path)
+\begin{DoxyCompactList}\small\item\em Crée un tokemiseur à partir d\textquotesingle{}un fichier. \end{DoxyCompactList}\item 
+void \hyperlink{classtokemisation_1_1_tokemiseur_a1036e3bd17f10ac37b00142119495307}{tokem\+File} ()\hypertarget{classtokemisation_1_1_tokemiseur_a1036e3bd17f10ac37b00142119495307}{}\label{classtokemisation_1_1_tokemiseur_a1036e3bd17f10ac37b00142119495307}
+
+\begin{DoxyCompactList}\small\item\em Lancement de la tokemisation. \end{DoxyCompactList}\item 
+void \hyperlink{classtokemisation_1_1_tokemiseur_a9af268b22fd743447b689a27e0b0db3a}{create\+Tree} (String line)
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}ajouter un mot dans l\textquotesingle{}arbre. \end{DoxyCompactList}\item 
+void \hyperlink{classtokemisation_1_1_tokemiseur_ae932be66d27c705438bb7e07036c2f52}{create\+Vthree} (String line, String inf)
+\begin{DoxyCompactList}\small\item\em Permet d\textquotesingle{}ajouter un verbe dans l\textquotesingle{}arbre. \end{DoxyCompactList}\item 
+String \hyperlink{classtokemisation_1_1_tokemiseur_a9aa1bbf145517a2b9b79461d8d831145}{find\+Tokem} (String s)
+\begin{DoxyCompactList}\small\item\em Cherche si le tokem est dans l\textquotesingle{}arbre lexical (ignore par défaut la casse) \end{DoxyCompactList}\item 
+String \hyperlink{classtokemisation_1_1_tokemiseur_a38dda47926268cb3eb8ad66373755083}{find\+Tokem} (String s, boolean ignorecase)
+\begin{DoxyCompactList}\small\item\em Cherche si le tokem est dans l\textquotesingle{}arbre lexical. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{tokemisation\+::\+Tokemiseur@{tokemisation\+::\+Tokemiseur}!Tokemiseur@{Tokemiseur}}
+\index{Tokemiseur@{Tokemiseur}!tokemisation\+::\+Tokemiseur@{tokemisation\+::\+Tokemiseur}}
+\subsubsection[{\texorpdfstring{Tokemiseur(\+String path)}{Tokemiseur(String path)}}]{\setlength{\rightskip}{0pt plus 5cm}tokemisation.\+Tokemiseur.\+Tokemiseur (
+\begin{DoxyParamCaption}
+\item[{String}]{path}
+\end{DoxyParamCaption}
+)}\hypertarget{classtokemisation_1_1_tokemiseur_a0bedd0f61434a9597b87c674a52af8bf}{}\label{classtokemisation_1_1_tokemiseur_a0bedd0f61434a9597b87c674a52af8bf}
+
+
+Crée un tokemiseur à partir d\textquotesingle{}un fichier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em String} & path \+: Le chemin du fichier \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{tokemisation\+::\+Tokemiseur@{tokemisation\+::\+Tokemiseur}!create\+Tree@{create\+Tree}}
+\index{create\+Tree@{create\+Tree}!tokemisation\+::\+Tokemiseur@{tokemisation\+::\+Tokemiseur}}
+\subsubsection[{\texorpdfstring{create\+Tree(\+String line)}{createTree(String line)}}]{\setlength{\rightskip}{0pt plus 5cm}void tokemisation.\+Tokemiseur.\+create\+Tree (
+\begin{DoxyParamCaption}
+\item[{String}]{line}
+\end{DoxyParamCaption}
+)}\hypertarget{classtokemisation_1_1_tokemiseur_a9af268b22fd743447b689a27e0b0db3a}{}\label{classtokemisation_1_1_tokemiseur_a9af268b22fd743447b689a27e0b0db3a}
+
+
+Permet d\textquotesingle{}ajouter un mot dans l\textquotesingle{}arbre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & mot à ajouter \\
+\hline
+\end{DoxyParams}
+\index{tokemisation\+::\+Tokemiseur@{tokemisation\+::\+Tokemiseur}!create\+Vthree@{create\+Vthree}}
+\index{create\+Vthree@{create\+Vthree}!tokemisation\+::\+Tokemiseur@{tokemisation\+::\+Tokemiseur}}
+\subsubsection[{\texorpdfstring{create\+Vthree(\+String line, String inf)}{createVthree(String line, String inf)}}]{\setlength{\rightskip}{0pt plus 5cm}void tokemisation.\+Tokemiseur.\+create\+Vthree (
+\begin{DoxyParamCaption}
+\item[{String}]{line, }
+\item[{String}]{inf}
+\end{DoxyParamCaption}
+)}\hypertarget{classtokemisation_1_1_tokemiseur_ae932be66d27c705438bb7e07036c2f52}{}\label{classtokemisation_1_1_tokemiseur_ae932be66d27c705438bb7e07036c2f52}
+
+
+Permet d\textquotesingle{}ajouter un verbe dans l\textquotesingle{}arbre. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & Verbe conjugué à ajouter \\
+\hline
+{\em inf} & L\textquotesingle{}infinitif du verbe \\
+\hline
+\end{DoxyParams}
+\index{tokemisation\+::\+Tokemiseur@{tokemisation\+::\+Tokemiseur}!find\+Tokem@{find\+Tokem}}
+\index{find\+Tokem@{find\+Tokem}!tokemisation\+::\+Tokemiseur@{tokemisation\+::\+Tokemiseur}}
+\subsubsection[{\texorpdfstring{find\+Tokem(\+String s)}{findTokem(String s)}}]{\setlength{\rightskip}{0pt plus 5cm}String tokemisation.\+Tokemiseur.\+find\+Tokem (
+\begin{DoxyParamCaption}
+\item[{String}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{classtokemisation_1_1_tokemiseur_a9aa1bbf145517a2b9b79461d8d831145}{}\label{classtokemisation_1_1_tokemiseur_a9aa1bbf145517a2b9b79461d8d831145}
+
+
+Cherche si le tokem est dans l\textquotesingle{}arbre lexical (ignore par défaut la casse) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em String} & s \+: Mot à chercher \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String \+: Le mot de fin ou forme lemmatisée du tokemiseur, si il n\textquotesingle{}existe pas la méthode renvoie null 
+\end{DoxyReturn}
+\index{tokemisation\+::\+Tokemiseur@{tokemisation\+::\+Tokemiseur}!find\+Tokem@{find\+Tokem}}
+\index{find\+Tokem@{find\+Tokem}!tokemisation\+::\+Tokemiseur@{tokemisation\+::\+Tokemiseur}}
+\subsubsection[{\texorpdfstring{find\+Tokem(\+String s, boolean ignorecase)}{findTokem(String s, boolean ignorecase)}}]{\setlength{\rightskip}{0pt plus 5cm}String tokemisation.\+Tokemiseur.\+find\+Tokem (
+\begin{DoxyParamCaption}
+\item[{String}]{s, }
+\item[{boolean}]{ignorecase}
+\end{DoxyParamCaption}
+)}\hypertarget{classtokemisation_1_1_tokemiseur_a38dda47926268cb3eb8ad66373755083}{}\label{classtokemisation_1_1_tokemiseur_a38dda47926268cb3eb8ad66373755083}
+
+
+Cherche si le tokem est dans l\textquotesingle{}arbre lexical. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em String} & s \+: Mot à chercher \\
+\hline
+{\em boolean} & ignorecase \+: Permet de spécifier si on veut ignorer la casse ou non \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String \+: Le mot de fin ou forme lemmatisée du tokemiseur, si il n\textquotesingle{}existe pas la méthode renvoie null 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+tokemisation/Tokemiseur.\+java\end{DoxyCompactItemize}

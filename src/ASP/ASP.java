@@ -26,7 +26,7 @@ public class ASP{
      * @brief Initialise l'ASP
      */
     public ASP(String txt,Tokemiseur arbreAdj,Tokemiseur arbreNoms, Tokemiseur arbreNomsP){
-        mots_cles=new Tokemiseur("res/ASP.txt");
+        mots_cles=new Tokemiseur("/res/ASP.txt");
         T=new ListeLemmWrapper();
         U=new Utils();
         this.txt=U.openTexte(txt);

@@ -157,11 +157,11 @@ public class Synonymes {
             if(percent>0.20){
 				if(serie){
 					System.out.println(mot+" appartient à la série A\n");
-					file = new File("res/serieA_maj.txt");
+					file = new File("serieA_maj.txt");
 				}
 				else{
 					System.out.println(mot+" appartient à la série B\n");
-					file = new File("res/serieB_maj.txt");					
+					file = new File("serieB_maj.txt");					
 				}		
 				                                 			
 			    if(!file.exists())

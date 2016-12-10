@@ -1,0 +1,306 @@
+\hypertarget{classsynonymes_1_1_synonymes}{}\section{synonymes.\+Synonymes Class Reference}
+\label{classsynonymes_1_1_synonymes}\index{synonymes.\+Synonymes@{synonymes.\+Synonymes}}
+
+
+Permet de classifier un mot, selon ses synonymes, dans la Série A ou la Série B.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsynonymes_1_1_synonymes_a3e2d27070b4226a6d9dd2557353c3865}{Synonymes} (String lang)
+\begin{DoxyCompactList}\small\item\em Construit un objet \hyperlink{classsynonymes_1_1_synonymes}{Synonymes} avec une langue spécifique. \end{DoxyCompactList}\item 
+\hyperlink{classsynonymes_1_1_synonymes_a2a0f489421e0de3f6f6efc5d9ae9234d}{Synonymes} ()\hypertarget{classsynonymes_1_1_synonymes_a2a0f489421e0de3f6f6efc5d9ae9234d}{}\label{classsynonymes_1_1_synonymes_a2a0f489421e0de3f6f6efc5d9ae9234d}
+
+\begin{DoxyCompactList}\small\item\em Construit un objet \hyperlink{classsynonymes_1_1_synonymes}{Synonymes} avec la langue par défaut (fr\+\_\+\+FR) \end{DoxyCompactList}\item 
+boolean \hyperlink{classsynonymes_1_1_synonymes_aa0cc803aca4798d8bb630a1be78b4383}{find\+Synonymes} (String mot)
+\begin{DoxyCompactList}\small\item\em Retrouve les synonymes d\textquotesingle{}un mot grâce à l\textquotesingle{}A\+PI de thesaurus.\+altervista.\+org et les stocke dans la liste de synonymes S. \end{DoxyCompactList}\item 
+void \hyperlink{classsynonymes_1_1_synonymes_a5dec24ea9833290c26d844132c76e2e4}{classification} (\hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} SerieA, \hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} SerieB)
+\begin{DoxyCompactList}\small\item\em Détermine selon les synonymes trouvés si le mot d\textquotesingle{}origine appartient à la série A ou série B puis l\textquotesingle{}écrit dans un fichier de mise à jour serie\+A\+\_\+maj.\+txt ou serie\+B\+\_\+maj.\+txt. \end{DoxyCompactList}\item 
+boolean \hyperlink{classsynonymes_1_1_synonymes_a05d52b28c4d5366ea209a1083b7bd09d}{deja\+Classifie} (String mot)
+\begin{DoxyCompactList}\small\item\em Renvoie si le mot a déjà été classifié grâce aux synonymes ou non. \end{DoxyCompactList}\item 
+void \hyperlink{classsynonymes_1_1_synonymes_a4f2b7af65c0813bb1f6aff33ffd2959a}{classifier\+Mot} (String mot, \hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} SerieA, \hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} SerieB)
+\begin{DoxyCompactList}\small\item\em Détermine si un mot appartient à la série A ou à la série B. \end{DoxyCompactList}\item 
+void \hyperlink{classsynonymes_1_1_synonymes_ae02a51cbefd377553f2a29b8546afdf2}{classifier\+Liste} (List$<$ String $>$ L, \hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} A, \hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} B)
+\begin{DoxyCompactList}\small\item\em Permet de déterminer à quelles séries appartiennent tous les mots d\textquotesingle{}une liste. \end{DoxyCompactList}\item 
+void \hyperlink{classsynonymes_1_1_synonymes_a61492947a9ea015936855ec3e5ca815e}{classifier\+Tableau} (String\mbox{[}$\,$\mbox{]} T, \hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} A, \hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} B)
+\begin{DoxyCompactList}\small\item\em Permet de déterminer à quelles séries appartiennent tous les mots d\textquotesingle{}une liste. \end{DoxyCompactList}\item 
+void \hyperlink{classsynonymes_1_1_synonymes_a9465aad2d2b68eaaf9fe0bbccde9b934}{find\+Synonymes} (String mot, String lang)
+\begin{DoxyCompactList}\small\item\em La même chose que \hyperlink{classsynonymes_1_1_synonymes_aa0cc803aca4798d8bb630a1be78b4383}{find\+Synonymes(\+String mot)} mais avec une option de langue. \end{DoxyCompactList}\item 
+Array\+List$<$ String $>$ \hyperlink{classsynonymes_1_1_synonymes_aa4defad4e15650af612d56f753912817}{get\+Synonymes} ()
+\begin{DoxyCompactList}\small\item\em Renvoie la liste de \hyperlink{classsynonymes_1_1_synonymes}{Synonymes}. \end{DoxyCompactList}\item 
+String \hyperlink{classsynonymes_1_1_synonymes_ac3399304ab9193333944a7ef51edd2cf}{get\+Mot} ()
+\begin{DoxyCompactList}\small\item\em Retourne le mot d\textquotesingle{}origine pour lequel les synonymes ont été trouvés. \end{DoxyCompactList}\item 
+void \hyperlink{classsynonymes_1_1_synonymes_aac6ad3658b8cd4e6b1f38c807b71db42}{set\+Lang} (String lang)
+\begin{DoxyCompactList}\small\item\em Permet de régler la langue. \end{DoxyCompactList}\item 
+String \hyperlink{classsynonymes_1_1_synonymes_ac361b78facb95f071f726b03a1fa5d57}{get\+Lang} ()
+\begin{DoxyCompactList}\small\item\em Renvoie la langue actuelle. \end{DoxyCompactList}\item 
+void \hyperlink{classsynonymes_1_1_synonymes_a47bb0876ea68747adc3f6d6435f805f3}{set\+Adj} (\hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} arbre\+Adj)
+\begin{DoxyCompactList}\small\item\em Permet de règler l\textquotesingle{}arbre d\textquotesingle{}adjectifs. \end{DoxyCompactList}\item 
+\hyperlink{classtokemisation_1_1_tokemiseur}{Tokemiseur} \hyperlink{classsynonymes_1_1_synonymes_a1034f9b34dbe509b4d81d033adbbf485}{get\+Adj} ()
+\begin{DoxyCompactList}\small\item\em Renvoie l\textquotesingle{}abre des adjectifs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Permet de classifier un mot, selon ses synonymes, dans la Série A ou la Série B. 
+
+\begin{DoxyAuthor}{Author}
+Julian Hurst 
+\end{DoxyAuthor}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!Synonymes@{Synonymes}}
+\index{Synonymes@{Synonymes}!synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}}
+\subsubsection[{\texorpdfstring{Synonymes(\+String lang)}{Synonymes(String lang)}}]{\setlength{\rightskip}{0pt plus 5cm}synonymes.\+Synonymes.\+Synonymes (
+\begin{DoxyParamCaption}
+\item[{String}]{lang}
+\end{DoxyParamCaption}
+)}\hypertarget{classsynonymes_1_1_synonymes_a3e2d27070b4226a6d9dd2557353c3865}{}\label{classsynonymes_1_1_synonymes_a3e2d27070b4226a6d9dd2557353c3865}
+
+
+Construit un objet \hyperlink{classsynonymes_1_1_synonymes}{Synonymes} avec une langue spécifique. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lang} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!classification@{classification}}
+\index{classification@{classification}!synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}}
+\subsubsection[{\texorpdfstring{classification(\+Tokemiseur Serie\+A, Tokemiseur Serie\+B)}{classification(Tokemiseur SerieA, Tokemiseur SerieB)}}]{\setlength{\rightskip}{0pt plus 5cm}void synonymes.\+Synonymes.\+classification (
+\begin{DoxyParamCaption}
+\item[{{\bf Tokemiseur}}]{SerieA, }
+\item[{{\bf Tokemiseur}}]{SerieB}
+\end{DoxyParamCaption}
+)}\hypertarget{classsynonymes_1_1_synonymes_a5dec24ea9833290c26d844132c76e2e4}{}\label{classsynonymes_1_1_synonymes_a5dec24ea9833290c26d844132c76e2e4}
+
+
+Détermine selon les synonymes trouvés si le mot d\textquotesingle{}origine appartient à la série A ou série B puis l\textquotesingle{}écrit dans un fichier de mise à jour serie\+A\+\_\+maj.\+txt ou serie\+B\+\_\+maj.\+txt. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tokemiseur} & SerieA \\
+\hline
+{\em Tokemiseur} & SerieB \\
+\hline
+\end{DoxyParams}
+\index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!classifier\+Liste@{classifier\+Liste}}
+\index{classifier\+Liste@{classifier\+Liste}!synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}}
+\subsubsection[{\texorpdfstring{classifier\+Liste(\+List$<$ String $>$ L, Tokemiseur A, Tokemiseur B)}{classifierListe(List< String > L, Tokemiseur A, Tokemiseur B)}}]{\setlength{\rightskip}{0pt plus 5cm}void synonymes.\+Synonymes.\+classifier\+Liste (
+\begin{DoxyParamCaption}
+\item[{List$<$ String $>$}]{L, }
+\item[{{\bf Tokemiseur}}]{A, }
+\item[{{\bf Tokemiseur}}]{B}
+\end{DoxyParamCaption}
+)}\hypertarget{classsynonymes_1_1_synonymes_ae02a51cbefd377553f2a29b8546afdf2}{}\label{classsynonymes_1_1_synonymes_ae02a51cbefd377553f2a29b8546afdf2}
+
+
+Permet de déterminer à quelles séries appartiennent tous les mots d\textquotesingle{}une liste. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em List$<$\+String$>$} & L \\
+\hline
+{\em Tokemiseur} & A \\
+\hline
+{\em Tokemiseur} & B \\
+\hline
+\end{DoxyParams}
+\index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!classifier\+Mot@{classifier\+Mot}}
+\index{classifier\+Mot@{classifier\+Mot}!synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}}
+\subsubsection[{\texorpdfstring{classifier\+Mot(\+String mot, Tokemiseur Serie\+A, Tokemiseur Serie\+B)}{classifierMot(String mot, Tokemiseur SerieA, Tokemiseur SerieB)}}]{\setlength{\rightskip}{0pt plus 5cm}void synonymes.\+Synonymes.\+classifier\+Mot (
+\begin{DoxyParamCaption}
+\item[{String}]{mot, }
+\item[{{\bf Tokemiseur}}]{SerieA, }
+\item[{{\bf Tokemiseur}}]{SerieB}
+\end{DoxyParamCaption}
+)}\hypertarget{classsynonymes_1_1_synonymes_a4f2b7af65c0813bb1f6aff33ffd2959a}{}\label{classsynonymes_1_1_synonymes_a4f2b7af65c0813bb1f6aff33ffd2959a}
+
+
+Détermine si un mot appartient à la série A ou à la série B. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mot} & \\
+\hline
+{\em Tokemiseur} & SerieA \\
+\hline
+{\em Tokemiseur} & SerieB \\
+\hline
+\end{DoxyParams}
+\index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!classifier\+Tableau@{classifier\+Tableau}}
+\index{classifier\+Tableau@{classifier\+Tableau}!synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}}
+\subsubsection[{\texorpdfstring{classifier\+Tableau(\+String[] T, Tokemiseur A, Tokemiseur B)}{classifierTableau(String[] T, Tokemiseur A, Tokemiseur B)}}]{\setlength{\rightskip}{0pt plus 5cm}void synonymes.\+Synonymes.\+classifier\+Tableau (
+\begin{DoxyParamCaption}
+\item[{String\mbox{[}$\,$\mbox{]}}]{T, }
+\item[{{\bf Tokemiseur}}]{A, }
+\item[{{\bf Tokemiseur}}]{B}
+\end{DoxyParamCaption}
+)}\hypertarget{classsynonymes_1_1_synonymes_a61492947a9ea015936855ec3e5ca815e}{}\label{classsynonymes_1_1_synonymes_a61492947a9ea015936855ec3e5ca815e}
+
+
+Permet de déterminer à quelles séries appartiennent tous les mots d\textquotesingle{}une liste. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em String\mbox{[}$\,$\mbox{]}} & T \\
+\hline
+{\em Tokemiseur} & A \\
+\hline
+{\em Tokemiseur} & B \\
+\hline
+\end{DoxyParams}
+\index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!deja\+Classifie@{deja\+Classifie}}
+\index{deja\+Classifie@{deja\+Classifie}!synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}}
+\subsubsection[{\texorpdfstring{deja\+Classifie(\+String mot)}{dejaClassifie(String mot)}}]{\setlength{\rightskip}{0pt plus 5cm}boolean synonymes.\+Synonymes.\+deja\+Classifie (
+\begin{DoxyParamCaption}
+\item[{String}]{mot}
+\end{DoxyParamCaption}
+)}\hypertarget{classsynonymes_1_1_synonymes_a05d52b28c4d5366ea209a1083b7bd09d}{}\label{classsynonymes_1_1_synonymes_a05d52b28c4d5366ea209a1083b7bd09d}
+
+
+Renvoie si le mot a déjà été classifié grâce aux synonymes ou non. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mot} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si le mot est classifié, false sinon 
+\end{DoxyReturn}
+\index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!find\+Synonymes@{find\+Synonymes}}
+\index{find\+Synonymes@{find\+Synonymes}!synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}}
+\subsubsection[{\texorpdfstring{find\+Synonymes(\+String mot)}{findSynonymes(String mot)}}]{\setlength{\rightskip}{0pt plus 5cm}boolean synonymes.\+Synonymes.\+find\+Synonymes (
+\begin{DoxyParamCaption}
+\item[{String}]{mot}
+\end{DoxyParamCaption}
+)}\hypertarget{classsynonymes_1_1_synonymes_aa0cc803aca4798d8bb630a1be78b4383}{}\label{classsynonymes_1_1_synonymes_aa0cc803aca4798d8bb630a1be78b4383}
+
+
+Retrouve les synonymes d\textquotesingle{}un mot grâce à l\textquotesingle{}A\+PI de thesaurus.\+altervista.\+org et les stocke dans la liste de synonymes S. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mot} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si le mot est un adjectif et comporte des synonymes, false sinon. 
+\end{DoxyReturn}
+\index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!find\+Synonymes@{find\+Synonymes}}
+\index{find\+Synonymes@{find\+Synonymes}!synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}}
+\subsubsection[{\texorpdfstring{find\+Synonymes(\+String mot, String lang)}{findSynonymes(String mot, String lang)}}]{\setlength{\rightskip}{0pt plus 5cm}void synonymes.\+Synonymes.\+find\+Synonymes (
+\begin{DoxyParamCaption}
+\item[{String}]{mot, }
+\item[{String}]{lang}
+\end{DoxyParamCaption}
+)}\hypertarget{classsynonymes_1_1_synonymes_a9465aad2d2b68eaaf9fe0bbccde9b934}{}\label{classsynonymes_1_1_synonymes_a9465aad2d2b68eaaf9fe0bbccde9b934}
+
+
+La même chose que \hyperlink{classsynonymes_1_1_synonymes_aa0cc803aca4798d8bb630a1be78b4383}{find\+Synonymes(\+String mot)} mais avec une option de langue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mot} & Le mot pour lequel trouver les synonymes \\
+\hline
+{\em lang} & La langue à utiliser \\
+\hline
+\end{DoxyParams}
+\index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!get\+Adj@{get\+Adj}}
+\index{get\+Adj@{get\+Adj}!synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}}
+\subsubsection[{\texorpdfstring{get\+Adj()}{getAdj()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Tokemiseur} synonymes.\+Synonymes.\+get\+Adj (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsynonymes_1_1_synonymes_a1034f9b34dbe509b4d81d033adbbf485}{}\label{classsynonymes_1_1_synonymes_a1034f9b34dbe509b4d81d033adbbf485}
+
+
+Renvoie l\textquotesingle{}abre des adjectifs. 
+
+\begin{DoxyReturn}{Returns}
+L\textquotesingle{}arbre d\textquotesingle{}adjectifs 
+\end{DoxyReturn}
+\index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!get\+Lang@{get\+Lang}}
+\index{get\+Lang@{get\+Lang}!synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}}
+\subsubsection[{\texorpdfstring{get\+Lang()}{getLang()}}]{\setlength{\rightskip}{0pt plus 5cm}String synonymes.\+Synonymes.\+get\+Lang (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsynonymes_1_1_synonymes_ac361b78facb95f071f726b03a1fa5d57}{}\label{classsynonymes_1_1_synonymes_ac361b78facb95f071f726b03a1fa5d57}
+
+
+Renvoie la langue actuelle. 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!get\+Mot@{get\+Mot}}
+\index{get\+Mot@{get\+Mot}!synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}}
+\subsubsection[{\texorpdfstring{get\+Mot()}{getMot()}}]{\setlength{\rightskip}{0pt plus 5cm}String synonymes.\+Synonymes.\+get\+Mot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsynonymes_1_1_synonymes_ac3399304ab9193333944a7ef51edd2cf}{}\label{classsynonymes_1_1_synonymes_ac3399304ab9193333944a7ef51edd2cf}
+
+
+Retourne le mot d\textquotesingle{}origine pour lequel les synonymes ont été trouvés. 
+
+\begin{DoxyReturn}{Returns}
+String 
+\end{DoxyReturn}
+\index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!get\+Synonymes@{get\+Synonymes}}
+\index{get\+Synonymes@{get\+Synonymes}!synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}}
+\subsubsection[{\texorpdfstring{get\+Synonymes()}{getSynonymes()}}]{\setlength{\rightskip}{0pt plus 5cm}Array\+List$<$String$>$ synonymes.\+Synonymes.\+get\+Synonymes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsynonymes_1_1_synonymes_aa4defad4e15650af612d56f753912817}{}\label{classsynonymes_1_1_synonymes_aa4defad4e15650af612d56f753912817}
+
+
+Renvoie la liste de \hyperlink{classsynonymes_1_1_synonymes}{Synonymes}. 
+
+\begin{DoxyReturn}{Returns}
+S 
+\end{DoxyReturn}
+\index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!set\+Adj@{set\+Adj}}
+\index{set\+Adj@{set\+Adj}!synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}}
+\subsubsection[{\texorpdfstring{set\+Adj(\+Tokemiseur arbre\+Adj)}{setAdj(Tokemiseur arbreAdj)}}]{\setlength{\rightskip}{0pt plus 5cm}void synonymes.\+Synonymes.\+set\+Adj (
+\begin{DoxyParamCaption}
+\item[{{\bf Tokemiseur}}]{arbre\+Adj}
+\end{DoxyParamCaption}
+)}\hypertarget{classsynonymes_1_1_synonymes_a47bb0876ea68747adc3f6d6435f805f3}{}\label{classsynonymes_1_1_synonymes_a47bb0876ea68747adc3f6d6435f805f3}
+
+
+Permet de règler l\textquotesingle{}arbre d\textquotesingle{}adjectifs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arbre\+Adj} & \\
+\hline
+\end{DoxyParams}
+\index{synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}!set\+Lang@{set\+Lang}}
+\index{set\+Lang@{set\+Lang}!synonymes\+::\+Synonymes@{synonymes\+::\+Synonymes}}
+\subsubsection[{\texorpdfstring{set\+Lang(\+String lang)}{setLang(String lang)}}]{\setlength{\rightskip}{0pt plus 5cm}void synonymes.\+Synonymes.\+set\+Lang (
+\begin{DoxyParamCaption}
+\item[{String}]{lang}
+\end{DoxyParamCaption}
+)}\hypertarget{classsynonymes_1_1_synonymes_aac6ad3658b8cd4e6b1f38c807b71db42}{}\label{classsynonymes_1_1_synonymes_aac6ad3658b8cd4e6b1f38c807b71db42}
+
+
+Permet de régler la langue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lang} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+synonymes/Synonymes.\+java\end{DoxyCompactItemize}

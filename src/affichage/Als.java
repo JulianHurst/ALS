@@ -22,10 +22,10 @@ public class Als {
 	public void startProg(){
 		String choix = "";
 		System.out.println("Préparation du lemmatiseur");
-		Lefff l1 = new Lefff("./res/fplm.fr.txt");
+		Lefff l1 = new Lefff("/res/fplm.fr.txt");
         Synonymes S=new Synonymes();
-        Tokemiseur A = new Tokemiseur("res/serieA.txt");
-        Tokemiseur B = new Tokemiseur("res/serieB.txt");
+        Tokemiseur A = new Tokemiseur("/res/serieA.txt");
+        Tokemiseur B = new Tokemiseur("/res/serieB.txt");
 		ASP analyseur;
         S.setAdj(l1.getAdj());
 		while(!choix.equals("quit")){

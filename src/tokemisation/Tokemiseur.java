@@ -35,7 +35,8 @@ public class Tokemiseur{
 	public void tokemFile(){
 		try{
 			File fichier = new File(path);
-			BufferedReader txt = new BufferedReader(new InputStreamReader(new FileInputStream(path), "UTF8"));
+			System.out.println(path);
+			BufferedReader txt = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(path), "UTF8"));
 			String line;
 			while ((line = txt.readLine()) != null){
 				nbLine ++;
