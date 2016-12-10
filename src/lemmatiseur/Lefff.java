@@ -343,8 +343,8 @@ public class Lefff {
 		String figeList = "";
 		String fLine[];
 		try{
-			File fige = new File("./res/fige.txt");
-			BufferedReader expFige = new BufferedReader(new InputStreamReader(new FileInputStream(fige), "UTF8"));
+			String path="./res/fige.txt";
+			BufferedReader expFige = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(path), "UTF8"));
 			while ((figeList = expFige.readLine()) != null){
 				fLine = figeList.split(separator);
 				if(fLine[1].equals("neutre")){
