@@ -53,11 +53,11 @@ public class ListeLemmWrapper{
 	 * @brief Affiche tous les éléments des listes de lemmatisation
 	 */
 	public void display(){
-		for(ListeLemm i : L){
+		/*for(ListeLemm i : L){
 			//System.out.println(i.getLemm());		
 			for(String j : i.getArray())
 				//System.out.println(j);
-		}
+		}*/
 	}
 				
 }

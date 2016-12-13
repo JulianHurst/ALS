@@ -171,7 +171,7 @@ public class Synonymes {
 			    writer.flush();
 			    writer.close();
             }
-			else
+			//else
 				//System.out.println(mot+" est neutre\n");			  
 		} catch (IOException ex) {
 			Logger.getLogger(Synonymes.class.getName()).log(Level.SEVERE, null, ex);
