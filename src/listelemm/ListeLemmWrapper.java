@@ -54,9 +54,9 @@ public class ListeLemmWrapper{
 	 */
 	public void display(){
 		for(ListeLemm i : L){
-			System.out.println(i.getLemm());		
+			//System.out.println(i.getLemm());		
 			for(String j : i.getArray())
-				System.out.println(j);
+				//System.out.println(j);
 		}
 	}
 				

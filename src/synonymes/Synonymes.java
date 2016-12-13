@@ -108,7 +108,7 @@ public class Synonymes {
             Logger.getLogger(Synonymes.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         } catch (IOException | ParserConfigurationException | SAXException | XPathExpressionException ex) {            
-            System.out.println("Aucun synonyme n'a été trouvé pour "+mot+"\n");
+            //System.out.println("Aucun synonyme n'a été trouvé pour "+mot+"\n");
             return false;
         }
         return true;
@@ -137,12 +137,12 @@ public class Synonymes {
 				//System.out.println("syn : "+i);
                 if(SerieA.findTokem(i)!=null){
                     A++;                      
-                    System.out.println(i+"->serieA");
+                    //System.out.println(i+"->serieA");
 				}              
                 //Si on trouve le mot dans serie B
                 else if(SerieB.findTokem(i)!=null){
                     B++;                           
-                    System.out.println(i+"->serieB");
+                    //System.out.println(i+"->serieB");
 				}                       
             }                                  
             sum = B-A;            
@@ -152,15 +152,15 @@ public class Synonymes {
 				serie=false;
             sum=Math.abs(sum);            
             percent = (float)sum/(A+B);
-            System.out.println("Pourcentage de différences : "+(int)(percent*100)+"%");                                 
+            //System.out.println("Pourcentage de différences : "+(int)(percent*100)+"%");                                 
             File file;
             if(percent>0.20){
 				if(serie){
-					System.out.println(mot+" appartient à la série A\n");
+					//System.out.println(mot+" appartient à la série A\n");
 					file = new File("serieA_maj.txt");
 				}
 				else{
-					System.out.println(mot+" appartient à la série B\n");
+					//System.out.println(mot+" appartient à la série B\n");
 					file = new File("serieB_maj.txt");					
 				}		
 				                                 			
@@ -172,7 +172,7 @@ public class Synonymes {
 			    writer.close();
             }
 			else
-				System.out.println(mot+" est neutre\n");			  
+				//System.out.println(mot+" est neutre\n");			  
 		} catch (IOException ex) {
 			Logger.getLogger(Synonymes.class.getName()).log(Level.SEVERE, null, ex);
 		}

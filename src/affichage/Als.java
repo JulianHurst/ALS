@@ -21,7 +21,7 @@ public class Als {
 	 */
 	public void startProg(){
 		String choix = "";
-		System.out.println("Préparation du lemmatiseur");
+		//System.out.println("Préparation du lemmatiseur");
 		Lefff l1 = new Lefff("/res/fplm.fr.txt");
         Synonymes S=new Synonymes();
         Tokemiseur A = new Tokemiseur("/res/serieA.txt");
@@ -29,15 +29,15 @@ public class Als {
 		ASP analyseur;
         S.setAdj(l1.getAdj());
 		while(!choix.equals("quit")){
-			System.out.println("Action suivante : ");
-			System.out.println("1 - traiter un texte");
-			System.out.println("tapez quit pour quitter le programme");
+			//System.out.println("Action suivante : ");
+			//System.out.println("1 - traiter un texte");
+			//System.out.println("tapez quit pour quitter le programme");
 			option = new Scanner(System.in);
 			choix = option.nextLine();
 			switch(choix){
 				case "1":
-					System.out.println("Appuyer sur 1 pour les textes prédéfinies");
-					System.out.println("sinon, entrez le chemin d'accès du texte à  étudier");
+					//System.out.println("Appuyer sur 1 pour les textes prédéfinies");
+					//System.out.println("sinon, entrez le chemin d'accès du texte à  étudier");
 					option = new Scanner(System.in);
 					choix = option.nextLine();
 					if(choix.equals("1")){
@@ -47,7 +47,7 @@ public class Als {
 						analyseur=new ASP(texte,l1.getAdj(),l1.getNoms(),l1.getNomsP());
 						analyseur.analyse();
 						String ntxt = l1.traiteTexte(texte,analyseur.getASP().find("adj").getArray());
-						System.out.println("\ntexte lemmatisé : "+ntxt+"\n");
+						//System.out.println("\ntexte lemmatisé : "+ntxt+"\n");
                         S.classifierTableau(ntxt.split(" "),A,B);
 
 					}
@@ -55,14 +55,14 @@ public class Als {
 						analyseur=new ASP(choix,l1.getAdj(),l1.getNoms(),l1.getNomsP());
 						analyseur.analyse();
 						String ntxt = l1.traiteTexte(choix,analyseur.getASP().find("adj").getArray());
-						System.out.println("\ntexte lemmatisé : "+ntxt+"\n");
+						//System.out.println("\ntexte lemmatisé : "+ntxt+"\n");
                         S.classifierTableau(ntxt.split(" "),A,B);
 					}
 					break;
 			}
-			if(texte!=null && texte.equals("Echec de l'ouverture"))
-				System.out.println(texte);
-			System.out.println("fin");
+			//if(texte!=null && texte.equals("Echec de l'ouverture"))
+				//System.out.println(texte);
+			//System.out.println("fin");
 		}
 	}
 
@@ -71,10 +71,10 @@ public class Als {
 	 * @return path du fichier texte choisit
 	 */
 	private String choixTexte(){
-		System.out.println("1 pour le texte de Serge Leclaire");
-		System.out.println("2 pour 'pourquoi l'extrème gauche française est la plus bète du monde'");
-		System.out.println("3 pour le texte 'Livre des années 30'");
-		System.out.println("4 pour le texte de Witold Gomlbrowicz");
+		//System.out.println("1 pour le texte de Serge Leclaire");
+		//System.out.println("2 pour 'pourquoi l'extrème gauche française est la plus bète du monde'");
+		//System.out.println("3 pour le texte 'Livre des années 30'");
+		//System.out.println("4 pour le texte de Witold Gomlbrowicz");
 		Scanner texteChoix = new Scanner(System.in);
 		texte = texteChoix.nextLine();
 		String path = "./res/txt/";

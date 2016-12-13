@@ -20,7 +20,7 @@ public class Utils{
 		String texte = "";
 		try{
 			File fichier = new File(path);
-			System.out.println(path);
+			//System.out.println(path);
 			BufferedReader txt = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(path), "UTF8"));
 			while ((line = txt.readLine()) != null){
 				texte += line+"\n";
@@ -28,7 +28,7 @@ public class Utils{
 		}
 		catch(Exception e){
 			e.printStackTrace();
-			System.out.println(e);
+			//System.out.println(e);
 		}
 		return texte;
 	}

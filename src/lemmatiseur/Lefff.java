@@ -127,7 +127,7 @@ public class Lefff {
 		}
 		catch(IOException e){
 			e.printStackTrace();
-			System.out.println(e);
+			//System.out.println(e);
 		}
 	}
 
@@ -244,7 +244,7 @@ public class Lefff {
         for(String i : mots){
 			//System.out.println("mot : "+i);
 			if(i.equals("heures"))
-				System.out.println(arbreNoms.findTokem(i));
+				//System.out.println(arbreNoms.findTokem(i));
             if((lemmatise=arbreNomsP.findTokem(i,false))!=null || (lemmatise=arbreNoms.findTokem(i))!=null || (lemmatise=arbreAdj.findTokem(i))!=null){
                 newText=newText.replaceFirst(i,lemmatise);
 			}
@@ -301,26 +301,26 @@ public class Lefff {
 		URL u = getClass().getResource(p);
 		if(u==null)
 			return "Echec de l'ouverture";
-		System.out.println("ouverture du texte");
+		//System.out.println("ouverture du texte");
 		txt = U.openTexte(p);
 		//txt=txt.toLowerCase();
-		System.out.println("Suppression de la ponctuation");
+		//System.out.println("Suppression de la ponctuation");
 		txt=U.supprPonctuation(txt);
-		System.out.println("Traitement des verbes");
+		//System.out.println("Traitement des verbes");
 		txt = traiteVerbe(txt);
-		System.out.println("Traitement des expressions figées neutres");
+		//System.out.println("Traitement des expressions figées neutres");
 		txt = supprExpNeutre(txt);
 
 		txt=txt.replaceAll("([A-Z]|[a-z])*’","");
         txt=txt.replaceAll("([A-Z]|[a-z])*'","");
-		System.out.println("Traitement des mots outils");
+		//System.out.println("Traitement des mots outils");
 		txt = supprOutils(txt);
-		System.out.println("Traitement des noms et adjectifs");
+		//System.out.println("Traitement des noms et adjectifs");
         txt=traiteNetAdj(txt);
 		/*txt = traiteNomsP(txt);
-		System.out.println("Traitement des Noms Communs");
+		//System.out.println("Traitement des Noms Communs");
 		txt = traiteNoms(txt);
-		System.out.println("Traitement des Adjectifs");
+		//System.out.println("Traitement des Adjectifs");
 		txt = traiteAdj(txt);*/
 		for(int i=0;i<adj.size();i++)
 			adj.set(i,traiteAdj(adj.get(i)));
@@ -328,7 +328,7 @@ public class Lefff {
 		//Ecriture du fichier texte de sortie
 		String pathSplit[] = path.split("/");
 		String titre = pathSplit[pathSplit.length-1];
-		System.out.println("titre : "+titre);
+		//System.out.println("titre : "+titre);
 		writeFile(txt, titre);
 		return txt;
 	}
@@ -343,7 +343,7 @@ public class Lefff {
 		String figeList = "";
 		String fLine[];
 		try{
-			String path="./res/fige.txt";
+			String path="/res/fige.txt";
 			BufferedReader expFige = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(path), "UTF8"));
 			while ((figeList = expFige.readLine()) != null){
 				fLine = figeList.split(separator);
@@ -354,7 +354,7 @@ public class Lefff {
 		}
 		catch(Exception e){
 			e.printStackTrace();
-			System.out.println(e);
+			//System.out.println(e);
 		}
 		newTexte=newTexte.replaceAll(" {2,}", " ");
 		return newTexte;

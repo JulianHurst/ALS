@@ -35,7 +35,7 @@ public class Tokemiseur{
 	public void tokemFile(){
 		try{
 			File fichier = new File(path);
-			System.out.println(path);
+			//System.out.println(path);
 			BufferedReader txt = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(path), "UTF8"));
 			String line;
 			while ((line = txt.readLine()) != null){
@@ -171,7 +171,7 @@ public class Tokemiseur{
 			//sinon cherche le prochain frère identique
 			else if(k < s.length() && lc.getChar() != Character.toLowerCase(s.charAt(k)) && lc.getFrere() != null){
 				/*if(s.equals("heures"))
-					System.out.println(Character.toLowerCase(lc.getChar())+" "+Character.toLowerCase(s.charAt(k)));*/
+					//System.out.println(Character.toLowerCase(lc.getChar())+" "+Character.toLowerCase(s.charAt(k)));*/
 				lc = lc.getFrere();
 			}
 			//sinon si k atteint sa valeur max et que le pointeur est sur l'infinitif alors retourner l'infinitif

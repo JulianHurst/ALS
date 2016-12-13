@@ -42,8 +42,8 @@ public class ListeLemm{
      * @brief Ajoute un mot à la liste de lemmatisation
      */
     public void add(String mot){
-        if(lemm.isEmpty())
-            System.out.println("Attention il n'y a aucune forme lemmatisée pour "+mot);
+        //if(lemm.isEmpty())
+            //System.out.println("Attention il n'y a aucune forme lemmatisée pour "+mot);
         A.add(mot);
     }
     

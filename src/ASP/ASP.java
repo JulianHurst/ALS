@@ -55,10 +55,10 @@ public class ASP{
     int chaineNouA(int i,boolean attendNom, boolean attendAdj){
         int ret=i;
         int l=mots.length;
-        System.out.println(i+" "+attendNom);
+        //System.out.println(i+" "+attendNom);
         if((i+1)<l){
             if(isAdj(i+1)){
-                System.out.println(mots[i+1]+"Trying adj...");
+                //System.out.println(mots[i+1]+"Trying adj...");
                 ret=chaineNouA(i+1,attendNom,attendAdj);
                 if(ret!=(i+1)){
                     T.add(mots[i+1],"adj");
@@ -66,16 +66,16 @@ public class ASP{
                 }
             }
             else if(mots[i+1].equals(",")){
-                System.out.println("virgule");
+                //System.out.println("virgule");
                 return chaineNouA(i+1,attendNom,true);
             }
             else if(mots[i+1].equals("et")){
-                System.out.println(mots[i+1]+"Trying et... "+i+" "+l+" "+isAdj(i+2));
+                //System.out.println(mots[i+1]+"Trying et... "+i+" "+l+" "+isAdj(i+2));
                 if((i+2)<l && isAdj(i+2)){
-                    System.out.println(mots[i+2]+"Trying adj..."+l+" "+(i+3));
+                    //System.out.println(mots[i+2]+"Trying adj..."+l+" "+(i+3));
                     if(attendNom){
                         if((i+3)<l && isNom(i+3)){
-                            System.out.println(mots[i+3]+"Trying nom... fji");
+                            //System.out.println(mots[i+3]+"Trying nom... fji");
                             T.add(mots[i+2],"adj");
                             T.add(mots[i+3],"nom");
                             return i+3;
@@ -89,7 +89,7 @@ public class ASP{
                 return i;
             }
             if(!attendAdj && isNom(i+1)){
-                System.out.println(mots[i+1]+" Trying nom...");
+                //System.out.println(mots[i+1]+" Trying nom...");
                 T.add(mots[i+1],"nom");
                 if((i+2)<l && isAdj(i+2)){
                     ret=chaineNouA(i+2,false,attendAdj);
@@ -152,7 +152,7 @@ public class ASP{
             }
         }
         T.display();
-        System.out.println("");
+        //System.out.println("");
     }
 
     /**
