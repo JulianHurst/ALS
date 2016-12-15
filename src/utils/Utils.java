@@ -80,4 +80,21 @@ public class Utils{
 		txt=txt.replaceAll("(\r\n|\n|\r)","");
 		return txt;
 	}
+	
+	/**
+	 * Retourne le contenu d'un fichier
+	 * @param file Le fichier à lire
+	 * @return Le contenu du fichier
+	 * @throws IOException
+	 */
+	public String lectureTexte(String file) throws IOException{
+		StringBuffer content=new StringBuffer();
+		String line;
+		BufferedReader buf = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(file)));
+		while((line=buf.readLine())!=null){
+			content.append(line);
+		}
+		return content.toString();
+	}
+	
 }
