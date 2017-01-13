@@ -21,6 +21,7 @@ public class Utils{
 		try{
 			File fichier = new File(path);
 			//System.out.println(path);
+			//System.out.println(getClass().getResourceAsStream(path));
 			BufferedReader txt = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(path), "UTF8"));
 			while ((line = txt.readLine()) != null){
 				texte += line+"\n";

@@ -243,7 +243,7 @@ public class Lefff {
         mots=oldTexte.split(" ");
         for(String i : mots){
 			//System.out.println("mot : "+i);
-			if(i.equals("heures"))
+			//if(i.equals("heures"))
 				//System.out.println(arbreNoms.findTokem(i));
             if((lemmatise=arbreNomsP.findTokem(i,false))!=null || (lemmatise=arbreNoms.findTokem(i))!=null || (lemmatise=arbreAdj.findTokem(i))!=null){
                 newText=newText.replaceFirst(i,lemmatise);

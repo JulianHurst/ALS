@@ -77,7 +77,7 @@ public class Als {
 		//System.out.println("4 pour le texte de Witold Gomlbrowicz");
 		Scanner texteChoix = new Scanner(System.in);
 		texte = texteChoix.nextLine();
-		String path = "./res/txt/";
+		String path = "/txt/";
 		switch(texte){
 			case "1":
 				path +=  "texte10.txt";
@@ -92,6 +92,7 @@ public class Als {
 				path += "texte6.txt";
 				break;
 		}
+		texteChoix.close();
 		return path;
 	}
 }
