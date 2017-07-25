@@ -1,6 +1,12 @@
 package utils;
 
 import java.io.*;
+import java.util.ArrayList;
+
+import datamodel.Atom;
+import datamodel.PointOfView;
+import datamodel.Serie;
+import tokemisation.Tokemiseur;
 
 /**
  * @brief Classe contenant des méthodes utiles
@@ -96,6 +102,57 @@ public class Utils{
 			content.append(line);
 		}
 		return content.toString();
+	}
+	
+	public ArrayList<String> getAtomWords(Tokemiseur tok, ArrayList<String> words) {
+		ArrayList<String> result = new ArrayList<>();
+		for(String i : words) {
+			if(tok.findTokem(i) != null)
+				result.add(i);
+		}
+		return result;
+	}
+	
+	public Serie getSerie(Tokemiseur A, Tokemiseur B, String atom) {
+		if(A.findTokem(atom) != null)
+			return Serie.A; 
+		if(B.findTokem(atom) != null)
+			return Serie.B;
+		return null;
+	}
+
+	public ArrayList<String> getAtomWords(Tokemiseur A, Tokemiseur B, ArrayList<String> words) {
+		ArrayList<String> result = new ArrayList<>();
+		for(String i : words) {
+			if(A.findTokem(i) != null || B.findTokem(i) != null)
+				result.add(i);
+		}
+		return result;
+	}
+	
+	public ArrayList<Integer> getAtomIndices(Tokemiseur A, Tokemiseur B, String txt){
+		ArrayList<Integer> result = new ArrayList<>();
+		String words[];
+		int ind = 0;
+		words = txt.split(" ");
+		for(String i : words) {
+			if(A.findTokem(i) != null || B.findTokem(i) != null)
+				result.add(ind);
+			ind++;
+		}
+		return result;
+	}
+	
+	public PointOfView analyse(ArrayList<Atom> words) {
+		int result = 0;
+		for(Atom i : words) {
+			result += i.getSerieValue() * i.getWeightValue();
+		}
+		if(result < 0)
+			return PointOfView.EXTROVERT;
+		if(result == 0)
+			return PointOfView.HESITANT;
+		return PointOfView.INTROVERT;
 	}
 	
 }

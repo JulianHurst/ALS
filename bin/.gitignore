@@ -1,13 +1,9 @@
 /ASP/
-/Doxyfile
 /Main.class
-/README.md
-/TODO
 /affichage/
-/docs/
+/datamodel/
 /lemmatiseur/
 /listelemm/
-/makefile
 /res/
 /synonymes/
 /tokemisation/

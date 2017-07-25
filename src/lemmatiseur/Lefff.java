@@ -230,6 +230,23 @@ public class Lefff {
 		}
 		return newText;
 	}
+	
+	public ArrayList<String> getAdjList(String oldTexte){
+        String newText = oldTexte;
+        String mots[];
+        String lemmatise;
+        ArrayList<String> result = new ArrayList<>();
+        mots=oldTexte.split(" ");
+        for(String i : mots){
+			//System.out.println("mot : "+i);
+			//if(i.equals("heures"))
+				//System.out.println(arbreNoms.findTokem(i));
+            if((lemmatise=arbreAdj.findTokem(i))!=null){
+            	result.add(i);
+			}
+        }
+        return result;
+	}
 
 	/**
 	 * @param oldTexte
@@ -298,11 +315,56 @@ public class Lefff {
 		if(!f.exists()){
 			return "Echec de l'ouverture";
 		}*/
-		URL u = getClass().getResource(p);
+		/*URL u = getClass().getResource(p);
 		if(u==null)
-			return "Echec de l'ouverture";
+			return "Echec de l'ouverture";*/
 		//System.out.println("ouverture du texte");
 		txt = U.openTexte(p);
+		//txt=txt.toLowerCase();
+		//System.out.println("Suppression de la ponctuation");
+		txt=U.supprPonctuation(txt);
+		//System.out.println("Traitement des verbes");
+		txt = traiteVerbe(txt);
+		//System.out.println("Traitement des expressions figées neutres");
+		txt = supprExpNeutre(txt);
+
+		txt=txt.replaceAll("([A-Z]|[a-z])*’","");
+        txt=txt.replaceAll("([A-Z]|[a-z])*'","");
+		//System.out.println("Traitement des mots outils");
+		txt = supprOutils(txt);
+		//System.out.println("Traitement des noms et adjectifs");
+        txt=traiteNetAdj(txt);
+		/*txt = traiteNomsP(txt);
+		//System.out.println("Traitement des Noms Communs");
+		txt = traiteNoms(txt);
+		//System.out.println("Traitement des Adjectifs");
+		txt = traiteAdj(txt);*/
+		for(int i=0;i<adj.size();i++)
+			adj.set(i,traiteAdj(adj.get(i)));
+        //txt=gardeAdj(txt,adj);
+		//Ecriture du fichier texte de sortie
+		String pathSplit[] = path.split("/");
+		String titre = pathSplit[pathSplit.length-1];
+		//System.out.println("titre : "+titre);
+		writeFile(txt, titre);
+		return txt;
+	}
+	
+	public String traiteTexteContenu(String p,ArrayList<String> adj){
+		Utils U=new Utils();
+		String txt = "";
+		String tmp="";
+		String path = p;
+		/*File f = new File(getClass().getResource(p).getFile());
+		if(!f.exists()){
+			return "Echec de l'ouverture";
+		}*/
+		/*URL u = getClass().getResource(p);
+		if(u==null)
+			return "Echec de l'ouverture";*/
+		//System.out.println("ouverture du texte");
+		//txt = U.openTexte(p);
+		txt=p;
 		//txt=txt.toLowerCase();
 		//System.out.println("Suppression de la ponctuation");
 		txt=U.supprPonctuation(txt);
