@@ -97,7 +97,7 @@ public class Utils{
 	public String lectureTexte(String file) throws IOException{
 		StringBuffer content=new StringBuffer();
 		String line;
-		BufferedReader buf = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(file)));
+		BufferedReader buf = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(file), "UTF-8"));
 		while((line=buf.readLine())!=null){
 			content.append(line);
 		}
